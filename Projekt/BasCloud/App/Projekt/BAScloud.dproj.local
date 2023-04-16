@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.957,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.365,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.650,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.405,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.242,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.810,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.592,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.885,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.422,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.868,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.806,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.222,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.351,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.727,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.870,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.742,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.069,=C:\Users\tbachmann.GB\OneDrive - BUSINESS HUB Groß-Bieberau\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2022.07.11 17:08:05.492,=C:\Users\tbachmann.GB\Documents\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2022.07.11 17:09:17.227,C:\Entwicklung\Delphi\Alexandria\Projekte\Mobile\BasCloud\App\Projekt\BAScloud.dproj=C:\Users\tbachmann.GB\Documents\Embarcadero\Studio\Projekte\Project2.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="74024a99" Android64="74024a99"/>
+		<PmacMini iOSDevice64="_iosdevice_f033c47cd2a2b40b38f56597207247e850addcb4"/>  <PmacLaptop iOSDevice64="_iosdevice_f033c47cd2a2b40b38f56597207247e850addcb4"/>
+  </ActiveMobileDevice>
+</BorlandProject>

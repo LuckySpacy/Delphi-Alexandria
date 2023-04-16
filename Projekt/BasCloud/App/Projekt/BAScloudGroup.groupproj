@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5AB86E09-9862-44E4-9099-06A45548D891}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\BAScloud.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BAScloud">
+        <MSBuild Projects="..\BAScloud.dproj"/>
+    </Target>
+    <Target Name="BAScloud:Clean">
+        <MSBuild Projects="..\BAScloud.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BAScloud:Make">
+        <MSBuild Projects="..\BAScloud.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BAScloud"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BAScloud:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BAScloud:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
