@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D933ADEF-A71D-4EB9-B4B5-FFABAD392A2F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FolderTest1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\Projekt\Komponenten\Kastri\Demos\ShareItems\ShareItemsDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FolderTest1">
+        <MSBuild Projects="FolderTest1.dproj"/>
+    </Target>
+    <Target Name="FolderTest1:Clean">
+        <MSBuild Projects="FolderTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FolderTest1:Make">
+        <MSBuild Projects="FolderTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ShareItemsDemo">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\ShareItems\ShareItemsDemo.dproj"/>
+    </Target>
+    <Target Name="ShareItemsDemo:Clean">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\ShareItems\ShareItemsDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShareItemsDemo:Make">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\ShareItems\ShareItemsDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FolderTest1;ShareItemsDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FolderTest1:Clean;ShareItemsDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FolderTest1:Make;ShareItemsDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

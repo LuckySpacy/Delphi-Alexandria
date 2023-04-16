@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{14AEAA7C-20CF-47A4-8E84-0FD8D258904B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ThumbnailTest3.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\Projekt\Projekte\PhotoOrga\PhotoOrga.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\Gesten\Image\Test 1\GestemImageTest1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Mobile Snippets\InteractiveGestures\ImageZoom\ImageZoom.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ThumbnailTest3">
+        <MSBuild Projects="ThumbnailTest3.dproj"/>
+    </Target>
+    <Target Name="ThumbnailTest3:Clean">
+        <MSBuild Projects="ThumbnailTest3.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbnailTest3:Make">
+        <MSBuild Projects="ThumbnailTest3.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PhotoOrga">
+        <MSBuild Projects="..\..\..\..\Projekt\Projekte\PhotoOrga\PhotoOrga.dproj"/>
+    </Target>
+    <Target Name="PhotoOrga:Clean">
+        <MSBuild Projects="..\..\..\..\Projekt\Projekte\PhotoOrga\PhotoOrga.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PhotoOrga:Make">
+        <MSBuild Projects="..\..\..\..\Projekt\Projekte\PhotoOrga\PhotoOrga.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GestemImageTest1">
+        <MSBuild Projects="..\..\..\Gesten\Image\Test 1\GestemImageTest1.dproj"/>
+    </Target>
+    <Target Name="GestemImageTest1:Clean">
+        <MSBuild Projects="..\..\..\Gesten\Image\Test 1\GestemImageTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GestemImageTest1:Make">
+        <MSBuild Projects="..\..\..\Gesten\Image\Test 1\GestemImageTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ImageZoom">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Mobile Snippets\InteractiveGestures\ImageZoom\ImageZoom.dproj"/>
+    </Target>
+    <Target Name="ImageZoom:Clean">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Mobile Snippets\InteractiveGestures\ImageZoom\ImageZoom.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ImageZoom:Make">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Mobile Snippets\InteractiveGestures\ImageZoom\ImageZoom.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ThumbnailTest3;PhotoOrga;GestemImageTest1;ImageZoom"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ThumbnailTest3:Clean;PhotoOrga:Clean;GestemImageTest1:Clean;ImageZoom:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ThumbnailTest3:Make;PhotoOrga:Make;GestemImageTest1:Make;ImageZoom:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

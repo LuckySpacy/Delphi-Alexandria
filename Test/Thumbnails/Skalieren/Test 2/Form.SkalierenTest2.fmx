@@ -1,0 +1,75 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 518
+  ClientWidth = 597
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 597.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btn_Laden: TButton
+      Position.X = 15.000000000000000000
+      Position.Y = 11.000000000000000000
+      TabOrder = 1
+      Text = 'Laden'
+      OnClick = btn_LadenClick
+    end
+    object btn_Save: TButton
+      Position.X = 104.000000000000000000
+      Position.Y = 11.000000000000000000
+      TabOrder = 0
+      Text = 'Speichern'
+      OnClick = btn_SaveClick
+    end
+  end
+  object Panel2: TPanel
+    Align = Top
+    Position.Y = 49.000000000000000000
+    Size.Width = 597.000000000000000000
+    Size.Height = 120.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Img_Schrink: TImage
+      MultiResBitmap = <
+        item
+        end>
+      MarginWrapMode = Fit
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lbl_Shrink_Width: TLabel
+      Position.X = 200.000000000000000000
+      Position.Y = 24.000000000000000000
+      Text = 'lbl_Shrink_Width'
+      TabOrder = 3
+    end
+    object lbl_Shrink_Height: TLabel
+      Position.X = 200.000000000000000000
+      Position.Y = 49.000000000000000000
+      Text = 'Label1'
+      TabOrder = 2
+    end
+  end
+  object Image1: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Align = Client
+    MarginWrapMode = Original
+    Size.Width = 597.000000000000000000
+    Size.Height = 349.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

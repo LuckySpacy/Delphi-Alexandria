@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9E41FDAD-C293-4FC0-A732-43E445DA525A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\..\delphi-android-SAF-main\addp_SAF.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SAFTest1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="addp_SAF">
+        <MSBuild Projects="..\..\delphi-android-SAF-main\addp_SAF.dproj"/>
+    </Target>
+    <Target Name="addp_SAF:Clean">
+        <MSBuild Projects="..\..\delphi-android-SAF-main\addp_SAF.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="addp_SAF:Make">
+        <MSBuild Projects="..\..\delphi-android-SAF-main\addp_SAF.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SAFTest1">
+        <MSBuild Projects="SAFTest1.dproj"/>
+    </Target>
+    <Target Name="SAFTest1:Clean">
+        <MSBuild Projects="SAFTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SAFTest1:Make">
+        <MSBuild Projects="SAFTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="addp_SAF;SAFTest1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="addp_SAF:Clean;SAFTest1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="addp_SAF:Make;SAFTest1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

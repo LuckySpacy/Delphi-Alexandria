@@ -1,0 +1,216 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 408
+  ClientWidth = 697
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  OnGesture = FormGesture
+  DesignerMasterStyle = 3
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 697.000000000000000000
+    Size.Height = 64.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Button1: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 2
+      Text = 'Button1'
+      TextSettings.Font.Size = 8.000000000000000000
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 89.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 1
+      Text = 'Thumbnail'
+      TextSettings.Font.Size = 8.000000000000000000
+      OnClick = Button2Click
+    end
+    object btn_Scale: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 170.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 0
+      Text = 'Scale'
+      TextSettings.Font.Size = 8.000000000000000000
+      OnClick = btn_ScaleClick
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 697.000000000000000000
+    Size.Height = 344.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      697s
+      295s
+      697s
+      295s
+      697s
+      295s
+      697s
+      295s)
+    object TabItem1: TTabItem
+      OnGesture = TabItem1Gesture
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 174.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 121.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object img_Ori: TImage
+        OnGesture = img_OriGesture
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 697.000000000000000000
+        Size.Height = 295.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 174.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 121.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Img_Thumbnail: TImage
+        MultiResBitmap = <
+          item
+          end>
+        MarginWrapMode = Fit
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        WrapMode = Center
+      end
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 174.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem3'
+      ExplicitSize.cx = 123.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object mem: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        StyledSettings = [Style, FontColor]
+        TextSettings.Font.Family = 'Courier New'
+        TextSettings.Font.Size = 8.000000000000000000
+        Align = Client
+        Size.Width = 697.000000000000000000
+        Size.Height = 295.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 689.000000000000000000
+        Viewport.Height = 287.000000000000000000
+      end
+    end
+    object TabItem4: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 175.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem4'
+      ExplicitSize.cx = 175.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object lv: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 697.000000000000000000
+        Size.Height = 295.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        ItemAppearance.ItemHeight = 85
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 82.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Visible = False
+          end
+          item
+            AppearanceObjectName = 'Img1'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 84.000000000000000000
+            Appearance.Height = 84.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'Img2'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.ScalingMode = Original
+            Appearance.Width = 84.000000000000000000
+            Appearance.Height = 84.000000000000000000
+            Appearance.PlaceOffset.X = 85.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'Img3'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.ScalingMode = Original
+            Appearance.Width = 84.000000000000000000
+            Appearance.Height = 84.000000000000000000
+            Appearance.PlaceOffset.X = 170.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'Img4'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.ScalingMode = Original
+            Appearance.Width = 84.000000000000000000
+            Appearance.Height = 84.000000000000000000
+            Appearance.PlaceOffset.X = 255.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+      end
+    end
+  end
+end

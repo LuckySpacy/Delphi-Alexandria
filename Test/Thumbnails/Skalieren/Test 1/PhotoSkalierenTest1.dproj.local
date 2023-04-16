@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.871,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.370,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2023.02.12 14:14:12.473,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2023.02.12 14:15:28.751,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.PhotoSkalierenTest1.pas=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2023.02.12 14:15:28.751,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.PhotoSkalierenTest1.fmx=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.fmx</Transaction>
+    <Transaction>2023.02.12 14:15:38.236,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\PhotoSkalierenTest1.dproj=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project2.dproj</Transaction>
+    <Transaction>2023.02.12 14:18:08.978,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit1.pas</Transaction>
+    <Transaction>2023.02.12 14:18:27.085,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.Image.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit1.pas</Transaction>
+    <Transaction>2023.02.12 14:18:27.085,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.Image.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit1.fmx</Transaction>
+    <Transaction>2023.02.12 15:46:44.133,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit1.pas</Transaction>
+    <Transaction>2023.02.12 15:47:52.765,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Objekt.PhotoShrink.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit1.pas</Transaction>
+    <Transaction>2023.02.12 16:31:43.829,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit2.pas</Transaction>
+    <Transaction>2023.02.12 16:32:00.377,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.ListView.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit2.pas</Transaction>
+    <Transaction>2023.02.12 16:32:00.377,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Form.ListView.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 1\Unit2.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="RF8R90Q4XDM" Android64="RF8R90Q4XDM"/>
+	</ActiveMobileDevice>
+</BorlandProject>

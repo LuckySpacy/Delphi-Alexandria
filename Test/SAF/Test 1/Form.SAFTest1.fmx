@@ -1,0 +1,251 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object TabControl: TTabControl
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    Sizes = (
+      640s
+      454s
+      640s
+      454s
+      640s
+      454s
+      640s
+      454s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 69.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object btn_DateiErstellen: TButton
+        Align = Top
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Datei erstellen'
+        OnClick = btn_DateiErstellenClick
+      end
+      object btn_OeffneDatei: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 38.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Datei '#246'ffnen'
+        OnClick = btn_OeffneDateiClick
+      end
+      object btn_DateiZugriff: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 76.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Dateizugriff gew'#228'hren'
+        OnClick = btn_DateiZugriffClick
+      end
+      object btn_DateiHolen: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 114.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Datei holen'
+        OnClick = btn_DateiHolenClick
+      end
+      object Memo1: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        ReadOnly = True
+        TextSettings.WordWrap = True
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 307.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 636.000000000000000000
+        Viewport.Height = 303.000000000000000000
+        object btn_Exif: TButton
+          Align = Top
+          Margins.Top = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 636.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Exif'
+          OnClick = btn_ExifClick
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 50.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'SAF 1'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object btn_DauerhafteBerechtigung: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Dauerhafte Berechtigung'
+        OnClick = btn_DauerhafteBerechtigungClick
+      end
+      object btn_Metadaten: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 43.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Metadaten'
+        OnClick = btn_MetadatenClick
+      end
+      object btn_BitmapOeffnen: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 81.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Bitmap '#246'ffnen'
+        OnClick = btn_BitmapOeffnenClick
+      end
+      object btn_TextdateiOeffnen: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 119.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Textdatei '#246'ffnen'
+        OnClick = btn_TextdateiOeffnenClick
+      end
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 50.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'SAF 2'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object btn_TextdokumentSchreiben: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = #220'berschreibt eine Textdatei'
+        OnClick = btn_TextdokumentSchreibenClick
+      end
+      object btn_DateiLoeschen: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 43.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Datei l'#246'schen'
+        OnClick = btn_DateiLoeschenClick
+      end
+      object btn_VirtuelleDateiOeffnen: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 81.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = #214'ffne eine virtuellen Datei'
+        OnClick = btn_VirtuelleDateiOeffnenClick
+      end
+    end
+    object TabItem4: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 47.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'ILave'
+      ExplicitSize.cx = 47.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object ImageControl1: TImageControl
+        Align = Right
+        Position.X = 534.000000000000000000
+        Position.Y = 38.000000000000000000
+        Size.Width = 106.000000000000000000
+        Size.Height = 416.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+      end
+      object btn_BitmapOeffnen2: TButton
+        Align = Top
+        Margins.Top = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Bitmap '#246'ffnen2'
+        OnClick = btn_BitmapOeffnen2Click
+      end
+    end
+  end
+end

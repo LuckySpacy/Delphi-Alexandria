@@ -1,0 +1,133 @@
+﻿Aperture:       2.0
+ApertureValue:  200/100
+Artist:         Thomas Bachmann
+BitsPerSample:  
+BrightnessValue: 300/100
+CfaPattern:      
+ColorSpace:      1
+ComponentsConfiguration: ???
+CompressedBitsPerSample: 
+Compression: 6
+Contrast: 
+Copyright: 
+CustomRendered: 
+DateTime: 2021:11:06 12:12:34
+DateTimeDigitized: 2021:11:06 12:12:34
+DateTimeOriginal: 2021:11:06 12:12:34
+DefaultCropSize: 
+DeviceSettingDescription: 
+DigitalZoomRatio: 
+DngVersion: 
+ExifVersion: 0220
+ExposureBiasValue: 
+ExposureIndex: 
+ExposureMode: 0
+ExposureProgram: 0
+ExposureTime: 0.01
+FileSource: 
+Flash: 16
+FlashPixVersion: 0100
+FlashEnergy: 
+FocalLength: 426/100
+FocalLengthIn35mmFilm: 28
+FocalPlaneResolutionUnit: 
+FocalPlaneXResolution: 
+FocalPlaneYResolution: 
+FNumber: 2.0
+GainControl: 
+ImageDescription: 
+ImageLength: 4640
+ImageUniqueId: 
+ImageWidth: 3480
+InteroperabilityIndex: R98
+ISO: 200
+ISOSpeedRatings: 200
+JpegInterchangeFormat: 1258
+JpegInterchangeFormatLength: 21881
+LightSource: 0
+Make: OnePlus
+MakerNote: MM
+MaxApertureValue: 
+MeteringMode: 3
+Model: ONEPLUS A3003
+Oecf: 
+OrfAspectFrame: 
+OrfPreviewImageLength: 
+OrfPreviewImageStart: 
+OrfThumbnailImage: 
+Orientation: 1
+PhotometricInterpretation: 
+PixelXDimension: 3480
+PixelYDimension: 4640
+PlanarConfiguration: 
+PrimaryChromaticities
+ReferenceBlackWhite: 
+RelatedSoundFile: 
+ResolutionUnit: 2
+RowsPerStrip: 
+RW2ISO: 
+RW2JpgFromRaw: 
+RW2SensorBottomBorder: 
+RW2SensorLeftBorder: 
+RW2SensorRightBorder: 
+RW2SensorTopBorder: 
+SamplesPerPixel: 
+Saturation: 
+SceneCaptureType: 
+SceneType: ?
+SensingMethod2
+Sharpness: 
+ShutterSpeedValue: 6644/1000
+Software: OnePlus3-user 9 PKQ1.181203.001 1911042108 release-keys
+SpatialFrequencyResponse: 
+SubfileType: 
+SubjectArea: 
+SubjectDistance: 
+SubjectDistanceRange: 
+SubjectLocation: 
+SubsecTime: 930489
+SubsecTimeDigitized: 930489
+SubsecTimeOrig: 930489
+SubsecTimeDig: 930489
+SubsecTimeOriginal: 930489
+ThumbnailImageLength: 
+ThumbnailImageWidth: 
+UserComment: 
+YCbCrCoefficients: 
+WhiteBalance: 0
+TransferFunction: 
+WhitePoint: 
+YCbCrPositioning: 1
+YCbCrSubSampling: 
+XResolution72/1
+YResolution: 72/1
+Altitude: 318000/1000
+AltitudeRef: 0
+AreaInformation: 
+Datestamp: 2021:11:06
+DestBearing: 
+DestBearingRef: 
+DestDistance: 
+DestLatitude: 
+DestLatitudeRef: 
+DestLongitude: 
+DestLongitudeRef: 
+Differential: 
+Dop: 
+ImgDirection: 
+ImgDirectionRef: 
+Latitude: 51/1,11/1,206656/10000
+LatitudeRef: N
+Longitude: 9/1,1/1,173499/10000
+LongitudeRef: 
+MapDatum: 
+MeasureMode: 
+ProcessingMethod: 
+Satellites: 
+Speed: 
+SpeedRef: 
+Status: 
+Timestamp: 11:12:34
+Track: 
+TrackRef: 
+VersionId: 

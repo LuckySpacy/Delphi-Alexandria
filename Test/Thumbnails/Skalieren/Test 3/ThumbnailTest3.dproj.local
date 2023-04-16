@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.526,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\ThumbnailTest3.dproj=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project2.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.871,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.547,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Objekt.ExifPropertyTag.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.351,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.024,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.369,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.890,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Form.ThumbnailTest3.pas=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.890,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Form.ThumbnailTest3.fmx=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.527,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Objekt.ExifPropertyTagGPS.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.214,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Objekt.Exif.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.320,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Objekt.ExifProperty.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Thumbnails\Skalieren\Test 3\Objekt.Exif.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.537,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.370,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.321,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="RF8R90Q4XDM" Android64="RF8R90Q4XDM"/>
+	</ActiveMobileDevice>
+</BorlandProject>

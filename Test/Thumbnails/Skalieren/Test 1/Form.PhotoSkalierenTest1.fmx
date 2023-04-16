@@ -1,0 +1,79 @@
+object frm_PhotoSkalieren: Tfrm_PhotoSkalieren
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 456
+  ClientWidth = 454
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 454.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object btn_Laden: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 2
+      Text = 'Laden'
+      OnClick = btn_LadenClick
+    end
+    object btn_Shrink: TButton
+      Position.X = 96.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 1
+      Text = 'Shrink'
+      OnClick = btn_ShrinkClick
+    end
+    object btn_LadeListview: TButton
+      Position.X = 184.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 0
+      Text = 'Lade Listview'
+      OnClick = btn_LadeListviewClick
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 454.000000000000000000
+    Size.Height = 407.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      454s
+      381s
+      454s
+      381s)
+    object tbs_Image: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 75.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_Image'
+    end
+    object tbs_Listview: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 83.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_Listview'
+    end
+  end
+end

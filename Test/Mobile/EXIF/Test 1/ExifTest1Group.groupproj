@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E0D1BD12-1786-4F39-9BC8-B19710154120}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\..\..\..\Projekt\Komponenten\Kastri\Demos\EXIF\EXIFDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="EXIFTest1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="EXIFDemo">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\EXIF\EXIFDemo.dproj"/>
+    </Target>
+    <Target Name="EXIFDemo:Clean">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\EXIF\EXIFDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EXIFDemo:Make">
+        <MSBuild Projects="..\..\..\..\Projekt\Komponenten\Kastri\Demos\EXIF\EXIFDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="EXIFTest1">
+        <MSBuild Projects="EXIFTest1.dproj"/>
+    </Target>
+    <Target Name="EXIFTest1:Clean">
+        <MSBuild Projects="EXIFTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EXIFTest1:Make">
+        <MSBuild Projects="EXIFTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="EXIFDemo;EXIFTest1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="EXIFDemo:Clean;EXIFTest1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="EXIFDemo:Make;EXIFTest1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

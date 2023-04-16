@@ -1,0 +1,344 @@
+﻿object Form1: TForm1
+  Left = 0
+  Top = 0
+  ActiveControl = tiUriAl
+  Caption = 'Form1'
+  ClientHeight = 637
+  ClientWidth = 498
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 498.000000000000000000
+    Size.Height = 637.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    OnChange = TabControl1Change
+    Sizes = (
+      498s
+      588s
+      498s
+      588s
+      498s
+      588s
+      498s
+      588s
+      498s
+      588s)
+    object tiUriAl: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 99.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'URI al'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ButtonBirDizininErisimineIzinVerin: TButton
+        Align = Top
+        Position.Y = 66.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Zugriff auf Verzeichnis gew'#228'hren'
+        OnClick = ButtonBirDizininErisimineIzinVerinClick
+      end
+      object ButtonBirDosyaAcin: TButton
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Ordner '#246'ffnen'
+        OnClick = ButtonBirDosyaAcinClick
+      end
+      object ButtonYeniBirDosyaOluşturun: TButton
+        Align = Top
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Eine neue Datei erstellen'
+      end
+      object Panel1: TPanel
+        Align = Client
+        Size.Width = 498.000000000000000000
+        Size.Height = 456.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object Memo1: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          ReadOnly = True
+          TextSettings.WordWrap = True
+          Align = Client
+          Size.Width = 498.000000000000000000
+          Size.Height = 419.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 490.000000000000000000
+          Viewport.Height = 411.000000000000000000
+        end
+        object MemoUri: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          OnTap = MemoUriTap
+          DataDetectorTypes = []
+          ReadOnly = True
+          StyledSettings = [Family, Style, FontColor]
+          TextSettings.Font.Size = 11.000000000000000000
+          TextSettings.WordWrap = True
+          Align = Bottom
+          Position.Y = 419.000000000000000000
+          Size.Width = 498.000000000000000000
+          Size.Height = 37.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Viewport.Width = 490.000000000000000000
+          Viewport.Height = 29.000000000000000000
+        end
+      end
+      object ButtonHerhangiBirDosyaUrisiAl: TButton
+        Align = Top
+        Position.Y = 99.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Beliebige URI Datei'
+        OnClick = ButtonHerhangiBirDosyaUrisiAlClick
+      end
+    end
+    object tiSAF1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 99.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'SAF 1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ButtonBelgeAcinGirisAkisi: TButton
+        Align = Top
+        Position.Y = 99.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Dokument '#246'ffnen - Eingabestrom'
+        OnClick = ButtonBelgeAcinGirisAkisiClick
+      end
+      object ButtonKaliciIzinler: TButton
+        Align = Top
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Dauerhafte Berechtigung'
+        OnClick = ButtonKaliciIzinlerClick
+      end
+      object ButtonBelgeMetaVerileriniInceleyin: TButton
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Metadaten eines Dokuments'
+        OnClick = ButtonBelgeMetaVerileriniInceleyinClick
+      end
+      object ButtonBelgeAcinBitEslem: TButton
+        Align = Top
+        Position.Y = 66.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Dokument '#246'ffnen - Bitmap'
+        OnClick = ButtonBelgeAcinBitEslemClick
+      end
+    end
+    object tiSAF2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 99.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'SAF 2'
+      ExplicitSize.cx = 99.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object ButtonSanalBirDosyaAcin: TButton
+        Align = Top
+        Position.Y = 66.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Virtuelle Datei '#246'ffnen'
+        OnClick = ButtonSanalBirDosyaAcinClick
+      end
+      object ButtonSanalDosyadanGirisAkisi: TButton
+        Align = Top
+        Position.Y = 99.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Eingabestrom aus virtueller Datei'
+        OnClick = ButtonSanalDosyadanGirisAkisiClick
+      end
+      object ButtonBelgeDuzenleyin: TButton
+        Align = Top
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Dokument bearbeiten'
+        OnClick = ButtonBelgeDuzenleyinClick
+      end
+      object ButtonBelgeSilin: TButton
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Dokument l'#246'schen'
+        OnClick = ButtonBelgeSilinClick
+      end
+    end
+    object tiIlave1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 99.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'ilave 1'
+      ExplicitSize.cx = 166.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object ButtonMetinDosyasiOku: TButton
+        Align = Top
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Textdatei auslesen'
+        OnClick = ButtonMetinDosyasiOkuClick
+      end
+      object ButtonPdfGoster: TButton
+        Align = Top
+        Position.Y = 66.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Pdf anzeigen'
+        OnClick = ButtonPdfGosterClick
+      end
+      object xButtonPdfSec: TButton
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+        Text = 'Pdf w'#228'hlen'
+        OnClick = xButtonPdfSecClick
+      end
+      object ImageControl1: TImageControl
+        Align = Right
+        Position.X = 392.000000000000000000
+        Position.Y = 132.000000000000000000
+        Size.Width = 106.000000000000000000
+        Size.Height = 456.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+      end
+      object ButtonResimGoster: TButton
+        Align = Top
+        Position.Y = 99.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 10
+        Text = 'Bild anzeigen'
+        OnClick = ButtonResimGosterClick
+      end
+    end
+    object tiIlave2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 102.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'ilave 2'
+      ExplicitSize.cx = 126.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object ButtonDosyaKopyalayinDahilidenHariciye: TButton
+        Align = Top
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Kopieren Intern -> Extern'
+        OnClick = ButtonDosyaKopyalayinDahilidenHariciyeClick
+      end
+      object ButtonDosyaKopyalayinHaricidenDahiliye: TButton
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Extern -> Intern'
+        OnClick = ButtonDosyaKopyalayinHaricidenDahiliyeClick
+      end
+      object ButtonDosyaPaylasin: TButton
+        Align = Top
+        Position.Y = 66.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Datei teilen'
+        OnClick = ButtonDosyaPaylasinClick
+      end
+      object ButtonDosyalarCetveli: TButton
+        Align = Top
+        Position.Y = 99.000000000000000000
+        Size.Width = 498.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Dateien Linial'
+        OnClick = ButtonDosyalarCetveliClick
+      end
+    end
+  end
+end

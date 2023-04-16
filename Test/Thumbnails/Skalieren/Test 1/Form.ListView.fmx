@@ -1,0 +1,65 @@
+object frm_Listview: Tfrm_Listview
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 502
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object lv: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Size.Width = 502.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    ItemAppearance.ItemHeight = 100
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 100.000000000000000000
+        Appearance.Visible = False
+      end
+      item
+        AppearanceObjectName = 'Img1'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 100.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img2'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 100.000000000000000000
+        Appearance.PlaceOffset.X = 101.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img3'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 100.000000000000000000
+        Appearance.PlaceOffset.X = 202.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img4'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 100.000000000000000000
+        Appearance.PlaceOffset.X = 303.000000000000000000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+  end
+end
