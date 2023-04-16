@@ -1,0 +1,360 @@
+object frm_Zaehlerstand: Tfrm_Zaehlerstand
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 577
+  ClientWidth = 369
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Rec_Toolbar_Background: TRectangle
+    Align = Top
+    Fill.Color = xFF005686
+    Size.Width = 369.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+    object gly_Return: TGlyph
+      Margins.Left = 10.000000000000000000
+      Align = Left
+      Position.X = 10.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 3
+      Images = dm_Style.iml_Icons8
+    end
+    object gly_Save: TGlyph
+      Margins.Right = 10.000000000000000000
+      Align = Right
+      Position.X = 295.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 7
+      Images = dm_Style.iml_Icons8
+    end
+  end
+  object lay_Anschrift: TLayout
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 75.000000000000000000
+    Size.Width = 349.000000000000000000
+    Size.Height = 150.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rec_Anschrift: TRectangle
+      Align = Client
+      Fill.Color = claNull
+      Size.Width = 349.000000000000000000
+      Size.Height = 150.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claLightgray
+      XRadius = 10.000000000000000000
+      YRadius = 5.000000000000000000
+      object tab_Anschrift: TTabControl
+        Align = Client
+        Margins.Left = 2.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Size.Width = 345.000000000000000000
+        Size.Height = 99.000000000000000000
+        Size.PlatformDefault = False
+        TabHeight = 49.000000000000000000
+        TabIndex = 1
+        TabOrder = 0
+        TabPosition = None
+        Sizes = (
+          345s
+          99s
+          345s
+          99s)
+        object tab_Zaehler: TTabItem
+          CustomIcon = <
+            item
+            end>
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.HorzAlign = Leading
+          StyledSettings = [Family, Style, FontColor]
+          IsSelected = False
+          Margins.Left = 15.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Z'#228'hler'
+          ExplicitSize.cx = 158.000000000000000000
+          ExplicitSize.cy = 49.000000000000000000
+          object lbl_Z1: TLabel
+            Align = Top
+            StyledSettings = [Family, Size, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'lbl_Anschrift1'
+            TabOrder = 4
+          end
+          object lbl_Z2: TLabel
+            Align = Top
+            AutoSize = True
+            StyledSettings = [Family, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 23.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 22.000000000000000000
+            Text = 'lbl_Anschrift1'
+            TabOrder = 3
+          end
+          object lbl_Z3: TLabel
+            Align = Top
+            StyledSettings = [Family, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 53.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 11.000000000000000000
+            Text = 'lbl_Anschrift1'
+            TabOrder = 1
+          end
+        end
+        object tab_ItemAnschrift: TTabItem
+          CustomIcon = <
+            item
+            end>
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.HorzAlign = Trailing
+          StyledSettings = [Family, Style, FontColor]
+          IsSelected = True
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Anschrift'
+          ExplicitSize.cx = 159.000000000000000000
+          ExplicitSize.cy = 49.000000000000000000
+          object lbl_Anschrift1: TLabel
+            Align = Top
+            StyledSettings = [Family, Size, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'lbl_Anschrift1'
+            TabOrder = 6
+          end
+          object lbl_Anschrift2: TLabel
+            Align = Top
+            StyledSettings = [Family, Size, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 23.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 10.000000000000000000
+            Text = 'lbl_Anschrift1'
+            TabOrder = 5
+          end
+          object lbl_Anschrift3: TLabel
+            Align = Top
+            StyledSettings = [Family, Size, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 46.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 11.000000000000000000
+            Text = 'lbl_Anschrift1'
+            TabOrder = 2
+          end
+          object lbl_Anschrift4: TLabel
+            Align = Top
+            StyledSettings = [Family, Size, Style]
+            Margins.Left = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 69.000000000000000000
+            Size.Width = 330.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'lbl_Anschrift1'
+            TabOrder = 4
+          end
+        end
+      end
+      object lay_button: TLayout
+        Align = Top
+        Size.Width = 349.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btn_Zaehler: TCornerButton
+          Align = Left
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 87.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cornerbuttonBasCloudstyle'
+          TabOrder = 2
+          Text = 'Z'#228'hler'
+          XRadius = 16.500000000000000000
+          YRadius = 16.500000000000000000
+          OnClick = btn_ZaehlerClick
+        end
+        object btn_Anschrift: TCornerButton
+          Align = Right
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Position.X = 252.000000000000000000
+          Position.Y = 10.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 87.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cornerbuttonBasCloudstyle'
+          TabOrder = 1
+          Text = 'Anschrift'
+          XRadius = 16.500000000000000000
+          YRadius = 16.500000000000000000
+          OnClick = btn_AnschriftClick
+        end
+      end
+    end
+  end
+  object lay_LetzterZaehlerstand: TLayout
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 235.000000000000000000
+    Size.Width = 349.000000000000000000
+    Size.Height = 126.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object rect_LetzterZaehlerstand: TRectangle
+      Align = Client
+      Fill.Color = claNull
+      Size.Width = 349.000000000000000000
+      Size.Height = 126.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claLightgray
+      XRadius = 10.000000000000000000
+      YRadius = 5.000000000000000000
+      object lbl_LetzterZaehlerstand: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 334.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Letzter Z'#228'hlerstand'
+        TabOrder = 0
+      end
+      object Line2: TLine
+        Align = Top
+        LineType = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 329.000000000000000000
+        Size.Height = 13.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claLightgray
+      end
+      object lbl_Datum_LetzterZaehlerstand: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 87.000000000000000000
+        Size.Width = 334.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Datum:'
+        TabOrder = 4
+        object lbl_Datumwert: TLabel
+          Anchors = [akLeft, akTop, akRight]
+          StyledSettings = [Family, Size]
+          Position.X = 66.000000000000000000
+          Size.Width = 260.000091552734400000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Datum'
+          TabOrder = 3
+        end
+      end
+      object lbl_Zaehler_LetzterZaehlerstand: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 45.000000000000000000
+        Size.Width = 334.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Z'#228'hler:'
+        TabOrder = 3
+        object lbl_Zaehlerwert: TLabel
+          Anchors = [akLeft, akTop, akRight]
+          StyledSettings = [Family, Style]
+          Margins.Left = 18.000000000000000000
+          Position.X = 66.000000000000000000
+          Size.Width = 260.000061035156300000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 30.000000000000000000
+          Text = 'Z'#228'hler'
+          TabOrder = 3
+        end
+      end
+    end
+  end
+  object Image: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Align = Client
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Size.Width = 349.000000000000000000
+    Size.Height = 196.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

@@ -1,0 +1,169 @@
+object frm_AddZaehlerstand: Tfrm_AddZaehlerstand
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 607
+  ClientWidth = 373
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object Rec_Toolbar_Background: TRectangle
+    Align = Top
+    Fill.Color = xFF005686
+    Size.Width = 373.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+    object gly_Return: TGlyph
+      Margins.Left = 10.000000000000000000
+      Align = Left
+      Position.X = 10.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 3
+      Images = dm_Style.iml_Icons8
+    end
+    object gly_Save: TGlyph
+      Margins.Right = 10.000000000000000000
+      Align = Right
+      Position.X = 299.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 8
+      Images = dm_Style.iml_Icons8
+    end
+    object gly_Photo: TGlyph
+      Align = Right
+      Position.X = 235.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 9
+      Images = dm_Style.iml_Icons8
+    end
+    object ani_waitUpload_Toolbar: TAniIndicator
+      Margins.Top = 7.000000000000000000
+      Margins.Bottom = 7.000000000000000000
+      Position.X = 74.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 63.000000000000000000
+      Size.Height = 51.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Layout1: TLayout
+    Align = Top
+    Position.Y = 65.000000000000000000
+    Size.Width = 373.000000000000000000
+    Size.Height = 177.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rec_AlterZaehlerstand: TRectangle
+      Align = Top
+      Fill.Color = claNull
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 353.000000000000000000
+      Size.Height = 38.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claLightgray
+      XRadius = 10.000000000000000000
+      YRadius = 5.000000000000000000
+      object lbl_LetzterZaehlerstand: TLabel
+        Align = Client
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Size.Width = 338.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Letzter Z'#228'hlerstand:'
+        TabOrder = 0
+      end
+    end
+    object rec_NeuerZaehlerstand: TRectangle
+      Align = Top
+      Fill.Color = claNull
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 58.000000000000000000
+      Size.Width = 353.000000000000000000
+      Size.Height = 115.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claLightgray
+      XRadius = 10.000000000000000000
+      YRadius = 5.000000000000000000
+      object lbl_NeuerZaehlerstand: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 338.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Neuer Z'#228'hlerstand'
+        TabOrder = 0
+      end
+      object Line3: TLine
+        Align = Top
+        LineType = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 333.000000000000000000
+        Size.Height = 13.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claLightgray
+      end
+      object Label3: TLabel
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 15.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 45.000000000000000000
+        Size.Width = 344.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Z'#228'hler'
+        TabOrder = 4
+        object edt_NeuerZaehlerstand: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = FitRight
+          StyleLookup = 'editstyle_Bascloud'
+          TabOrder = 4
+          KeyboardType = DecimalNumberPad
+          TextSettings.Font.Size = 50.000000000000000000
+          Position.X = 62.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Size.Width = 272.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+        end
+      end
+    end
+  end
+  object CameraImage: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Align = Client
+    Size.Width = 373.000000000000000000
+    Size.Height = 365.000000000000000000
+    Size.PlatformDefault = False
+  end
+end
