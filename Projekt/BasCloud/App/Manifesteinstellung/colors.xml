@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <color name="notification_accent_color">#000000</color>
-    <color name="logoblue">#0094ff</color>
-    <color name="logowhite">#ffffff</color>
-</resources>

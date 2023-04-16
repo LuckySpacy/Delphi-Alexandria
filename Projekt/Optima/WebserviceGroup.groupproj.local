@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.286,C:\Users\tbachmann.GB\Documents\Embarcadero\Studio\Projekte\ProjectGroup1.groupproj=C:\Entwicklung\Delphi\Alexandria\Projekte\Optima\WebserviceGroup.groupproj</Transaction>
-  </Transactions>
-	<Default.Personality>
-		<Projects ActiveProject="C:\Entwicklung\Delphi\Alexandria\Projekte\Optima\Mobile\BestellApp-FPZ\BestellAppFPZ.dproj"/>
-	</Default.Personality>
-</BorlandProject>
