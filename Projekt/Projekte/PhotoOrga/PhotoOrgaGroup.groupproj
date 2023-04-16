@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8FD97606-D003-428F-801D-E9521EEBE286}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PhotoOrga.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PhotoOrga_Alt\PhotoOrga_alt.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PhotoOrga">
+        <MSBuild Projects="PhotoOrga.dproj"/>
+    </Target>
+    <Target Name="PhotoOrga:Clean">
+        <MSBuild Projects="PhotoOrga.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PhotoOrga:Make">
+        <MSBuild Projects="PhotoOrga.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PhotoOrga_alt">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj"/>
+    </Target>
+    <Target Name="PhotoOrga_alt:Clean">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PhotoOrga_alt:Make">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PhotoOrga;PhotoOrga_alt"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PhotoOrga:Clean;PhotoOrga_alt:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PhotoOrga:Make;PhotoOrga_alt:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
