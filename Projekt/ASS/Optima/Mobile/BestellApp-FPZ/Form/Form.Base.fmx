@@ -1,0 +1,19 @@
+object frm_Base: Tfrm_Base
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 587
+  ClientWidth = 414
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Rec_Toolbar_Background: TRectangle
+    Align = Top
+    Fill.Color = xFF005686
+    Size.Width = 414.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+  end
+end
