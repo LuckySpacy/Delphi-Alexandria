@@ -1,0 +1,88 @@
+inherited frm_Servereinstellung: Tfrm_Servereinstellung
+  Caption = 'frm_Base1'
+  ClientWidth = 410
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  inherited Rec_Toolbar_Background: TRectangle
+    Size.Width = 410.000000000000000000
+    object gly_Back: TGlyph
+      Margins.Left = 3.000000000000000000
+      Align = Left
+      Position.X = 3.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 3
+      Images = dm_Bilder.iml_16
+    end
+  end
+  object lbl_Serveradresse: TLabel
+    StyledSettings = [Family, Style]
+    Margins.Left = 30.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Position.X = 30.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 384.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 16.000000000000000000
+    Text = 'Serveradresse'
+    Visible = False
+    TabOrder = 1
+  end
+  object Lay_Form: TLayout
+    Align = Center
+    Size.Width = 300.000000000000000000
+    Size.Height = 235.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Lay_Serveradresse: TLayout
+      Align = Top
+      Size.Width = 300.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object edt_Serveradresse: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'EditPictureStyle'
+        TabOrder = 0
+        Text = 'EditPictureStyle'
+        Margins.Left = 30.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 30.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 240.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Serveradresse'
+        OnApplyStyleLookup = edt_ServeradresseApplyStyleLookup
+      end
+    end
+    object Lay_btnSpeichern: TLayout
+      Align = Top
+      Position.Y = 50.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btn_Speichern: TButton
+        Align = Client
+        Images = dm_Bilder.iml_16
+        ImageIndex = 10
+        Margins.Left = 30.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 30.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 240.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'ASSButtonStyleFlach'
+        TabOrder = 1
+        Text = 'Speichern'
+        OnClick = btn_SpeichernClick
+      end
+    end
+  end
+end

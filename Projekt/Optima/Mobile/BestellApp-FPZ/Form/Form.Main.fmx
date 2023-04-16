@@ -1,0 +1,102 @@
+inherited frm_Main: Tfrm_Main
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 3
+  inherited Rec_Toolbar_Background: TRectangle
+    object Layout7: TLayout
+      Align = Client
+      Size.Width = 304.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Label2: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 1.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 1.000000000000000000
+        Size.Width = 294.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = claWhite
+        TextSettings.VertAlign = Trailing
+        Text = 'Angemeldet:'
+        TabOrder = 4
+      end
+      object lbl_Anmeldename: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, Style]
+        HitTest = True
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 294.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = claWhite
+        TextSettings.VertAlign = Leading
+        Text = 'bachmann@ass-systemhaus.de'
+        TabOrder = 3
+      end
+    end
+    object lay_Bilder: TLayout
+      Align = Right
+      Position.X = 304.000000000000000000
+      Size.Width = 110.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object gly_Exit: TGlyph
+        Margins.Right = 5.000000000000000000
+        Align = Right
+        Position.X = 55.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 1
+        Images = dm_Bilder.iml_16
+      end
+      object gly_Einstellung: TGlyph
+        Align = Right
+        Position.X = 5.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 2
+        Images = dm_Bilder.iml_16
+      end
+    end
+  end
+  object Lay_Form: TLayout
+    Align = Center
+    Size.Width = 230.000000000000000000
+    Size.Height = 121.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Lay_Scanner: TLayout
+      Align = Top
+      Size.Width = 230.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btn_Scanner: TButton
+        Align = Center
+        Images = dm_Bilder.iml_16
+        ImageIndex = 9
+        Size.Width = 168.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'ASSButtonStyle'
+        TabOrder = 1
+        Text = 'Scanner'
+        OnApplyStyleLookup = ASSButtonStyleApplyStyleLookup
+        OnClick = btn_ScannerClick
+        OnMouseDown = ASSButtonStyleMouseDown
+        OnMouseUp = ASSButtonStyleMouseUp
+      end
+    end
+  end
+end
