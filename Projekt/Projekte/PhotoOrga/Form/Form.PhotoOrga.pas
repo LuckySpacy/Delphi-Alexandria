@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
-  Objekt.PhotoOrga, Objekt.Aufgaben;
+  Objekt.PhotoOrga, Objekt.Aufgaben, CloudExif, Form.Alben, Form.Base,
+  System.Generics.Collections, Form.Bilder, Form.Bild, FMX.Gestures;
 
 type
   Tfrm_PhotoOrga = class(TForm)
@@ -14,14 +15,26 @@ type
     tbs_Bilder: TTabItem;
     tbs_Bild: TTabItem;
     tbs_Splash: TTabItem;
+    GestureManager1: TGestureManager;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     fAufgaben: TAufgaben;
+    fExifImage: TAdvCloudExifImage;
+    fFormAlben: Tfrm_Alben;
+    fFormBilder: Tfrm_Bilder;
+    fFormBild: Tfrm_Bild;
+    fTabVerlauf : TList<TTabItem>;
     procedure AufgabeGestopt(Sender: TObject);
+    procedure DoBack(Sender: TObject);
+    procedure Albumclick(Sender: TObject);
+    procedure BildClick(aIndex: string; aObject: TObject);
+    procedure setTabActiv(aTab: TTabItem);
+    procedure EndeLadeBildListFromDB(Sender: TObject);
   public
+      property Fill;
   end;
 
 var
@@ -32,35 +45,123 @@ implementation
 {$R *.fmx}
 
 uses
-{$IFDEF WIN32}
+{$IFDEF WIN32x}
   FASTMM5,
 {$ENDIF}
-  Fmx.DialogService, Datenmodul.db;
+  Fmx.DialogService, Datenmodul.db, types.PhotoOrga, Objekt.Album;
 
 
 procedure Tfrm_PhotoOrga.FormCreate(Sender: TObject);
 begin
   PhotoOrga := TPhotoOrga.Create;
   fAufgaben := TAufgaben.Create;
+  fAufgaben.OnEndLadeBildListFromDB := EndeLadeBildListFromDB;
+  fTabVerlauf := TList<TTabItem>.Create;
+
+  fFormAlben := Tfrm_Alben.Create(Self);
+  while fFormAlben.ChildrenCount > 0 do
+    fFormAlben.Children[0].Parent := tbs_Main;
+  tbs_main.TagObject := fFormAlben;
+  Tfrm_Base(fFormAlben).OnBack := doBack;
+  fFormAlben.OnAlbumClick := AlbumClick;
+
+
+  fFormBilder := Tfrm_Bilder.Create(Self);
+  while fFormBilder.ChildrenCount > 0 do
+    fFormBilder.Children[0].Parent := tbs_Bilder;
+  tbs_Bilder.TagObject := fFormBilder;
+  Tfrm_Base(fFormBilder).OnBack := doBack;
+  fFormBilder.OnBildClick := BildClick;
+
+  fFormBild := Tfrm_Bild.Create(Self);
+  while fFormBild.ChildrenCount > 0 do
+    fFormBild.Children[0].Parent := tbs_Bild;
+  tbs_Bild.TagObject := fFormBild;
+  Tfrm_Base(fFormBild).OnBack := doBack;
+
 end;
 
 procedure Tfrm_PhotoOrga.FormDestroy(Sender: TObject);
 begin
+  fTabVerlauf.DisposeOf;
   FreeAndNil(PhotoOrga);
   FreeAndNil(fAufgaben);
+  FreeAndNil(fExifImage);
 end;
+
 
 procedure Tfrm_PhotoOrga.FormShow(Sender: TObject);
 begin
   PhotoOrga.RequestPermissions;
   dm_db.Connect;
-  fAufgaben.Start;
+  fAufgaben.LadeBildListFromDB;
+//  setTabActiv(tbs_Main);
+ // PhotoOrga.QueueList.Add(TQueueProcess.c_quReadFiles);
+ // fAufgaben.Start;
   //PhotoOrga.sendNotification('Hurra');
+end;
+
+procedure Tfrm_PhotoOrga.setTabActiv(aTab: TTabItem);
+var
+  i1: Integer;
+begin
+  fTabVerlauf.Add(aTab);
+  TabControl.ActiveTab := aTab;
+  if (aTab.TagObject <> nil) then
+    Tfrm_Base(aTab.TagObject).setActiv;
+    {
+  for i1 := 0 to aTab.ComponentCount -1 do
+  begin
+    if (aTab.Components[i1] is TForm) then
+      Tfrm_Base(aTab.Components[i1]).setActiv;
+  end;
+  }
+end;
+
+procedure Tfrm_PhotoOrga.Albumclick(Sender: TObject);
+//var
+//  Album: Tfra_Album;
+begin
+//  Album := Tfra_Album(Sender);
+//  fFormBilder.LadeBilder(Album.Pfad, '*.jpg');
+//  fFormBilder.LadeBilder(Album.Pfad);
+  fFormBilder.LadeBilder(TAlbum(Sender));
+  setTabActiv(tbs_Bilder);
 end;
 
 procedure Tfrm_PhotoOrga.AufgabeGestopt(Sender: TObject);
 begin
   close;
+end;
+
+procedure Tfrm_PhotoOrga.BildClick(aIndex: string; aObject: TObject);
+begin //
+  fFormBild.LadeBild(TAlbum(aObject), aIndex);
+  setTabActiv(tbs_bild);
+end;
+
+procedure Tfrm_PhotoOrga.DoBack(Sender: TObject);
+var
+  Tab: TTabItem;
+  i1: Integer;
+begin
+  if fTabVerlauf.Count > 0 then
+    fTabVerlauf.Delete(fTabVerlauf.Count-1);
+  if fTabVerlauf.Count > 0 then
+  begin
+    Tab := fTabVerlauf.Items[fTabVerlauf.Count-1];
+    TabControl.ActiveTab := Tab;
+    for i1 := 0 to Tab.ComponentCount -1 do
+    begin
+      if (Tab.Components[i1] is TForm) then
+        Tfrm_Base(Tab.Components[i1]).setActiv;
+    end;
+  end;
+end;
+
+procedure Tfrm_PhotoOrga.EndeLadeBildListFromDB(Sender: TObject);
+begin //
+  setTabActiv(tbs_Main);
 end;
 
 procedure Tfrm_PhotoOrga.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -77,7 +178,7 @@ end;
 
 initialization
 
-{$IFDEF WIN32}
+{$IFDEF WIN32x}
   {First try to share this memory manager.  This will fail if another module is already sharing its memory manager.  In
   case of the latter, try to use the memory manager shared by the other module.}
   if FastMM_ShareMemoryManager then

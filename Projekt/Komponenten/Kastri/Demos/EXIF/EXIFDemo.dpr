@@ -3,7 +3,8 @@ program EXIFDemo;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Unit1 in 'Unit1.pas' {Form1};
+  Unit1 in 'Unit1.pas' {Form1},
+  DW.EXIF.Android in '..\..\Core\DW.EXIF.Android.pas';
 
 {$R *.res}
 

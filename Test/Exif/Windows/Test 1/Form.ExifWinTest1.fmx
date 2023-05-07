@@ -1,0 +1,69 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 560
+  ClientWidth = 587
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 587.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Button1: TButton
+      Position.X = 24.000000000000000000
+      Position.Y = 21.000000000000000000
+      TabOrder = 2
+      Text = 'Button1'
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Position.X = 128.000000000000000000
+      Position.Y = 21.000000000000000000
+      TabOrder = 1
+      Text = 'Button1'
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Position.X = 232.000000000000000000
+      Position.Y = 21.000000000000000000
+      TabOrder = 0
+      Text = 'Button1'
+      OnClick = Button3Click
+    end
+  end
+  object mem: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    StyledSettings = [Style, FontColor]
+    TextSettings.Font.Family = 'Courier New'
+    TextSettings.Font.Size = 8.000000000000000000
+    Align = Client
+    Size.Width = 587.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 587.000000000000000000
+    Viewport.Height = 503.000000000000000000
+  end
+  object AdvCloudExifImage: TAdvCloudExifImage
+    FileName = 'D:\Bachmann\Daten\OneDrive\Bilder\20230402_143303.jpg'
+    Altitude = 250.000000000000000000
+    Latitude = 49.845083000000000000
+    Longitude = 8.910401900000000000
+    LatitudeDegrees = 49.000000000000000000
+    LongitudeDegrees = 8.000000000000000000
+    LatitudeMinutes = 50.000000000000000000
+    LongitudeMinutes = 54.000000000000000000
+    LatitudeSeconds = 42.298800000000000000
+    LongitudeSeconds = 37.446840000000000000
+    Left = 272
+    Top = 177
+  end
+end

@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Android</Platform>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>693267</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>PhotoOrga.dpr</MainSource>
@@ -278,6 +278,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UnitAlias>Objekt\Win;$(DCC_UnitAlias)</DCC_UnitAlias>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -295,7 +298,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\..\Komponenten\FastMM5\FastMM5.pas"/>
+        <DCCReference Include="Objekt\Android\Objekt.Android.ExifProperty.pas"/>
         <DCCReference Include="Form\Form.PhotoOrga.pas">
             <Form>frm_PhotoOrga</Form>
         </DCCReference>
@@ -308,8 +311,57 @@
         <DCCReference Include="Objekt\Objekt.Aufgaben.pas"/>
         <DCCReference Include="Datenmodul\Datenmodul.db.pas">
             <Form>dm_db</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="DB\DB.Basis.pas"/>
+        <DCCReference Include="DB\DB.Basislist.pas"/>
+        <DCCReference Include="Objekt\Objekt.Bild.pas"/>
+        <DCCReference Include="Objekt\Objekt.BildList.pas"/>
+        <DCCReference Include="Thread\Thread.LadeBildListFromDB.pas"/>
+        <DCCReference Include="Objekt\Objekt.ReadFiles.pas"/>
+        <DCCReference Include="Objekt\Objekt.ReadFilesToDB.pas"/>
+        <DCCReference Include="Objekt\Objekt.DatumZeit.pas"/>
+        <DCCReference Include="Objekt\Objekt.ExifPropertyTag.pas"/>
+        <DCCReference Include="Objekt\Objekt.ExifPropertyTagGPS.pas"/>
+        <DCCReference Include="Objekt\Win\Objekt.Win.ExifProperty.pas"/>
+        <DCCReference Include="Thread\Thread.ReadFiles.pas"/>
+        <DCCReference Include="Objekt\Objekt.Alben.pas"/>
+        <DCCReference Include="Objekt\Objekt.Album.pas"/>
+        <DCCReference Include="Frame\Frame.Album.pas">
+            <Form>fra_Album</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Form\Form.Base.pas">
+            <Form>frm_Base</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\Form.Alben.pas">
+            <Form>frm_Alben</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\Form.Bilder.pas">
+            <Form>frm_Bilder</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\Form.Bild.pas">
+            <Form>frm_Bild</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Datenmodul\Datenmodul.Bilder.pas">
+            <Form>dm_Bilder</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frame\Frame.Bild.pas">
+            <Form>fra_Bild</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frame\Frame.BildRow.pas">
+            <Form>fra_BildRow</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

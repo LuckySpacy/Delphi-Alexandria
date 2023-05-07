@@ -1,0 +1,29 @@
+object fra_Bild: Tfra_Bild
+  Size.Width = 110.000000000000000000
+  Size.Height = 107.000000000000000000
+  Size.PlatformDefault = False
+  OnResized = FrameResized
+  object Rectangle: TRectangle
+    Align = Client
+    Fill.Color = claNull
+    Size.Width = 110.000000000000000000
+    Size.Height = 107.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 2.000000000000000000
+    object Image: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      Margins.Left = 2.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 106.000000000000000000
+      Size.Height = 103.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Original
+      OnClick = ImageClick
+    end
+  end
+end

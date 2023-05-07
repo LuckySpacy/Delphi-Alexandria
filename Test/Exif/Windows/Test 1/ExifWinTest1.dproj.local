@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.716,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Exif\Windows\Test 1\Form.ExifWinTest1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.386,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.321,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.370,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.716,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Exif\Windows\Test 1\Form.ExifWinTest1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.876,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project2.dproj=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Test\Exif\Windows\Test 1\ExifWinTest1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.871,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="" Android64=""/>
+	</ActiveMobileDevice>
+</BorlandProject>

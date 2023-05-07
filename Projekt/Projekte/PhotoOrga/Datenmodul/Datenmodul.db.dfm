@@ -15,15 +15,16 @@ object dm_db: Tdm_db
     Left = 84
     Top = 120
   end
-  object FDQuery1: TFDQuery
+  object FDQuery: TFDQuery
     Connection = Connection
+    Transaction = fdt_Trans
     Left = 240
     Top = 68
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'FMX'
-    Left = 216
-    Top = 100
+    Left = 224
+    Top = 156
   end
   object fdt_Trans: TFDTransaction
     Connection = Connection

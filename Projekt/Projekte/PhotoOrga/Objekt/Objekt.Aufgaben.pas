@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, Thread.Timer, Objekt.QueueList, Objekt.Queue, types.PhotoOrga;
+  FMX.Types, Thread.Timer, Objekt.QueueList, Objekt.Queue, types.PhotoOrga,
+  Thread.LadeBildListFromDB, Thread.ReadFiles;
 
 
 type
@@ -12,6 +13,11 @@ type
   private
     fTimer: TThreadTimer;
     fOnStopTimer: TNotifyEvent;
+    fAufgabeBusy: TQueueProcess;
+    fPleaseStopTimer: Boolean;
+    fThreadLadeBildListFromDB: TThreadLadeBildListFromDB;
+    fThreadReadFiles: TThreadReadFiles;
+    fOnEndLadeBildListFromDB: TNotifyEvent;
     procedure TimerStoped(Sender: TObject);
   protected
   public
@@ -21,7 +27,11 @@ type
     procedure Stop;
     procedure DoTimer(Sender: TObject);
     property OnStopTimer: TNotifyEvent read fOnStopTimer write fOnStopTimer;
+    property OnEndLadeBildListFromDB: TNotifyEvent read fOnEndLadeBildListFromDB write fOnEndLadeBildListFromDB;
     function TimerRunning: Boolean;
+    procedure EndeAufgabe(Sender: TObject);
+    procedure EndeLadeBildListFromDB(Sender: TObject);
+    procedure LadeBildListFromDB;
   end;
 
 implementation
@@ -33,13 +43,21 @@ uses
 
 constructor TAufgaben.Create;
 begin
+  fPleaseStopTimer := false;
+  fAufgabeBusy := c_quNone;
   fTimer := TThreadTimer.Create;
   fTimer.OnTimer := DoTimer;
   fTimer.OnStopTimer := TimerStoped;
+  fThreadLadeBildListFromDB := TThreadLadeBildListFromDB.Create;
+  fThreadLadeBildListFromDB.OnEnde := EndeLadeBildListFromDB;
+  fThreadReadFiles := TThreadReadFiles.Create;
+  fThreadReadFiles.OnEnde := EndeAufgabe;
 end;
 
 destructor TAufgaben.Destroy;
 begin
+  FreeAndNil(fThreadLadeBildListFromDB);
+  FreeAndNil(fThreadReadFiles);
   FreeAndNil(fTimer);
   inherited;
 end;
@@ -54,14 +72,26 @@ begin
     PhotoOrga.QueueList.DeleteAllMarked;
     if PhotoOrga.QueueList.Count = 0 then
       fTimer.Start;
+    if fAufgabeBusy <> TQueueProcess.c_quNone then
+      exit;
     for i1 := 0 to PhotoOrga.QueueList.Count -1 do
     begin
       Queue := PhotoOrga.QueueList.Item[i1];
-      if (Queue.Process = c_quAktualThumbnails) and (not Queue.Del) then
+
+      if (Queue.Process = c_quLadeBilderFromDB) and (not Queue.Del) then
       begin
+        fAufgabeBusy := TQueueProcess.c_quLadeBilderFromDB;
+        fThreadLadeBildListFromDB.Start;
+      end;
+
+      if (Queue.Process = c_quReadFiles) and (not Queue.Del) then
+      begin
+        fAufgabeBusy := TQueueProcess.c_quReadFiles;
+        fThreadReadFiles.Start;
       end;
       if (Queue.Process = c_quReadAllBilder) and (not Queue.Del) then
       begin
+        fAufgabeBusy := TQueueProcess.c_quReadAllBilder;
       end;
     end;
   finally
@@ -70,6 +100,25 @@ begin
 end;
 
 
+procedure TAufgaben.EndeAufgabe(Sender: TObject);
+begin
+  fAufgabeBusy := TQueueProcess.c_quNone;
+  if fPleaseStopTimer then
+    fTimer.Stop;
+end;
+
+procedure TAufgaben.EndeLadeBildListFromDB(Sender: TObject);
+begin
+  if Assigned(fOnEndLadeBildListFromDB) then
+    fOnEndLadeBildListFromDB(Self);
+end;
+
+procedure TAufgaben.LadeBildListFromDB;
+begin
+  fAufgabeBusy := TQueueProcess.c_quLadeBilderFromDB;
+  fThreadLadeBildListFromDB.Start;
+end;
+
 procedure TAufgaben.Start;
 begin
   fTimer.Start;
@@ -77,7 +126,14 @@ end;
 
 procedure TAufgaben.Stop;
 begin
-  fTimer.Stop;
+  if fAufgabeBusy = TQueueProcess.c_quNone  then
+  begin
+    fTimer.Stop;
+    exit;
+  end;
+  fPleaseStopTimer := true;
+  if fAufgabeBusy = TQueueProcess.c_quLadeBilderFromDB then
+    fThreadLadeBildListFromDB.Stop := true;
 end;
 
 function TAufgaben.TimerRunning: Boolean;

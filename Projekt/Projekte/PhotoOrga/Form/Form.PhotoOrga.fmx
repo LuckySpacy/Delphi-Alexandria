@@ -11,6 +11,7 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
   OnCloseQuery = FormCloseQuery
   OnDestroy = FormDestroy
   OnShow = FormShow
+  Touch.GestureManager = GestureManager1
   DesignerMasterStyle = 0
   object TabControl: TTabControl
     Align = Client
@@ -85,5 +86,21 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
       ExplicitSize.cx = 76.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
+  end
+  object GestureManager1: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 88
+    Top = 240
+    GestureData = <
+      item
+        Control = Owner
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end>
   end
 end

@@ -15,7 +15,7 @@ type
   Tdm_db = class(TDataModule)
     Connection: TFDConnection;
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
-    FDQuery1: TFDQuery;
+    FDQuery: TFDQuery;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     fdt_Trans: TFDTransaction;
     FDManager1: TFDManager;

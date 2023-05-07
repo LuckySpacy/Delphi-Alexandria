@@ -10,7 +10,7 @@ uses
   {$IFDEF MSWINDOWS}
   Objekt.Win.PhotoOrga,
   {$ENDIF MSWINDOWS}
-  FMX.Types, Objekt.QueueList;
+  FMX.Types, Objekt.QueueList, Objekt.BildList, Objekt.Alben;
 
 type
   TPhotoOrga = class
@@ -22,6 +22,8 @@ type
     fWin: TWinPhotoOrga;
     {$ENDIF MSWINDOWS}
     fQueueList: TQueueList;
+    fBildList: TBildList;
+    fAlben: TAlben;
   protected
   public
     constructor Create;
@@ -32,6 +34,8 @@ type
     procedure RequestPermissions;
     procedure sendNotification(aMessage: string);
     property QueueList: TQueueList read fQueueList;
+    property BildList: TBildList read fBildList;
+    property Alben: TAlben read fAlben;
   end;
 
 
@@ -53,6 +57,8 @@ begin
   fWin := TWinPhotoOrga.Create;
   {$ENDIF MSWINDOWS}
   fQueueList := TQueueList.Create;
+  fBildList  := TBildList.Create;
+  fAlben     := TAlben.Create;
 end;
 
 destructor TPhotoOrga.Destroy;
@@ -64,6 +70,8 @@ begin
   FreeAndNil(fWin);
   {$ENDIF MSWINDOWS}
   FreeAndNil(fQueueList);
+  FreeAndNil(fBildList);
+  FreeAndNil(fAlben);
   inherited;
 end;
 
