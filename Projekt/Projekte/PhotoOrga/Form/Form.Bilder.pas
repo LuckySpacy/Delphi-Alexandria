@@ -64,19 +64,24 @@ procedure Tfrm_Bilder.LadeBilder(aAlbum: TAlbum);
 var
   i1: Integer;
   fraBildRow: Tfra_BildRow;
+  iTop: Integer;
 begin
   fAlbum := aAlbum;
   ClearAllFrameBildRow;
   i1 := 0;
+  iTop := 0;
   while i1 < aAlbum.AlbumBilder.Count -1 do
   begin
     fraBildRow := Tfra_BildRow.Create(Self);
     fraBildRow.Height := 100;
+    fraBildRow.Position.Y := iTop;
     fraBildRow.parent := ScrollBox1;
-    fraBildRow.align  := TAlignLayout.Top;
+    //fraBildRow.align  := TAlignLayout.Top;
     fraBildRow.LadeBilderRow(aAlbum, i1);
+    fraBildRow.Name := 'fraBildRow_' + i1.ToString + '_'  + FormatDateTime('yymmddhhnnsszzz', now);
     fraBildRow.OnBildClick := BildClick;
     fFrameBildRowList.Add(fraBildRow);
+    iTop := iTop + 100;
   end;
   Self.Invalidate;
 

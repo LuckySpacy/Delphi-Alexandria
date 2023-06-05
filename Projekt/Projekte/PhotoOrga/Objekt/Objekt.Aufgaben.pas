@@ -18,6 +18,10 @@ type
     fThreadLadeBildListFromDB: TThreadLadeBildListFromDB;
     fThreadReadFiles: TThreadReadFiles;
     fOnEndLadeBildListFromDB: TNotifyEvent;
+    fOnProgressMaxValue: TNotifyIntEvent;
+    fOnProgress: TProgressEvent;
+    procedure ProgressMaxValue(aValue: Integer);
+    procedure Progress(aIndex: Integer; aValue: string);
     procedure TimerStoped(Sender: TObject);
   protected
   public
@@ -32,6 +36,8 @@ type
     procedure EndeAufgabe(Sender: TObject);
     procedure EndeLadeBildListFromDB(Sender: TObject);
     procedure LadeBildListFromDB;
+    property OnProgressMaxValue: TNotifyIntEvent read fOnProgressMaxValue write fOnProgressMaxValue;
+    property OnProgress: TProgressEvent read fOnProgress write fOnProgress;
   end;
 
 implementation
@@ -39,7 +45,7 @@ implementation
 { TAufgaben }
 
 uses
-  objekt.PhotoOrga;
+  objekt.PhotoOrga, Fmx.DialogService;
 
 constructor TAufgaben.Create;
 begin
@@ -52,6 +58,8 @@ begin
   fThreadLadeBildListFromDB.OnEnde := EndeLadeBildListFromDB;
   fThreadReadFiles := TThreadReadFiles.Create;
   fThreadReadFiles.OnEnde := EndeAufgabe;
+  fThreadReadFiles.OnProgress := Progress;
+  fThreadReadFiles.OnProgressMaxValue := ProgressMaxValue;
 end;
 
 destructor TAufgaben.Destroy;
@@ -86,6 +94,7 @@ begin
 
       if (Queue.Process = c_quReadFiles) and (not Queue.Del) then
       begin
+        //TDialogService.ShowMessage('ReadFiles');
         fAufgabeBusy := TQueueProcess.c_quReadFiles;
         fThreadReadFiles.Start;
       end;
@@ -109,6 +118,7 @@ end;
 
 procedure TAufgaben.EndeLadeBildListFromDB(Sender: TObject);
 begin
+  fAufgabeBusy := TQueueProcess.c_quNone;
   if Assigned(fOnEndLadeBildListFromDB) then
     fOnEndLadeBildListFromDB(Self);
 end;
@@ -117,6 +127,32 @@ procedure TAufgaben.LadeBildListFromDB;
 begin
   fAufgabeBusy := TQueueProcess.c_quLadeBilderFromDB;
   fThreadLadeBildListFromDB.Start;
+end;
+
+procedure TAufgaben.Progress(aIndex: Integer; aValue: string);
+begin
+  exit;
+  if Assigned(fOnProgress) then
+  begin
+    TThread.Synchronize(TThread.CurrentThread,
+    procedure
+    begin
+      fOnProgress(aIndex, aValue);
+    end);
+  end;
+end;
+
+procedure TAufgaben.ProgressMaxValue(aValue: Integer);
+begin
+  exit;
+  if Assigned(fOnProgressMaxValue) then
+  begin
+    TThread.Synchronize(TThread.CurrentThread,
+    procedure
+    begin
+      fOnProgressMaxValue(aValue);
+    end);
+  end;
 end;
 
 procedure TAufgaben.Start;

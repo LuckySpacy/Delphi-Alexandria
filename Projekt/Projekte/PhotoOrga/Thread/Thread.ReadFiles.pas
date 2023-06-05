@@ -3,7 +3,7 @@ unit Thread.ReadFiles;
 interface
 
 uses
-  System.SysUtils, System.Classes, FMX.Graphics, Objekt.ReadFilesToDB;
+  System.SysUtils, System.Classes, FMX.Graphics, Objekt.ReadFilesToDB, types.PhotoOrga;
 
 
 type
@@ -12,15 +12,21 @@ type
     fOnEnde: TNotifyEvent;
     fStop: Boolean;
     fReadFilesToDB: TReadFilesToDB;
+    fOnProgressMaxValue: TNotifyIntEvent;
+    fOnProgress: TProgressEvent;
     procedure ReadFiles;
     procedure Ende(Sender: TObject);
     procedure setStop(const Value: Boolean);
+    procedure ProgressMaxValue(aValue: Integer);
+    procedure Progress(aIndex: Integer; aValue: string);
   public
     constructor Create;
     destructor Destroy; override;
     property OnEnde: TNotifyEvent read fOnEnde write fOnEnde;
     procedure Start;
     property Stop: Boolean read fStop write setStop;
+    property OnProgressMaxValue: TNotifyIntEvent read fOnProgressMaxValue write fOnProgressMaxValue;
+    property OnProgress: TProgressEvent read fOnProgress write fOnProgress;
   end;
 
 
@@ -31,6 +37,8 @@ implementation
 constructor TThreadReadFiles.Create;
 begin
   fReadFilesToDB := TReadFilesToDB.Create;
+  fReadFilesToDB.OnProgress := Progress;
+  fReadFilesToDB.OnProgressMaxValue := ProgressMaxValue;
 end;
 
 destructor TThreadReadFiles.Destroy;
@@ -42,6 +50,18 @@ end;
 procedure TThreadReadFiles.Ende(Sender: TObject);
 begin
 
+end;
+
+procedure TThreadReadFiles.Progress(aIndex: Integer; aValue: string);
+begin
+  if Assigned(fOnProgress) then
+    fOnProgress(aIndex, aValue);
+end;
+
+procedure TThreadReadFiles.ProgressMaxValue(aValue: Integer);
+begin
+  if Assigned(fOnProgressMaxValue) then
+    fOnProgressMaxValue(aValue);
 end;
 
 procedure TThreadReadFiles.ReadFiles;

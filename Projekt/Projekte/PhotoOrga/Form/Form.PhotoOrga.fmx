@@ -20,23 +20,23 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
     Size.PlatformDefault = False
     TabIndex = 0
     TabOrder = 0
-    TabPosition = PlatformDefault
+    TabPosition = None
     Sizes = (
       413s
-      547s
+      573s
       413s
-      547s
+      573s
       413s
-      547s
+      573s
       413s
-      547s)
+      573s)
     object tbs_Main: TTabItem
       CustomIcon = <
         item
         end>
       IsSelected = True
-      Size.Width = 68.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
@@ -49,8 +49,8 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
         item
         end>
       IsSelected = False
-      Size.Width = 72.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
@@ -63,8 +63,8 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
         item
         end>
       IsSelected = False
-      Size.Width = 61.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
@@ -77,8 +77,8 @@ object frm_PhotoOrga: Tfrm_PhotoOrga
         item
         end>
       IsSelected = False
-      Size.Width = 76.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0

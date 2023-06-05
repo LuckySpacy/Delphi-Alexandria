@@ -5,12 +5,14 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Objects, FMX.Layouts, types.PhotoOrga, Objekt.Bild;
+  FMX.Objects, FMX.Layouts, types.PhotoOrga, Objekt.Bild,
+  FMX.Controls.Presentation;
 
 type
   Tfra_Bild = class(TFrame)
     Rectangle: TRectangle;
     Image: TImage;
+    lbl_Index: TLabel;
     procedure FrameResized(Sender: TObject);
     procedure ImageClick(Sender: TObject);
   private

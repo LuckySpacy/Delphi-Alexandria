@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9DB42A95-72FF-416D-B321-F030B9352DC4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TSIAnsicht\TSIAnsicht.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TSIWebServer\TSIWebserver.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TSIAnsicht">
+        <MSBuild Projects="TSIAnsicht\TSIAnsicht.dproj"/>
+    </Target>
+    <Target Name="TSIAnsicht:Clean">
+        <MSBuild Projects="TSIAnsicht\TSIAnsicht.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TSIAnsicht:Make">
+        <MSBuild Projects="TSIAnsicht\TSIAnsicht.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TSIWebserver">
+        <MSBuild Projects="TSIWebServer\TSIWebserver.dproj"/>
+    </Target>
+    <Target Name="TSIWebserver:Clean">
+        <MSBuild Projects="TSIWebServer\TSIWebserver.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TSIWebserver:Make">
+        <MSBuild Projects="TSIWebServer\TSIWebserver.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TSIAnsicht;TSIWebserver"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TSIAnsicht:Clean;TSIWebserver:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TSIAnsicht:Make;TSIWebserver:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -27,7 +27,6 @@ uses
   Objekt.DatumZeit in 'Objekt\Objekt.DatumZeit.pas',
   Objekt.ExifPropertyTag in 'Objekt\Objekt.ExifPropertyTag.pas',
   Objekt.ExifPropertyTagGPS in 'Objekt\Objekt.ExifPropertyTagGPS.pas',
-  Objekt.Win.ExifProperty in 'Objekt\Win\Objekt.Win.ExifProperty.pas',
   Thread.ReadFiles in 'Thread\Thread.ReadFiles.pas',
   Objekt.Alben in 'Objekt\Objekt.Alben.pas',
   Objekt.Album in 'Objekt\Objekt.Album.pas',
@@ -38,7 +37,8 @@ uses
   Form.Bild in 'Form\Form.Bild.pas' {frm_Bild},
   Datenmodul.Bilder in 'Datenmodul\Datenmodul.Bilder.pas' {dm_Bilder: TDataModule},
   Frame.Bild in 'Frame\Frame.Bild.pas' {fra_Bild: TFrame},
-  Frame.BildRow in 'Frame\Frame.BildRow.pas' {fra_BildRow: TFrame};
+  Frame.BildRow in 'Frame\Frame.BildRow.pas' {fra_BildRow: TFrame},
+  Form.Fortschritt in 'Form\Form.Fortschritt.pas' {frm_Fortschritt};
 
 {$R *.res}
 

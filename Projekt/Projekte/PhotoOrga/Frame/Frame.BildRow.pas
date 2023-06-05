@@ -62,10 +62,13 @@ function Tfra_BildRow.ErzeugeFrameBild(aIndex: Integer): Tfra_Bild;
 begin
   Result := TFra_Bild.Create(Self);
   Result.Name := 'Img' + aIndex.ToString;
-  Result.Align := TAlignLayout.Left;
+  Result.Position.y := 0;
+  Result.Position.X := (aIndex-1) * 100;
+  //Result.Align := TAlignLayout.Left;
   Result.Tag := aIndex;
   Result.Parent := Self;
   Result.Width := 100;
+  Result.Height := 100;
   Result.OnBildClick := BildClick;
   fFrameBildList.Add(Result);
 end;
@@ -102,6 +105,7 @@ begin
     Bild := TBild(aAlbum.AlbumBilder.Items[aIndex]);
     fraBild.Image.Bitmap.Assign(Bild.Thumb);
     fraBild.Bild := Bild;
+    fraBild.lbl_Index.Text := aIndex.ToString;
     inc(aIndex);
   end;
 end;

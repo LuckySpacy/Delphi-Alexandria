@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.764,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\WebModuleUnit1.dfm=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\WebModule\WebModule.TSIWebserver.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.727,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.BasisList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.764,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\WebModuleUnit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\WebModule\WebModule.TSIWebserver.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.125,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.819,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Objekt\Objekt.TSIWebServer.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.316,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.913,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.Basis.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.816,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.Basis.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.458,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.Basis.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.659,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\WebModuleUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.670,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.AktieList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.563,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Datamodul\Datamodul.Database.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.852,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Datamodul\Datamodul.Database.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.709,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.996,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.Ini.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.716,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.543,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Json\Json.AktieList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.391,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.406,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.IniFirebird.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.509,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.541,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Datamodul\Datamodul.Database.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.694,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.823,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Objekt\Objekt.IniBase.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.255,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.582,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Objekt\Objekt.IBConnectData.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.370,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.012,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\FormUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.379,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.Basislist.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.906,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.DBFeld.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.321,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.942,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\FormUnit1.dfm=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Form\Form.TSIWebserver.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.942,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\FormUnit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Form\Form.TSIWebserver.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.142,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.DBFeldList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.541,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.dfm=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Datamodul\Datamodul.Database.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.645,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project2.dproj=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\TSIWebserver.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.042,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Datenbank\DB.Aktie.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.106,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Objekt\Objekt.ObjektList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.871,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>2023.06.04 12:20:55.838,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>2023.06.04 12:21:16.167,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Json\Json.Aktie.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>2023.06.04 14:27:56.086,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>2023.06.04 14:28:31.488,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\Json\Json.AnsichtList.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+    <Transaction>2023.06.04 14:31:44.433,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\View\View.Base.pas</Transaction>
+    <Transaction>2023.06.04 14:32:00.515,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\View\View.Ansicht.pas</Transaction>
+    <Transaction>2023.06.04 14:32:15.747,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\Global\View\View.AnsichtList.pas</Transaction>
+    <Transaction>2023.06.04 14:58:56.979,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\TSI\Projekt\TSIWebServer\Unit1.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="RF8R90Q4XDM" Android64="RF8R90Q4XDM"/>
+	</ActiveMobileDevice>
+</BorlandProject>

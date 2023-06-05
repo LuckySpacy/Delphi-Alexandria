@@ -77,6 +77,7 @@ begin
   Connection.Params.Values['Database'] := Filename;
   //Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'BasCloud.db');
   {$ENDIF ANDROID}
+  Connection.Connected := true;
 end;
 
 function Tdm_db.getDatenbankFilename: string;

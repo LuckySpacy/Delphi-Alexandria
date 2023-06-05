@@ -24,6 +24,16 @@ object fra_Bild: Tfra_Bild
       Size.PlatformDefault = False
       WrapMode = Original
       OnClick = ImageClick
+      object lbl_Index: TLabel
+        Align = Bottom
+        Position.Y = 86.000000000000000000
+        Size.Width = 106.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'lbl_Index'
+        TabOrder = 0
+      end
     end
   end
 end

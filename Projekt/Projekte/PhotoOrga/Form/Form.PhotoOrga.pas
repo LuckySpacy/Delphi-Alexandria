@@ -5,8 +5,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
-  Objekt.PhotoOrga, Objekt.Aufgaben, CloudExif, Form.Alben, Form.Base,
-  System.Generics.Collections, Form.Bilder, Form.Bild, FMX.Gestures;
+  Objekt.PhotoOrga, Objekt.Aufgaben, Form.Alben, Form.Base,
+  System.Generics.Collections, Form.Bilder, Form.Bild, FMX.Gestures,
+  Form.Fortschritt;
 
 type
   Tfrm_PhotoOrga = class(TForm)
@@ -22,10 +23,10 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     fAufgaben: TAufgaben;
-    fExifImage: TAdvCloudExifImage;
     fFormAlben: Tfrm_Alben;
     fFormBilder: Tfrm_Bilder;
     fFormBild: Tfrm_Bild;
+    fFormFortschritt: Tfrm_Fortschritt;
     fTabVerlauf : TList<TTabItem>;
     procedure AufgabeGestopt(Sender: TObject);
     procedure DoBack(Sender: TObject);
@@ -48,7 +49,7 @@ uses
 {$IFDEF WIN32x}
   FASTMM5,
 {$ENDIF}
-  Fmx.DialogService, Datenmodul.db, types.PhotoOrga, Objekt.Album;
+  Fmx.DialogService, Datenmodul.db, types.PhotoOrga, Objekt.Album, Objekt.ReadFiles;
 
 
 procedure Tfrm_PhotoOrga.FormCreate(Sender: TObject);
@@ -79,6 +80,17 @@ begin
   tbs_Bild.TagObject := fFormBild;
   Tfrm_Base(fFormBild).OnBack := doBack;
 
+  {
+  fFormFortschritt := Tfrm_Fortschritt.Create(Self);
+  while fFormFortschritt.ChildrenCount > 0 do
+    fFormFortschritt.Children[0].Parent := tbs_main;
+  tbs_Main.TagObject := fFormFortschritt;
+  Tfrm_Base(fFormFortschritt).OnBack := doBack;
+
+  fAufgaben.OnProgress := fFormFortschritt.Progress;
+  fAufgaben.OnProgressMaxValue := fFormFortschritt.ProgressMaxValue;
+  }
+
 end;
 
 procedure Tfrm_PhotoOrga.FormDestroy(Sender: TObject);
@@ -86,19 +98,29 @@ begin
   fTabVerlauf.DisposeOf;
   FreeAndNil(PhotoOrga);
   FreeAndNil(fAufgaben);
-  FreeAndNil(fExifImage);
 end;
 
 
 procedure Tfrm_PhotoOrga.FormShow(Sender: TObject);
+var
+  ReadFiles: TReadFiles;
 begin
+//  TDialogService.ShowMessage('test');
   PhotoOrga.RequestPermissions;
   dm_db.Connect;
   fAufgaben.LadeBildListFromDB;
-//  setTabActiv(tbs_Main);
- // PhotoOrga.QueueList.Add(TQueueProcess.c_quReadFiles);
- // fAufgaben.Start;
+  setTabActiv(tbs_Main);
+  //PhotoOrga.QueueList.Add(TQueueProcess.c_quReadFiles);
+  //fAufgaben.Start;
   //PhotoOrga.sendNotification('Hurra');
+  {
+  ReadFiles := TReadFiles.Create;
+  try
+    ReadFiles.Start;
+  finally
+    FreeAndNil(ReadFiles);
+  end;
+  }
 end;
 
 procedure Tfrm_PhotoOrga.setTabActiv(aTab: TTabItem);

@@ -19,10 +19,9 @@ inherited frm_Bild: Tfrm_Bild
       329s
       456s
       329s
-      456s
-      329s
       456s)
-    object TabItem1: TTabItem
+    object tab1: TTabItem
+      Tag = 1
       CustomIcon = <
         item
         end>
@@ -32,8 +31,11 @@ inherited frm_Bild: Tfrm_Bild
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'TabItem1'
+      Text = 'tab1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Img1: TImage
+        Tag = 1
         Touch.GestureManager = GestureManager1
         OnGesture = TabControl1Gesture
         MultiResBitmap = <
@@ -43,9 +45,11 @@ inherited frm_Bild: Tfrm_Bild
         Size.Width = 329.000000000000000000
         Size.Height = 456.000000000000000000
         Size.PlatformDefault = False
+        OnClick = Img1Click
       end
     end
-    object TabItem2: TTabItem
+    object tab2: TTabItem
+      Tag = 2
       CustomIcon = <
         item
         end>
@@ -55,8 +59,11 @@ inherited frm_Bild: Tfrm_Bild
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'TabItem2'
+      Text = 'tab2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Img2: TImage
+        Tag = 2
         Touch.GestureManager = GestureManager1
         OnGesture = TabControl1Gesture
         MultiResBitmap = <
@@ -68,7 +75,8 @@ inherited frm_Bild: Tfrm_Bild
         Size.PlatformDefault = False
       end
     end
-    object TabItem3: TTabItem
+    object Tab3: TTabItem
+      Tag = 3
       CustomIcon = <
         item
         end>
@@ -78,8 +86,11 @@ inherited frm_Bild: Tfrm_Bild
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'TabItem3'
+      Text = 'Tab3'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Img3: TImage
+        Tag = 3
         Touch.GestureManager = GestureManager1
         OnGesture = TabControl1Gesture
         MultiResBitmap = <
@@ -90,18 +101,6 @@ inherited frm_Bild: Tfrm_Bild
         Size.Height = 456.000000000000000000
         Size.PlatformDefault = False
       end
-    end
-    object TabItem4: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem4'
     end
   end
   object Rec_Toolbar_Background: TRectangle

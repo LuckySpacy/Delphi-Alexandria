@@ -38,7 +38,8 @@ uses
   Form.Splash in 'Form\Form.Splash.pas' {frm_Splash},
   Frame.Bild in 'Frame\Frame.Bild.pas' {fra_Bild: TFrame},
   Form.Bilder3 in 'Form\Form.Bilder3.pas' {frm_Bilder3},
-  Objekt.fraBildList in 'Objekt\Objekt.fraBildList.pas';
+  Objekt.fraBildList in 'Objekt\Objekt.fraBildList.pas',
+  Form.Fortschritt in 'Form\Form.Fortschritt.pas' {frm_Fortschritt};
 
 {$R *.res}
 
