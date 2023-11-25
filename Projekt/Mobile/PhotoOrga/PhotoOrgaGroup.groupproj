@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8FD97606-D003-428F-801D-E9521EEBE286}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PhotoOrga.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PhotoOrga_Alt\PhotoOrga_alt.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\Test\Exif\Windows\Test 1\ExifWinTest1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\Test\Exif\Windows\CCR Exif v1.5.1\VCL Demos\ExifList\ExifList2009.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\TabSlideTransition\TabSlidingProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\Test\Gesten\TabSlide\Test 1\TabSlideTest1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PhotoOrga">
+        <MSBuild Projects="PhotoOrga.dproj"/>
+    </Target>
+    <Target Name="PhotoOrga:Clean">
+        <MSBuild Projects="PhotoOrga.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PhotoOrga:Make">
+        <MSBuild Projects="PhotoOrga.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PhotoOrga_alt">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj"/>
+    </Target>
+    <Target Name="PhotoOrga_alt:Clean">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PhotoOrga_alt:Make">
+        <MSBuild Projects="..\PhotoOrga_Alt\PhotoOrga_alt.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ExifWinTest1">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\Test 1\ExifWinTest1.dproj"/>
+    </Target>
+    <Target Name="ExifWinTest1:Clean">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\Test 1\ExifWinTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ExifWinTest1:Make">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\Test 1\ExifWinTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ExifList2009">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\CCR Exif v1.5.1\VCL Demos\ExifList\ExifList2009.dproj"/>
+    </Target>
+    <Target Name="ExifList2009:Clean">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\CCR Exif v1.5.1\VCL Demos\ExifList\ExifList2009.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ExifList2009:Make">
+        <MSBuild Projects="..\..\..\Test\Exif\Windows\CCR Exif v1.5.1\VCL Demos\ExifList\ExifList2009.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TabSlidingProject">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\TabSlideTransition\TabSlidingProject.dproj"/>
+    </Target>
+    <Target Name="TabSlidingProject:Clean">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\TabSlideTransition\TabSlidingProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TabSlidingProject:Make">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\TabSlideTransition\TabSlidingProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TabSlideTest1">
+        <MSBuild Projects="..\..\..\Test\Gesten\TabSlide\Test 1\TabSlideTest1.dproj"/>
+    </Target>
+    <Target Name="TabSlideTest1:Clean">
+        <MSBuild Projects="..\..\..\Test\Gesten\TabSlide\Test 1\TabSlideTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TabSlideTest1:Make">
+        <MSBuild Projects="..\..\..\Test\Gesten\TabSlide\Test 1\TabSlideTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PhotoOrga;PhotoOrga_alt;ExifWinTest1;ExifList2009;TabSlidingProject;TabSlideTest1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PhotoOrga:Clean;PhotoOrga_alt:Clean;ExifWinTest1:Clean;ExifList2009:Clean;TabSlidingProject:Clean;TabSlideTest1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PhotoOrga:Make;PhotoOrga_alt:Make;ExifWinTest1:Make;ExifList2009:Make;TabSlidingProject:Make;TabSlideTest1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

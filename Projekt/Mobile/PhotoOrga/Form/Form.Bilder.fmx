@@ -1,0 +1,32 @@
+inherited frm_Bilder: Tfrm_Bilder
+  Caption = 'frm_Base1'
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Rec_Toolbar_Background: TRectangle
+    Align = Top
+    Fill.Color = xFF005686
+    Size.Width = 640.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+    object gly_Back: TGlyph
+      Margins.Left = 3.000000000000000000
+      Align = Left
+      Position.X = 3.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 0
+      Images = dm_Bilder.Img_Toolbar
+    end
+  end
+  object ScrollBox1: TScrollBox
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 456.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 640.000000000000000000
+    Viewport.Height = 456.000000000000000000
+  end
+end

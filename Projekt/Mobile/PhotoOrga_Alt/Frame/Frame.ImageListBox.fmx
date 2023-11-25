@@ -1,0 +1,89 @@
+object fra_ImageListBox: Tfra_ImageListBox
+  Size.Width = 860.000000000000000000
+  Size.Height = 441.000000000000000000
+  Size.PlatformDefault = False
+  object lbx_Image: TListBox
+    Position.X = 24.000000000000000000
+    Position.Y = 208.000000000000000000
+    Size.Width = 650.000000000000000000
+    Size.Height = 162.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    DisableFocusEffect = True
+    ItemHeight = 140.000000000000000000
+    ItemWidth = 136.000000000000000000
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    ListStyle = Horizontal
+    Viewport.Width = 646.000000000000000000
+    Viewport.Height = 158.000000000000000000
+  end
+  object lbTemplate: TListBox
+    Align = Right
+    Position.X = 720.000000000000000000
+    Size.Width = 140.000000000000000000
+    Size.Height = 441.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    DisableFocusEffect = True
+    ItemHeight = 140.000000000000000000
+    ItemWidth = 136.000000000000000000
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 136.000000000000000000
+    Viewport.Height = 437.000000000000000000
+    object ListBoxItemImageTemplate: TListBoxItem
+      StyleName = 'ListBoxItemImageStyle'
+      Size.Width = 136.000000000000000000
+      Size.Height = 140.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      OnApplyStyleLookup = ListBoxItemImageTemplateApplyStyleLookup
+      object ImageMini: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        HitTest = False
+        MarginWrapMode = Fit
+        Position.X = 8.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 110.000000000000000000
+        Size.PlatformDefault = False
+        WrapMode = Place
+      end
+      object FileInfo: TText
+        StyleName = 'FileName'
+        Anchors = [akLeft, akTop, akRight]
+        HitTest = False
+        Position.X = 8.000000000000000000
+        Position.Y = 118.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = Character
+        TextSettings.WordWrap = False
+        TextSettings.VertAlign = Leading
+      end
+      object Line1: TLine
+        Align = Right
+        LineType = Right
+        Position.X = 135.000000000000000000
+        Size.Width = 1.000000000000000000
+        Size.Height = 139.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line2: TLine
+        Align = Bottom
+        LineType = Bottom
+        Position.Y = 139.000000000000000000
+        Size.Width = 136.000000000000000000
+        Size.Height = 1.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end

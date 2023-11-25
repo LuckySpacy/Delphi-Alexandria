@@ -1,0 +1,113 @@
+inherited frm_Alben2: Tfrm_Alben2
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object ListBox1: TListBox
+    Align = Right
+    Position.X = 526.000000000000000000
+    Size.Width = 114.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Visible = False
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 110.000000000000000000
+    Viewport.Height = 476.000000000000000000
+    object lb: TListBoxItem
+      Size.Width = 110.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'lb'
+      object Image2: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 110.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+  object lv: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 367.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    ItemAppearance.ItemHeight = 82
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 82.000000000000000000
+        Appearance.Height = 25.000000000000000000
+        Appearance.Visible = False
+      end
+      item
+        AppearanceObjectName = 'Img1'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 80.000000000000000000
+        Appearance.Height = 80.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img2'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 80.000000000000000000
+        Appearance.Height = 80.000000000000000000
+        Appearance.PlaceOffset.X = 81.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img3'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 80.000000000000000000
+        Appearance.Height = 80.000000000000000000
+        Appearance.PlaceOffset.X = 162.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Img4'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 80.000000000000000000
+        Appearance.Height = 80.000000000000000000
+        Appearance.PlaceOffset.X = 243.000000000000000000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+  end
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object Image1: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Right
+      Size.Width = 640.000000000000000000
+      Size.Height = 113.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label1: TLabel
+      Align = Left
+      Size.Width = 369.000000000000000000
+      Size.Height = 113.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Label1'
+      TabOrder = 1
+    end
+  end
+end
