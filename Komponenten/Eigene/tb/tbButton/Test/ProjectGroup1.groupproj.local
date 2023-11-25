@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014.12.14 17:23:05.763.groupproj,C:\Users\Thomas\Documents\RAD Studio\Projekte\ProjectGroup1.groupproj=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\tbButton\Test\ProjectGroup1.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="Project2.exe"/>
+	</Default.Personality>
+</BorlandProject>

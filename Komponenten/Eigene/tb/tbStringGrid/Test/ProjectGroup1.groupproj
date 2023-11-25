@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{32C4A18D-6C24-457C-B5F5-1E11CF55042A}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="StringGridTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Package\tbStringGrid.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="StringGridTest">
+			<MSBuild Projects="StringGridTest.dproj"/>
+		</Target>
+		<Target Name="StringGridTest:Clean">
+			<MSBuild Targets="Clean" Projects="StringGridTest.dproj"/>
+		</Target>
+		<Target Name="StringGridTest:Make">
+			<MSBuild Targets="Make" Projects="StringGridTest.dproj"/>
+		</Target>
+		<Target Name="tbStringGrid">
+			<MSBuild Projects="..\Package\tbStringGrid.dproj"/>
+		</Target>
+		<Target Name="tbStringGrid:Clean">
+			<MSBuild Targets="Clean" Projects="..\Package\tbStringGrid.dproj"/>
+		</Target>
+		<Target Name="tbStringGrid:Make">
+			<MSBuild Targets="Make" Projects="..\Package\tbStringGrid.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="StringGridTest;tbStringGrid"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="StringGridTest:Clean;tbStringGrid:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="StringGridTest:Make;tbStringGrid:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

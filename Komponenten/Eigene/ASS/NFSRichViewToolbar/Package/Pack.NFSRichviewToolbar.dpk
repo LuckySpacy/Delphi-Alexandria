@@ -1,0 +1,53 @@
+package Pack.NFSRichviewToolbar;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclimg,
+  VclSmp,
+  RVPkgD10_2;
+
+contains
+  NFSRichViewtoolbar in '..\NFSRichViewtoolbar.pas',
+  NFSToolbarFontSize in '..\NFSToolbarFontSize.pas',
+  Prop.NFSFontsize in '..\Property\Prop.NFSFontsize.pas',
+  NFSRichViewEdit in '..\..\NFSRichViewEdit\NFSRichViewEdit.pas',
+  NFSToolbartypes in '..\NFSToolbartypes.pas',
+  NFSToolbarbutton in '..\NFSToolbarbutton.pas',
+  NFSToolbarFontbox in '..\NFSToolbarFontbox.pas',
+  Prop.NFSButton in '..\Property\Prop.NFSButton.pas',
+  Prop.NFSFontbox in '..\Property\Prop.NFSFontbox.pas',
+  Form.FontFav in '..\Form\Form.FontFav.pas' {frm_FontFav},
+  Form.RveLinespace in '..\Form\Form.RveLinespace.pas' {frm_RveLinespace},
+  Prop.NFSButtons in '..\Property\Prop.NFSButtons.pas',
+  Prop.NFSButtonPos in '..\Property\Prop.NFSButtonPos.pas',
+  Objekt.SyncListbox in '..\Objekt\Objekt.SyncListbox.pas';
+
+end.

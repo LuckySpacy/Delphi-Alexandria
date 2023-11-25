@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.769,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\GridAdapter\gridadapter.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.741,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\LockProvider\LockProvider.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.352,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\ProcessQueue\ProcessQueue.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.658,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\NfsFramework\NewFrontiers.Vcl\NewFrontiers.Vcl.Ueberschrift.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.114,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\Ueberschriftenpanel\Ueberschriftenpanel_norm.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.914,C:\Bachmann\Delphi\Sydney\Komponenten\Eigene\ASS\ExecOnTime\ExecOnTime.pas=</Transaction>
+    <Transaction>2021.08.02 14:13:39.571,=VclSmp.dcp</Transaction>
+    <Transaction>2021.08.02 14:13:39.625,=TMSVCLUIPackPkgDXE14.dcp</Transaction>
+  </Transactions>
+</BorlandProject>

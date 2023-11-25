@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.772,=RVPkgDXE7.dcp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dproj,C:\Bachmann\Delphi 2010\Komponenten\MyComponents\RichviewEdit\Package\tbRichviewEdit.dproj=C:\Users\Thomas\Documents\RAD Studio\Projekte\Package1.dproj</Transaction>
+    <Transaction>2020.11.26 17:20:35.935,=vclimg.dcp</Transaction>
+    <Transaction>2020.11.26 17:20:36.015,=vcl.dcp</Transaction>
+    <Transaction>2020.11.26 17:20:36.086,=rtl.dcp</Transaction>
+    <Transaction>2020.11.26 17:20:36.142,=RVPkgD10_4.dcp</Transaction>
+  </Transactions>
+</BorlandProject>

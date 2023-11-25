@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{410932B8-9FD5-4661-AA5A-AD91DEDD1F52}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Project2.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Package\EditFile.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Project2">
+			<MSBuild Projects="Project2.dproj"/>
+		</Target>
+		<Target Name="Project2:Clean">
+			<MSBuild Targets="Clean" Projects="Project2.dproj"/>
+		</Target>
+		<Target Name="Project2:Make">
+			<MSBuild Targets="Make" Projects="Project2.dproj"/>
+		</Target>
+		<Target Name="EditFile">
+			<MSBuild Projects="..\Package\EditFile.dproj"/>
+		</Target>
+		<Target Name="EditFile:Clean">
+			<MSBuild Targets="Clean" Projects="..\Package\EditFile.dproj"/>
+		</Target>
+		<Target Name="EditFile:Make">
+			<MSBuild Targets="Make" Projects="..\Package\EditFile.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Project2;EditFile"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Project2:Clean;EditFile:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Project2:Make;EditFile:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

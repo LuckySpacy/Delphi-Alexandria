@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014.09.02 19:51:33.541.pas,C:\Users\Thomas\Documents\RAD Studio\Projekte\Unit2.pas=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\ButtonedEdit\Test\Unit2.pas</Transaction>
+    <Transaction>2014.09.02 19:51:33.541.dfm,C:\Users\Thomas\Documents\RAD Studio\Projekte\Unit2.dfm=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\ButtonedEdit\Test\Unit2.dfm</Transaction>
+    <Transaction>2014.09.02 19:51:34.596.dproj,C:\Users\Thomas\Documents\RAD Studio\Projekte\Project2.dproj=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\ButtonedEdit\Test\Project2.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,53 @@
+package Toolbar;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  VclSmp,
+  vclimg,
+  tbRichviewEdit;
+
+contains
+  tbtoolbar in '..\tbtoolbar.pas',
+  tbFontbox in '..\tbFontbox.pas',
+  tbFontsize in '..\tbFontsize.pas',
+  tbPropButton in '..\tbPropButton.pas',
+  tbPropButtonPos in '..\tbPropButtonPos.pas',
+  tbPropButtons in '..\tbPropButtons.pas',
+  tbPropFontbox in '..\tbPropFontbox.pas',
+  tbPropFontSize in '..\tbPropFontSize.pas',
+  tbtoolbartypes in '..\tbtoolbartypes.pas',
+  tbToolButton in '..\tbToolButton.pas',
+  cToolbar in '..\cToolbar.pas',
+  fnt_FontFav in '..\fnt_FontFav.pas' {frm_FontFav},
+  o_synclistbox in '..\o_synclistbox.pas',
+  fnt_RveLinespace in '..\fnt_RveLinespace.pas' {frm_RveLinespace};
+
+end.

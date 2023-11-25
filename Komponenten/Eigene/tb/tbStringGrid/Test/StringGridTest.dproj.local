@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014.11.01 16:37:32.309.pas,C:\Users\Thomas\Documents\RAD Studio\Projekte\Unit2.pas=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\tbStringGrid\Test\fntStringGrid.pas</Transaction>
+    <Transaction>2014.11.01 16:37:32.328.dfm,C:\Users\Thomas\Documents\RAD Studio\Projekte\Unit2.dfm=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\tbStringGrid\Test\fntStringGrid.dfm</Transaction>
+    <Transaction>2014.11.01 16:37:43.092.dproj,C:\Users\Thomas\Documents\RAD Studio\Projekte\Project2.dproj=C:\Bachmann\Delphi 2010\Komponenten\MyComponents\tbStringGrid\Test\StringGridTest.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
