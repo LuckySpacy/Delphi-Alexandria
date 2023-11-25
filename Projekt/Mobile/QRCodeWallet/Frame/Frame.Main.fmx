@@ -1,0 +1,99 @@
+object fra_Main: Tfra_Main
+  Size.Width = 397.000000000000000000
+  Size.Height = 558.000000000000000000
+  Size.PlatformDefault = False
+  object VertScrollBox1: TVertScrollBox
+    Align = Client
+    Size.Width = 397.000000000000000000
+    Size.Height = 558.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 397.000000000000000000
+    Viewport.Height = 558.000000000000000000
+    object FlowLayout1: TFlowLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.Y = 52.000000000000000000
+      Size.Width = 397.000000000000000000
+      Size.Height = 265.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Justify = Left
+      JustifyLastLine = Left
+      FlowDirection = LeftToRight
+      object Button1: TButton
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        TabOrder = 3
+        Text = 'Button1'
+      end
+      object Button2: TButton
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 110.000000000000000000
+        Position.Y = 10.000000000000000000
+        TabOrder = 2
+        Text = 'Button1'
+      end
+      object Button3: TButton
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 210.000000000000000000
+        Position.Y = 10.000000000000000000
+        TabOrder = 1
+        Text = 'Button1'
+      end
+      object Button4: TButton
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 52.000000000000000000
+        TabOrder = 0
+        Text = 'Button1'
+      end
+    end
+    object Layout1: TLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 397.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Label1: TLabel
+        Align = Left
+        StyledSettings = [FontColor]
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Bibliothek'
+        TabOrder = 0
+      end
+      object gly_Add: TGlyph
+        Margins.Right = 10.000000000000000000
+        Align = Right
+        Position.X = 355.000000000000000000
+        Size.Width = 32.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = Bilder.ImageList
+      end
+    end
+  end
+end

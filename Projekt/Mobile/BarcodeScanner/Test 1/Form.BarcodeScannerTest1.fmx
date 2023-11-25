@@ -1,0 +1,41 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  Caption = 'Form3'
+  ClientHeight = 516
+  ClientWidth = 280
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Image: TLayout
+    Align = Client
+    Size.Width = 280.000000000000000000
+    Size.Height = 475.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Ani_Wait: TAniIndicator
+      Align = Center
+      Margins.Top = 25.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 280.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object btn_Scanner: TButton
+      Position.X = 24.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 0
+      Text = 'btn_Scanner'
+      OnClick = btn_ScannerClick
+    end
+  end
+end

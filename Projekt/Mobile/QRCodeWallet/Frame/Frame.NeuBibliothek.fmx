@@ -1,0 +1,69 @@
+inherited fra_AddBibliothek: Tfra_AddBibliothek
+  object Layout1: TLayout
+    Align = Top
+    Margins.Top = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Label1: TLabel
+      Align = Left
+      StyledSettings = [FontColor]
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 223.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Roboto'
+      TextSettings.Font.Size = 20.000000000000000000
+      Text = 'Neue Bibliothek'
+      TabOrder = 0
+    end
+    object gly_Save: TGlyph
+      Margins.Right = 10.000000000000000000
+      Align = Right
+      Position.X = 278.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 1
+      Images = Bilder.ImageList
+    end
+    object gly_Cancel: TGlyph
+      Margins.Right = 10.000000000000000000
+      Align = Right
+      Position.X = 236.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 2
+      Images = Bilder.ImageList
+    end
+  end
+  object Label2: TLabel
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 62.000000000000000000
+    Size.Width = 310.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Name der Bibliothek'
+    TabOrder = 3
+  end
+  object edt_Bibliothek: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 4
+    Position.X = 10.000000000000000000
+    Position.Y = 84.000000000000000000
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

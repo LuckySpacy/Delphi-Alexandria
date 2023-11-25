@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9B322994-1B5E-4031-907C-81E5CDF4E702}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BarcodeScannerTest1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\BasCloud\App\BAScloud.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BarcodeScannerTest1">
+        <MSBuild Projects="BarcodeScannerTest1.dproj"/>
+    </Target>
+    <Target Name="BarcodeScannerTest1:Clean">
+        <MSBuild Projects="BarcodeScannerTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BarcodeScannerTest1:Make">
+        <MSBuild Projects="BarcodeScannerTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BAScloud">
+        <MSBuild Projects="..\..\..\BasCloud\App\BAScloud.dproj"/>
+    </Target>
+    <Target Name="BAScloud:Clean">
+        <MSBuild Projects="..\..\..\BasCloud\App\BAScloud.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BAScloud:Make">
+        <MSBuild Projects="..\..\..\BasCloud\App\BAScloud.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BarcodeScannerTest1;BAScloud"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BarcodeScannerTest1:Clean;BAScloud:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BarcodeScannerTest1:Make;BAScloud:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

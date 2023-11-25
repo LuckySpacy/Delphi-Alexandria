@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.749,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.NeuBibliothek.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.042,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.Main.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.015,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.000,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.904,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.321,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.086,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Datenmodul\Datenmodul.dm.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.244,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.Base.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.042,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.Main.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.086,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.dfm=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Datenmodul\Datenmodul.dm.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.176,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit2.dfm=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Datenmodul\Datenmodul.Bilder.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.505,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.888,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.244,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.Base.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.749,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit1.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Frame\Frame.NeuBibliothek.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.102,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Form\Form.QRCodeWallet.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.299,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.914,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.908,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project2.dproj=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\QRCodeWallet.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.102,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Form\Form.QRCodeWallet.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.772,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.176,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Unit2.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\Datenmodul\Datenmodul.Bilder.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.370,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.871,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit2.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="" Android64=""/>
+	</ActiveMobileDevice>
+</BorlandProject>

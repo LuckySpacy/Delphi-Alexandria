@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E5F87EC0-9506-4CEC-8C72-78EA9626F3C3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\Test 1\BarcodeScannerTest1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BarcodescannerTest2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BarcodeScannerTest1">
+        <MSBuild Projects="..\Test 1\BarcodeScannerTest1.dproj"/>
+    </Target>
+    <Target Name="BarcodeScannerTest1:Clean">
+        <MSBuild Projects="..\Test 1\BarcodeScannerTest1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BarcodeScannerTest1:Make">
+        <MSBuild Projects="..\Test 1\BarcodeScannerTest1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BarcodescannerTest2">
+        <MSBuild Projects="BarcodescannerTest2.dproj"/>
+    </Target>
+    <Target Name="BarcodescannerTest2:Clean">
+        <MSBuild Projects="BarcodescannerTest2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BarcodescannerTest2:Make">
+        <MSBuild Projects="BarcodescannerTest2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BarcodeScannerTest1;BarcodescannerTest2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BarcodeScannerTest1:Clean;BarcodescannerTest2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BarcodeScannerTest1:Make;BarcodescannerTest2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

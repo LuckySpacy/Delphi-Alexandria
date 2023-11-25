@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.530,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\DelphiZXIngQRCode.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.905,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\DelphiZXIngQRCode.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.324,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit4.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Form\Form.QRCodeErzeugen.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\DelphiZXIngQRCode.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.885,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Project3.dproj=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\QRCodeErzeugen.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.463,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Objekt\Objekt.QRCodeErzeugen.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.750,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Objekt\Objekt.QRCodeErzeugen.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.879,=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.630,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\FBarcodeSuite.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\FBarcodeSuite.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.568,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\FBarcodeSuite.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.208,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\ZXing\FBarcodeSuite.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.324,D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\Unit4.fmx=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Form\Form.QRCodeErzeugen.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.458,=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.531,D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Unit1.pas=D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeErzeugen\Objekt\Objekt.QRCodeErzeugen.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile Android64="74024a99" Android="RF8R90Q4XDM"/>
+	</ActiveMobileDevice>
+</BorlandProject>

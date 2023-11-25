@@ -1,0 +1,94 @@
+object frm_QRCodeErzeugen: Tfrm_QRCodeErzeugen
+  Left = 0
+  Top = 0
+  Caption = 'Form4'
+  ClientHeight = 521
+  ClientWidth = 429
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Size.Width = 429.000000000000000000
+    Size.Height = 521.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object lbl_QRCodeText: TLabel
+      Align = Top
+      Size.Width = 429.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'QRCodetext'
+      TabOrder = 0
+    end
+    object Memo1: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      Align = Top
+      Position.Y = 17.000000000000000000
+      Size.Width = 429.000000000000000000
+      Size.Height = 104.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 425.000000000000000000
+      Viewport.Height = 100.000000000000000000
+    end
+    object btn_QRCodeErzeugen: TButton
+      Align = Top
+      Position.Y = 153.000000000000000000
+      Size.Width = 429.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Erzeugen'
+      OnClick = btn_QRCodeErzeugenClick
+    end
+    object Layout2: TLayout
+      Align = Client
+      Size.Width = 429.000000000000000000
+      Size.Height = 346.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object PaintBox: TPaintBox
+        Position.X = 144.000000000000000000
+        Position.Y = 64.000000000000000000
+      end
+      object Image1: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 409.000000000000000000
+        Size.Height = 242.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Layout3: TLayout
+      Align = Top
+      Position.Y = 121.000000000000000000
+      Size.Width = 429.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object edt_Pixelsize: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        KeyboardType = NumberPad
+        Position.X = 232.000000000000000000
+        Position.Y = 2.000000000000000000
+      end
+      object lbl_Pixelsize: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 216.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Pixelsize'
+        TabOrder = 1
+      end
+    end
+  end
+end

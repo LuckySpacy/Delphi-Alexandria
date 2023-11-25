@@ -1,0 +1,52 @@
+object frm_QRCodeWallet: Tfrm_QRCodeWallet
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 421
+  ClientWidth = 403
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object tbc: TTabControl
+    Align = Client
+    Size.Width = 403.000000000000000000
+    Size.Height = 421.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = None
+    Sizes = (
+      403s
+      421s
+      403s
+      421s)
+    object tbs_Main: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_Main'
+    end
+    object tbs_NeuBibliothek: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_NeuBibliothek'
+    end
+  end
+end
