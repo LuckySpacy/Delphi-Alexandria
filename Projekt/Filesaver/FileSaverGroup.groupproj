@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1114D7E3-5223-46B9-BA63-E417AA1F2D6F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="UI\FilesaverUI.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Energieverbrauch\Win\Pflege\Energieverbrauch.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FilesaverUI">
+        <MSBuild Projects="UI\FilesaverUI.dproj"/>
+    </Target>
+    <Target Name="FilesaverUI:Clean">
+        <MSBuild Projects="UI\FilesaverUI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FilesaverUI:Make">
+        <MSBuild Projects="UI\FilesaverUI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Energieverbrauch">
+        <MSBuild Projects="..\Energieverbrauch\Win\Pflege\Energieverbrauch.dproj"/>
+    </Target>
+    <Target Name="Energieverbrauch:Clean">
+        <MSBuild Projects="..\Energieverbrauch\Win\Pflege\Energieverbrauch.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Energieverbrauch:Make">
+        <MSBuild Projects="..\Energieverbrauch\Win\Pflege\Energieverbrauch.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FilesaverUI;Energieverbrauch"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FilesaverUI:Clean;Energieverbrauch:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FilesaverUI:Make;Energieverbrauch:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
