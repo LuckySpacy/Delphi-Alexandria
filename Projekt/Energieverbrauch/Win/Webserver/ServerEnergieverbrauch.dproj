@@ -125,7 +125,7 @@
         </DCCReference>
         <DCCReference Include="Objekt\Objekt.Energieverbrauch.pas"/>
         <DCCReference Include="Objekt\Objekt.Logger.pas"/>
-        <DCCReference Include="..\..\..\Log4d\Log4D.pas"/>
+        <DCCReference Include="..\..\..\..\Komponenten\Log4d\Log4D.pas"/>
         <DCCReference Include="Objekt\Objekt.IniEnergieverbrauch.pas"/>
         <DCCReference Include="Objekt\Objekt.IniEinstellung.pas"/>
         <DCCReference Include="..\..\..\Allgemein\Vcl\Objekt\Objekt.Ini.pas"/>

@@ -6,10 +6,7 @@
         <Projects Include="Energieverbrauch.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\QRCodeWallet.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj">
+        <Projects Include="..\Webserver\ServerEnergieverbrauch.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -29,32 +26,23 @@
     <Target Name="Energieverbrauch:Make">
         <MSBuild Projects="Energieverbrauch.dproj" Targets="Make"/>
     </Target>
-    <Target Name="QRCodeWallet">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\QRCodeWallet.dproj"/>
-    </Target>
-    <Target Name="QRCodeWallet:Clean">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\QRCodeWallet.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="QRCodeWallet:Make">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Mobile\QRCodeWallet\QRCodeWallet.dproj" Targets="Make"/>
-    </Target>
     <Target Name="ServerEnergieverbrauch">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj"/>
+        <MSBuild Projects="..\Webserver\ServerEnergieverbrauch.dproj"/>
     </Target>
     <Target Name="ServerEnergieverbrauch:Clean">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj" Targets="Clean"/>
+        <MSBuild Projects="..\Webserver\ServerEnergieverbrauch.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ServerEnergieverbrauch:Make">
-        <MSBuild Projects="D:\Bachmann\Daten\OneDrive\Asus-PC-2018\Programmierung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj" Targets="Make"/>
+        <MSBuild Projects="..\Webserver\ServerEnergieverbrauch.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Energieverbrauch;QRCodeWallet;ServerEnergieverbrauch"/>
+        <CallTarget Targets="Energieverbrauch;ServerEnergieverbrauch"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Energieverbrauch:Clean;QRCodeWallet:Clean;ServerEnergieverbrauch:Clean"/>
+        <CallTarget Targets="Energieverbrauch:Clean;ServerEnergieverbrauch:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Energieverbrauch:Make;QRCodeWallet:Make;ServerEnergieverbrauch:Make"/>
+        <CallTarget Targets="Energieverbrauch:Make;ServerEnergieverbrauch:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

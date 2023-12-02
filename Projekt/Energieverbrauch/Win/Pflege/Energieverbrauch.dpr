@@ -1,9 +1,9 @@
 program Energieverbrauch;
 
 uses
-  FastMM4 in '..\..\..\Log4d\FastMM\FastMM4.pas',
-  FastMM4Messages in '..\..\..\Log4d\FastMM\Translations\German\by Thomas Speck\FastMM4Messages.pas',
-  Log4D in '..\..\..\Log4d\Log4D.pas',
+  FastMM4 in '..\..\..\..\Komponenten\Log4d\FastMM\FastMM4.pas',
+  FastMM4Messages in '..\..\..\..\Komponenten\Log4d\FastMM\Translations\German\by Thomas Speck\FastMM4Messages.pas',
+  Log4D in '..\..\..\..\Komponenten\Log4d\Log4D.pas',
   Vcl.Forms,
   Form.Energieverbrauch in 'Form\Form.Energieverbrauch.pas' {frm_Energieverbrauch},
   Form.Base in 'Form\Form.Base.pas' {frm_Base},

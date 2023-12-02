@@ -18,7 +18,7 @@ uses
   Datenmodul.Database in 'Datenmodul\Datenmodul.Database.pas' {dm: TDataModule},
   Objekt.Energieverbrauch in 'Objekt\Objekt.Energieverbrauch.pas',
   Objekt.Logger in 'Objekt\Objekt.Logger.pas',
-  Log4D in '..\..\..\Log4d\Log4D.pas',
+  Log4D in '..\..\..\..\Komponenten\Log4d\Log4D.pas',
   Objekt.IniEnergieverbrauch in 'Objekt\Objekt.IniEnergieverbrauch.pas',
   Objekt.IniEinstellung in 'Objekt\Objekt.IniEinstellung.pas',
   Objekt.Ini in '..\..\..\Allgemein\Vcl\Objekt\Objekt.Ini.pas',
