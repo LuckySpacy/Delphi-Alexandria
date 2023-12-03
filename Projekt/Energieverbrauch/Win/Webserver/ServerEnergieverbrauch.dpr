@@ -32,7 +32,18 @@ uses
   Objekt.DBSchnittstelle in 'Objekt\Objekt.DBSchnittstelle.pas',
   JObjekt.Error in '..\JObjekt\JObjekt.Error.pas',
   JObjekt.ErrorList in '..\JObjekt\JObjekt.ErrorList.pas',
-  Objekt.Basislist in '..\..\..\Allgemein\Vcl\Objekt\Objekt.Basislist.pas';
+  Objekt.Basislist in '..\..\..\Allgemein\Vcl\Objekt\Objekt.Basislist.pas',
+  Objekt.Feld in '..\Objekt\Objekt.Feld.pas',
+  Objekt.FeldList in '..\Objekt\Objekt.FeldList.pas',
+  Objekt.JZaehler in '..\Objekt\Objekt.JZaehler.pas',
+  Objekt.JError in '..\Objekt\Objekt.JError.pas',
+  Objekt.JErrorList in '..\Objekt\Objekt.JErrorList.pas',
+  c.JsonError in '..\Const\c.JsonError.pas',
+  Objekt.JZaehlerList in '..\Objekt\Objekt.JZaehlerList.pas',
+  DB.Zaehlerstand in 'DB\DB.Zaehlerstand.pas',
+  Objekt.JZaehlerstand in '..\Objekt\Objekt.JZaehlerstand.pas',
+  Objekt.JZaehlerstandList in '..\Objekt\Objekt.JZaehlerstandList.pas',
+  DB.ZaehlerstandList in 'DB\DB.ZaehlerstandList.pas';
 
 {$R *.res}
 

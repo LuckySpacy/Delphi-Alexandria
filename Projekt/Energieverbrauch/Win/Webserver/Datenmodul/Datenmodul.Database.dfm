@@ -1,4 +1,6 @@
 object dm: Tdm
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
   Height = 463
   Width = 532
   object IB: TIBDatabase

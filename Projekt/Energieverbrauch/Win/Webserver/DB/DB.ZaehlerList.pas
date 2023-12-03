@@ -19,6 +19,7 @@ type
     property Item[Index:Integer]: TDBZaehler read getItem;
     function Add: TDBZaehler;
     procedure ReadAll;
+    procedure ReadbyId(aId: Integer);
   end;
 
 implementation
@@ -68,7 +69,7 @@ begin
   fQuery.OpenTrans;
   try
     fQuery.SQL.Text := 'select * from zaehler where za_DELETE != ' + QuotedStr('T') +
-                       ' order by za_zaehler desc';
+                       ' order by za_zaehler';
     fQuery.Open;
     while not fQuery.Eof do
     begin
@@ -84,5 +85,33 @@ begin
 end;
 
 
+
+procedure TDBZaehlerList.ReadbyId(aId: Integer);
+var
+  x: TDBZaehler;
+begin
+  fList.Clear;
+  if fTrans = nil then
+    exit;
+  fQuery.Trans := fTrans;
+  fQuery.Close;
+  fQuery.OpenTrans;
+  try
+    fQuery.SQL.Text := ' select * from zaehler where za_DELETE != ' + QuotedStr('T') +
+                       ' and za_id = ' + aId.ToString +
+                       ' order by za_zaehler';
+    fQuery.Open;
+    while not fQuery.Eof do
+    begin
+      x := TDBZaehler.Create(nil);
+      x.Trans := fTrans;
+      x.LoadByQuery(fQuery);
+      fList.Add(x);
+      fQuery.Next;
+    end;
+  finally
+    fQuery.RollbackTrans;
+  end;
+end;
 
 end.

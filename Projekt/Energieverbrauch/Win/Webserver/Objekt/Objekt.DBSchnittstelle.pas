@@ -12,7 +12,7 @@ type
   public
     constructor Create;
     destructor Destroy; override;
-    function PatchZaehler(aJObjZaehler: TJObjZaehler): Boolean;
+    //function PatchZaehler(aJObjZaehler: TJObjZaehler): Boolean;
   end;
 
 implementation
@@ -32,6 +32,7 @@ begin
   inherited;
 end;
 
+{
 function TDBSchnittstelle.PatchZaehler(aJObjZaehler: TJObjZaehler): Boolean;
 var
   DBZaehler: TDBZaehler;
@@ -42,7 +43,7 @@ begin
   try
     IBTrans.DefaultDatabase := dm.IB;
     DBZaehler.Trans := IBTrans;
-    DBZaehler.Patch(aJObjZaehler);
+    //DBZaehler.Patch(aJObjZaehler);
     //DBZaehler.SaveToDB;
   finally
     FreeAndNil(DBZaehler);
@@ -50,5 +51,6 @@ begin
   end;
 
 end;
+}
 
 end.

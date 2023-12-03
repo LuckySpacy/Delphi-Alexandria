@@ -4,6 +4,6 @@
     <Transaction>1899.12.30 00:00:00.000.233,Y:\Alexandria\Projekt\Energieverbrauch\Win\Pflege\EnergieverbrauchGroup.groupproj=D:\Bachmann\Daten\OneDrive\Dokumente\Embarcadero\Studio\Projekte\ProjectGroup1.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="C:\Bachmann\Entwicklung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj"/>
+		<Projects ActiveProject="C:\Entwicklung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj"/>
 	</Default.Personality>
 </BorlandProject>

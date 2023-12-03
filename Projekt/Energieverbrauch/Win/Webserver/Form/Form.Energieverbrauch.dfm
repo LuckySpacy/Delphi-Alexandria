@@ -109,6 +109,15 @@ object Form1: TForm1
       Text = '8079'
     end
   end
+  object btn_Test: TButton
+    Left = 299
+    Top = 8
+    Width = 107
+    Height = 25
+    Caption = 'Test'
+    TabOrder = 5
+    OnClick = btn_TestClick
+  end
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle
     Left = 328

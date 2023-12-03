@@ -22,6 +22,7 @@ type
     edt_Datenbankpfad: TEdit;
     edt_Datenbankname: TEdit;
     Label4: TLabel;
+    btn_Test: TButton;
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -29,6 +30,7 @@ type
     procedure ButtonOpenBrowserClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btn_TestClick(Sender: TObject);
   private
     FServer: TIdHTTPWebBrokerBridge;
     procedure StartServer;
@@ -45,7 +47,7 @@ implementation
 
 uses
 {$IFDEF MSWINDOWS}
-  WinApi.Windows, Winapi.ShellApi,
+  WinApi.Windows, Winapi.ShellApi, Objekt.JZaehler, Objekt.JErrorList,
 {$ENDIF}
   System.Generics.Collections, Objekt.Energieverbrauch, Datenmodul.Database;
 
@@ -54,6 +56,32 @@ begin
   ButtonStart.Enabled := not FServer.Active;
   ButtonStop.Enabled := FServer.Active;
   EditPort.Enabled := not FServer.Active;
+end;
+
+procedure TForm1.btn_TestClick(Sender: TObject);
+var
+  JZaehler: TJZaehler;
+  JErrorList: TJErrorList;
+  List: TStringList;
+  s: string;
+begin
+  List := TStringList.Create;
+  JErrorList := TJErrorList.Create;
+  JZaehler := TJZaehler.Create;
+  try
+    List.LoadFromFile('c:\Entwicklung\Delphi\Alexandria\Projekt\Energieverbrauch\Win\Webserver\bin\JErrorList.txt');
+    JErrorList.JsonString := Trim(List.Text);
+    Caption := JErrorList.JsonString;
+    JZaehler.FieldByName('ZA_ID').AsString := '1';
+    JZaehler.FieldByName('ZA_ZAEHLER').AsString := 'Gas';
+    s := JZaehler.JsonString;
+    if s = 'dfdsfds' then
+      exit;
+  finally
+    FreeAndNil(JZaehler);
+    FreeAndNil(List);
+    FreeAndNil(JErrorList);
+  end;
 end;
 
 procedure TForm1.ButtonOpenBrowserClick(Sender: TObject);

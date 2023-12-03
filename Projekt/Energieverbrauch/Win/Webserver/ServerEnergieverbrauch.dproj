@@ -140,6 +140,17 @@
         <DCCReference Include="..\JObjekt\JObjekt.Error.pas"/>
         <DCCReference Include="..\JObjekt\JObjekt.ErrorList.pas"/>
         <DCCReference Include="..\..\..\Allgemein\Vcl\Objekt\Objekt.Basislist.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.Feld.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.FeldList.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JZaehler.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JError.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JErrorList.pas"/>
+        <DCCReference Include="..\Const\c.JsonError.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JZaehlerList.pas"/>
+        <DCCReference Include="DB\DB.Zaehlerstand.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JZaehlerstand.pas"/>
+        <DCCReference Include="..\Objekt\Objekt.JZaehlerstandList.pas"/>
+        <DCCReference Include="DB\DB.ZaehlerstandList.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

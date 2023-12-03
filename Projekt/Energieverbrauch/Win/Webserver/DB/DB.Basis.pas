@@ -4,7 +4,8 @@ interface
 
 uses
   SysUtils, Classes, IBX.IBDatabase, Objekt.DBFeldList, Data.db, IBX.IBQuery,
-  vcl.Dialogs, Objekt.Allg, fireDAC.Comp.Client, db.tbQuery, db.TBTransaction;
+  vcl.Dialogs, Objekt.Allg, fireDAC.Comp.Client, db.tbQuery, db.TBTransaction,
+  objekt.FeldList;
 
 type
   TDBBasis = class(TComponent)
@@ -38,6 +39,7 @@ type
     procedure UpdateV(var aOldValue: extended; aNewValue: extended; aNachkomma: integer); overload;
     procedure UpdateV(var aOldValue: double; aNewValue: double; aNachkomma: integer); overload;
     procedure UpdateV(var aOldValue: real; aNewValue: real; aNachkomma: integer); overload;
+    procedure UpdateV(var aOldValue: currency; aNewValue: Currency); overload;
     procedure LegeHistorieFelderAn;
     procedure FuelleDBFelder; virtual;
     property OnAfterExecSql: TNotifyEvent read fOnAfterExecSql write fOnAfterExecSql;
@@ -57,9 +59,12 @@ type
     property Gefunden: Boolean read fGefunden;
     procedure Read(aId: Integer); virtual;
     function Delete: Boolean; virtual;
+    procedure ForceUpdate;
     procedure SaveToDB; virtual;
     function GenerateId: Integer;
     function ErzeugeGuid: string;
+    procedure LoadFromJsonObjekt(aFeldList: TFeldList);
+    procedure LoadToJsonObjekt(aFeldList: TFeldList);
   end;
 
 implementation
@@ -136,6 +141,11 @@ begin
     fFeldListHis.Add(fFeldList.Feld[i1].Feldname, ftString);
 end;
 
+procedure TDBBasis.ForceUpdate;
+begin
+  fDoUpdate := true;
+end;
+
 procedure TDBBasis.FuelleDBFelder;
 begin
   fFeldList.FieldByName(getTablePrefix+'_UPDATE').AsString := fUpdate;
@@ -162,11 +172,33 @@ begin
   if aQuery.Eof then
     exit;
   fId := aQuery.FieldByName(getTablePrefix+'_ID').AsInteger;
-  fUpdate := aQuery.FieldByName(getTablePrefix+'_UPDATE').AsString;
-  fDelete := aQuery.FieldByName(getTablePrefix+'_DELETE').AsString;
+  fUpdate := Trim(aQuery.FieldByName(getTablePrefix+'_UPDATE').AsString);
+  fDelete := Trim(aQuery.FieldByName(getTablePrefix+'_DELETE').AsString);
 end;
 
 
+
+procedure TDBBasis.LoadFromJsonObjekt(aFeldList: TFeldList);
+var
+  i1: Integer;
+begin
+  for i1 := 0 to fFeldList.Count -1 do
+  begin
+    if aFeldList.FieldByName(fFeldList.Feld[i1].Feldname) <> nil then
+      fFeldList.Feld[i1].AsString := aFeldList.FieldByName(fFeldList.Feld[i1].Feldname).AsString;
+  end;
+end;
+
+procedure TDBBasis.LoadToJsonObjekt(aFeldList: TFeldList);
+var
+  i1: Integer;
+begin
+  for i1 := 0 to fFeldList.Count -1 do
+  begin
+    if aFeldList.FieldByName(fFeldList.Feld[i1].Feldname) <> nil then
+      aFeldList.FieldByName(fFeldList.Feld[i1].Feldname).AsString := fFeldList.FieldByName(fFeldList.Feld[i1].Feldname).AsString;
+  end;
+end;
 
 function TDBBasis.ErzeugeGuid: string;
 var
@@ -381,6 +413,13 @@ begin
 end;
 
 procedure TDBBasis.UpdateV(var aOldValue: string; aNewValue: string);
+begin
+  if not fDoUpdate then
+    fDoUpdate := aOldValue <> aNewValue;
+  aOldValue := aNewValue;
+end;
+
+procedure TDBBasis.UpdateV(var aOldValue: currency; aNewValue: Currency);
 begin
   if not fDoUpdate then
     fDoUpdate := aOldValue <> aNewValue;

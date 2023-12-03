@@ -4,7 +4,8 @@ interface
 
 uses
   SysUtils, Classes, IBX.IBDatabase, IBX.IBQuery, DB.Basis, Data.db, DB.TBQuery,
-  JObjekt.Zaehler, db.TBTransaction;
+  c.JsonError,
+  JObjekt.Zaehler, db.TBTransaction, Objekt.JZaehler, Objekt.JErrorList;
 
 type
   TDBZaehler = class(TDBBasis)
@@ -27,12 +28,15 @@ type
     property Zaehler: string read fZaehler write setZaehler;
     procedure setBild(aStream: TMemoryStream);
     procedure LoadBildFromFile(aFullFilename: string);
-    function Patch(aJObjZaehler: TJObjZaehler): Boolean;
+    procedure Patch(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
+    procedure JRead(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
+    procedure JDelete(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
   end;
 
 implementation
 
 { TDBZaehler }
+
 
 constructor TDBZaehler.Create(AOwner: TComponent);
 begin
@@ -56,6 +60,8 @@ begin
   fBild.Clear;
   FuelleDBFelder;
 end;
+
+
 
 
 procedure TDBZaehler.FuelleDBFelder;
@@ -100,6 +106,7 @@ begin
 end;
 
 
+
 procedure TDBZaehler.SaveToDB;
 begin
   inherited;
@@ -117,19 +124,89 @@ begin
   aStream.Position := 0;
 end;
 
+
 procedure TDBZaehler.setZaehler(const Value: string);
 begin
   UpdateV(fZaehler, Value);
   fFeldList.FieldByName('ZA_ZAEHLER').AsString := fZaehler;
 end;
 
-function TDBZaehler.Patch(aJObjZaehler: TJObjZaehler): Boolean;
-begin //
-  Init;
-  fID     := aJObjZaehler.JsonObject.GetValue('ZA_ID').Value.ToInteger;
-  Zaehler := aJObjZaehler.JsonObject.GetValue('ZA_ZAEHLER').Value;
-  //SaveToDB;
+
+procedure TDBZaehler.Patch(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
+begin
+  try
+    Init;
+    LoadFromJsonObjekt(aJZaehler);
+    if FeldList.FieldByName('ZA_ID').AsInteger > 0 then
+    begin
+      Read(FeldList.FieldByName('ZA_ID').AsInteger);
+      if fId = 0 then
+      begin
+        aJErrorList.setError('ZA_ID ' + QuotedStr(aJZaehler.FieldByName('ZA_ID').AsString) + ' ist ungültig.', cJIdNichtInTabelleGefunden);
+        exit;
+      end;
+      LoadFromJsonObjekt(aJZaehler);
+      ForceUpdate;
+      SaveToDB;
+      exit;
+    end;
+    SaveToDB;
+  except
+    on E: Exception do
+    begin
+      aJErrorList.setError('TDBZaehler.Patch -> ' +  E.Message, '99');
+    end;
+  end;
 end;
+
+
+procedure TDBZaehler.JDelete(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
+begin
+  try
+    JRead(aJZaehler, aJErrorList);
+    if aJErrorList.Count > 0 then
+      exit;
+    if (fId > 0) and (fFeldList.FieldByName('ZA_DELETE').AsBoolean) then
+    begin
+      aJErrorList.setError('ZA_ID ' + QuotedStr(aJZaehler.FieldByName('ZA_ID').AsString) + ' bereits gelöscht.', cJdBereitsGeloescht);
+      exit;
+    end;
+    Delete;
+  except
+    on E: Exception do
+    begin
+      aJErrorList.setError('TDBZaehler.JDelete -> ' +  E.Message, '99');
+    end;
+  end;
+end;
+
+procedure TDBZaehler.JRead(aJZaehler: TJZaehler; aJErrorList: TJErrorList);
+begin
+  try
+    Init;
+    LoadFromJsonObjekt(aJZaehler);
+    if fFeldList.FieldByName('ZA_ID').AsInteger = 0 then
+    begin
+      aJErrorList.setError('ZA_ID ' + QuotedStr(aJZaehler.FieldByName('ZA_ID').AsString) + ' ist ungültig.',cJIdUngueltig);
+      exit;
+    end;
+    Read(aJZaehler.FieldByName('ZA_ID').AsInteger);
+    if fId = 0 then
+    begin
+      aJErrorList.setError('ZA_ID ' + QuotedStr(aJZaehler.FieldByName('ZA_ID').AsString) + ' nicht in der Tabelle gefunden.', cJIdNichtInTabelleGefunden);
+      exit;
+    end;
+  except
+    on E: Exception do
+    begin
+      aJErrorList.setError('TDBZaehler.JRead -> ' +  E.Message, '99');
+    end;
+  end;
+end;
+
+
+
+
 
 
 end.
