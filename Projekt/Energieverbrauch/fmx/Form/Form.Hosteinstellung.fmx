@@ -1,0 +1,108 @@
+inherited frm_Hosteinstellung: Tfrm_Hosteinstellung
+  Caption = 'frm_Base1'
+  ClientHeight = 505
+  ClientWidth = 953
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Top: TLayout
+    Align = Top
+    Size.Width = 953.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rect_Hosteinstellung: TRectangle
+      Align = Client
+      Fill.Color = xFF3E78B2
+      Size.Width = 953.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      object gly_Return: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 10.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList
+      end
+      object lbl_Ueberschrift: TLabel
+        Align = Center
+        StyledSettings = []
+        Size.Width = 159.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        Text = 'Hosteinstellung'
+        TabOrder = 1
+      end
+    end
+  end
+  object Layout1: TLayout
+    Align = Client
+    Size.Width = 953.000000000000000000
+    Size.Height = 465.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object edt_Host: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 0
+      Position.X = 79.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 866.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'http://localhost/'
+      object lbl_Host: TLabel
+        Position.X = -56.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 57.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Host: '
+        TabOrder = 0
+      end
+    end
+    object edt_Port: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 1
+      KeyboardType = NumberPad
+      Position.X = 79.000000000000000000
+      Position.Y = 62.000000000000000000
+      Size.Width = 679.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = '8079'
+      object lbl_Port: TLabel
+        Position.X = -56.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 49.000000000000000000
+        Size.Height = 15.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Port'
+        TabOrder = 2
+      end
+    end
+    object btn_CheckConnection: TCornerButton
+      Position.X = 79.000000000000000000
+      Position.Y = 112.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 114.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Verbindung pr'#252'fen'
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+      OnClick = btn_CheckConnectionClick
+    end
+  end
+end

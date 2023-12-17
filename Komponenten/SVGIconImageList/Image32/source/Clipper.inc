@@ -23,7 +23,7 @@
     {$IF CompilerVersion >= 19}           //Delphi 2009  
       //While "inlining" is supported from D2005, it's buggy (see QC41166) until D2009
       {$DEFINE INLINING}
-    {$IFEND}
+    {$ENDIF}
     {$IF COMPILERVERSION >= 23}           //Delphi XE2+
       {$DEFINE XPLAT_GENERICS}
       {$DEFINE ROUNDINGMODE}   

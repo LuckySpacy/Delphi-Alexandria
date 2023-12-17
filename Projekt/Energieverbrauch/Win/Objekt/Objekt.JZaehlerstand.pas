@@ -37,6 +37,7 @@ begin
   Add('ZS_DATUM');
   Add('ZS_WERTSTR');
   Add('ZS_TIMESTAMP');
+  Add('JAHR');
   fJErrorList := nil;
   Init;
 end;
@@ -83,13 +84,33 @@ end;
 
 procedure TJZaehlerstand.setJsonString(const Value: string);
 var
-  JsonObject, JsonZaehler: TJSONObject;
+  JsonObject: TJSONObject;
   i1: Integer;
   s: string;
   JsonStr: string;
 begin
   Init;
   JsonStr := Value;
+  JsonObject := TJSONObject.ParseJSONValue(JsonStr) as TJSONObject;
+  try
+    try
+      for i1 := 0 to FieldCount -1 do
+      begin
+        if JsonObject.TryGetValue(Field[i1].Feldname, s) then
+          Field[i1].AsString := s;
+      end;
+    except
+      on E: Exception do
+      begin
+        fJErrorList.setError(E.Message, '99');
+        exit;
+      end;
+    end;
+  finally
+    FreeAndNil(JsonObject);
+  end;
+
+  {
   try
     JsonObject := TJSONObject.ParseJSONValue(JsonStr) as TJSONObject;
     JsonZaehler := JsonObject.GetValue('Zaehlerstand') as TJSONObject;
@@ -109,7 +130,7 @@ begin
   finally
     FreeAndNil(JsonObject);
   end;
-
+  }
 end;
 
 

@@ -1,0 +1,45 @@
+inherited frm_Daten: Tfrm_Daten
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Top: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rect_Hosteinstellung: TRectangle
+      Align = Client
+      Fill.Color = xFF3E78B2
+      Size.Width = 640.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      object gly_Return: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 10.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList
+      end
+      object lbl_Ueberschrift: TLabel
+        Align = Center
+        StyledSettings = []
+        Size.Width = 159.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        Text = 'Verbrauch'
+        TabOrder = 1
+      end
+    end
+  end
+end

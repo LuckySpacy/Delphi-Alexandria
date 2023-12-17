@@ -12,7 +12,10 @@ type
   Tfrm_Main = class(Tfrm_Base)
     ToolBar1: TToolBar;
     btn_Einstellung: TToolButton;
+    ListView1: TListView;
+    Panel1: TPanel;
     procedure btn_EinstellungClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     fOnShowHostEinstellung: TNotifyEvent;
   public
@@ -30,6 +33,24 @@ procedure Tfrm_Main.btn_EinstellungClick(Sender: TObject);
 begin
   if Assigned(fOnShowHostEinstellung) then
     fOnShowHostEinstellung(Self);
+end;
+
+procedure Tfrm_Main.FormShow(Sender: TObject);
+var
+  i1: Integer;
+  Item: TListItem;
+begin
+  inherited;
+
+  for i1 := 1 to 10 do
+  begin
+    Item := ListView1.Items.Add;
+    Item.Caption := 'Zeile ' + i1.ToString;
+    Item.SubItems.Add('Spalte 1');
+    Item.SubItems.Add('Spalte 2');
+    Item.SubItems.Add('Spalte 3');
+  end;
+
 end;
 
 end.

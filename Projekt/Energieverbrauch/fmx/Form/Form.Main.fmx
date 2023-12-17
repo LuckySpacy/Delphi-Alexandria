@@ -1,0 +1,129 @@
+inherited frm_Main: Tfrm_Main
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Top: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rect_Hosteinstellung: TRectangle
+      Align = Client
+      Fill.Color = xFF3E78B2
+      Size.Width = 640.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      object gly_Menu: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 10.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 1
+        Images = dm_Bilder.SVGIconImageList
+      end
+      object lbl_Ueberschrift: TLabel
+        Align = Center
+        StyledSettings = []
+        Size.Width = 64.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        Text = 'Z'#228'hler'
+        TabOrder = 1
+      end
+    end
+  end
+  object lv: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 440.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Zaehler'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+    OnItemClickEx = lvItemClickEx
+  end
+  object MultiView: TMultiView
+    NavigationPaneOptions.CollapsedWidth = 201.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Lay_HostEinstellung: TLayout
+      Align = Top
+      Size.Width = 201.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      OnClick = Lay_HostEinstellungClick
+      object Label1: TLabel
+        Position.X = 67.000000000000000000
+        Position.Y = 16.000000000000000000
+        Text = 'Host-Einstellung'
+        TabOrder = 0
+      end
+      object Gly_Host: TGlyph
+        Margins.Left = 12.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Align = Left
+        Position.X = 12.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList_Blue
+      end
+    end
+    object Lay_Zaehleranlegen: TLayout
+      Align = Top
+      Position.Y = 50.000000000000000000
+      Size.Width = 201.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      OnClick = Lay_HostEinstellungClick
+      object Label2: TLabel
+        Position.X = 73.000000000000000000
+        Position.Y = 18.000000000000000000
+        Text = 'Z'#228'hler anlegen'
+        TabOrder = 0
+      end
+      object Glyph1: TGlyph
+        Margins.Left = 12.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Align = Left
+        Position.X = 12.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 1
+        Images = dm_Bilder.SVGIconImageList_Blue
+      end
+    end
+  end
+end

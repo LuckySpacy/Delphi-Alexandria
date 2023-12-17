@@ -42,6 +42,7 @@ type
     procedure UpdateV(var aOldValue: currency; aNewValue: Currency); overload;
     procedure LegeHistorieFelderAn;
     procedure FuelleDBFelder; virtual;
+    procedure FuelleDBFelderFromJson; virtual; abstract;
     property OnAfterExecSql: TNotifyEvent read fOnAfterExecSql write fOnAfterExecSql;
     property OnNewTransaction: TNotifyEvent read fOnNewTransaction write fOnNewTransaction;
     function ReadLastId: Integer;
@@ -63,7 +64,7 @@ type
     procedure SaveToDB; virtual;
     function GenerateId: Integer;
     function ErzeugeGuid: string;
-    procedure LoadFromJsonObjekt(aFeldList: TFeldList);
+    procedure LoadFromJsonObjekt(aFeldList: TFeldList); virtual;
     procedure LoadToJsonObjekt(aFeldList: TFeldList);
   end;
 
@@ -187,6 +188,7 @@ begin
     if aFeldList.FieldByName(fFeldList.Feld[i1].Feldname) <> nil then
       fFeldList.Feld[i1].AsString := aFeldList.FieldByName(fFeldList.Feld[i1].Feldname).AsString;
   end;
+  FuelleDBFelderFromJson;
 end;
 
 procedure TDBBasis.LoadToJsonObjekt(aFeldList: TFeldList);
@@ -244,6 +246,7 @@ var
   Sql: string;
   i1: Integer;
   ms: TMemoryStream;
+ // s: string;
 begin
   if not Assigned(fTrans) then
     exit;
@@ -281,6 +284,13 @@ begin
         fQuery.ParamByName(fFeldList.Feld[i1].Feldname).AsDateTime := fFeldList.Feld[i1].AsDateTime;
       if (fFeldList.Feld[i1].DataType = ftInteger) then
         fQuery.ParamByName(fFeldList.Feld[i1].Feldname).AsInteger := fFeldList.Feld[i1].AsInteger;
+
+      if (fFeldList.Feld[i1].DataType = ftFloat) then
+      begin
+      //  s := StringReplace(fFeldList.Feld[i1].AsString, ',', '.', [rfReplaceAll]);
+        fQuery.ParamByName(fFeldList.Feld[i1].Feldname).AsFloat := fFeldList.Feld[i1].AsFloat;
+      end;
+
       if (fFeldList.Feld[i1].DataType = ftBlob) then
       begin
         ms := TMemoryStream.Create;

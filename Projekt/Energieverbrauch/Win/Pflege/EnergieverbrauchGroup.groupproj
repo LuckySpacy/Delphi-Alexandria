@@ -9,6 +9,9 @@
         <Projects Include="..\Webserver\ServerEnergieverbrauch.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\..\fmx\EnergieverbrauchApp.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="ServerEnergieverbrauch:Make">
         <MSBuild Projects="..\Webserver\ServerEnergieverbrauch.dproj" Targets="Make"/>
     </Target>
+    <Target Name="EnergieverbrauchApp">
+        <MSBuild Projects="..\..\fmx\EnergieverbrauchApp.dproj"/>
+    </Target>
+    <Target Name="EnergieverbrauchApp:Clean">
+        <MSBuild Projects="..\..\fmx\EnergieverbrauchApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EnergieverbrauchApp:Make">
+        <MSBuild Projects="..\..\fmx\EnergieverbrauchApp.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Energieverbrauch;ServerEnergieverbrauch"/>
+        <CallTarget Targets="Energieverbrauch;ServerEnergieverbrauch;EnergieverbrauchApp"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Energieverbrauch:Clean;ServerEnergieverbrauch:Clean"/>
+        <CallTarget Targets="Energieverbrauch:Clean;ServerEnergieverbrauch:Clean;EnergieverbrauchApp:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Energieverbrauch:Make;ServerEnergieverbrauch:Make"/>
+        <CallTarget Targets="Energieverbrauch:Make;ServerEnergieverbrauch:Make;EnergieverbrauchApp:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

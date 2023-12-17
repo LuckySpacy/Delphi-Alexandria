@@ -45,7 +45,7 @@ function TJObjErrorList.JsonString: string;
 var
   i1: Integer;
   x: TJObjError;
-  JsonObject, ErrorsArray, ErrorObject: TJSONObject;
+  JsonObject, ErrorObject: TJSONObject;
   ErrorsArrayElements: TJSONArray;
 begin
 
@@ -55,12 +55,11 @@ begin
     exit;
   end;
 
+  JsonObject := TJSONObject.Create;
   try
     // Erstellen des ‰uﬂeren JSON-Objekts
-    JsonObject := TJSONObject.Create;
 
     // Erstellen des "errors"-Arrays
-    ErrorsArray := TJSONObject.Create;
     ErrorsArrayElements := TJSONArray.Create;
 
     for i1 := 0 to fList.Count -1 do

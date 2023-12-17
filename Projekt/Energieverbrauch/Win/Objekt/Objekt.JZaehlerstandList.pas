@@ -81,7 +81,14 @@ begin
       Zaehlerstand := TJZaehlerstand(fList.Items[i1]);
       OptionObject := TJSONObject.Create;
       for i2 := 0 to Zaehlerstand.FieldCount -1 do
+      begin
+        if SameText('ZS_WERTSTR', Zaehlerstand.Field[i2].Feldname) then
+          continue;
+        if SameText('JAHR', Zaehlerstand.Field[i2].Feldname) then
+          continue;
+
         OptionObject.AddPair(Zaehlerstand.Field[i2].Feldname, Zaehlerstand.Field[i2].AsString);
+      end;
       OptionArrayElements.AddElement(OptionObject);
     end;
     JsonObject.AddPair('Zaehlerstandlist', OptionArrayElements);

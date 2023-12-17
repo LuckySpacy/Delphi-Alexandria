@@ -18,7 +18,8 @@ uses
   Objekt.Energieverbrauch in 'Objekt\Objekt.Energieverbrauch.pas',
   Form.HostEinstellung in 'Form\Form.HostEinstellung.pas' {frm_Hosteinstellung},
   Datenmodul.Bilder in 'Datenmodul\Datenmodul.Bilder.pas' {dm_Bilder: TDataModule},
-  Datenmodul.Rest in 'Datenmodul\Datenmodul.Rest.pas' {dm_Rest: TDataModule};
+  Datenmodul.Rest in 'Datenmodul\Datenmodul.Rest.pas' {dm_Rest: TDataModule},
+  Form.Zaehler in 'Form\Form.Zaehler.pas' {frm_Zaehler};
 
 begin
   Application.Initialize;

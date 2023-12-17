@@ -18,6 +18,7 @@ type
     function getTableName: string; override;
     function getTablePrefix: string; override;
     procedure FuelleDBFelder; override;
+    procedure FuelleDBFelderFromJson; override;
     //function getTableId: Integer; override;
   public
     constructor Create(AOwner: TComponent); override;
@@ -68,6 +69,12 @@ procedure TDBZaehler.FuelleDBFelder;
 begin
   fFeldList.FieldByName('ZA_ZAEHLER').AsString  := fZaehler;
   inherited;
+end;
+
+procedure TDBZaehler.FuelleDBFelderFromJson;
+begin
+  inherited;
+
 end;
 
 function TDBZaehler.getGeneratorName: string;

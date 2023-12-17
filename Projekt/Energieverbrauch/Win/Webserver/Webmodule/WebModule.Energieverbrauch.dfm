@@ -30,6 +30,24 @@ object wm_Energieverbrauch: Twm_Energieverbrauch
       Name = 'wai_Zaehler_Read'
       PathInfo = '/Zaehler/Read'
       OnAction = wm_Energieverbrauchwai_Zaehler_ReadAction
+    end
+    item
+      MethodType = mtPost
+      Name = 'wai_Zaehlerstand_Update'
+      PathInfo = '/Zaehlerstand/Update'
+      OnAction = wm_Energieverbrauchwai_Zaehlerstand_UpdateAction
+    end
+    item
+      MethodType = mtDelete
+      Name = 'wai_Zaehlerstand_Delete'
+      PathInfo = '/Zaehlerstand/Update'
+      OnAction = wm_Energieverbrauchwai_Zaehlerstand_DeleteAction
+    end
+    item
+      MethodType = mtGet
+      Name = 'wai_Zaehlerstand_ReadJahr'
+      PathInfo = '/Zaehlerstand/ReadJahr'
+      OnAction = wm_Energieverbrauchwai_ZaehlerstandReadJahrAction
     end>
   Height = 230
   Width = 415

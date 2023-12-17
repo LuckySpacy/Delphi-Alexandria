@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, IBX.IBDatabase, IBX.IBQuery, DB.Basis, Data.db, DB.TBQuery,
-  Objekt.JZaehlerstand,
+  Objekt.JZaehlerstand, Objekt.FeldList,
   c.JsonError,
   db.TBTransaction, Objekt.JErrorList;
 
@@ -26,6 +26,7 @@ type
     function getTableName: string; override;
     function getTablePrefix: string; override;
     procedure FuelleDBFelder; override;
+    procedure FuelleDBFelderFromJson; override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -51,7 +52,7 @@ constructor TDBZaehlerstand.Create(AOwner: TComponent);
 begin
   inherited;
   fFeldList.Add('ZS_ZA_ID', ftString);
-  fFeldList.Add('ZS_WERT', ftString);
+  fFeldList.Add('ZS_WERT', ftFloat);
   fFeldList.Add('ZS_DATUM', ftDateTime);
   fFeldList.Add('ZS_WERTSTR', ftString);
   fFeldList.Add('ZS_TIMESTAMP', ftString);
@@ -80,6 +81,26 @@ begin
   fFeldList.FieldByName('ZS_DATUM').AsDateTime := fDatum;
   fFeldList.FieldByName('ZS_TIMESTAMP').AsString := fTimestamp;
   inherited;
+end;
+
+procedure TDBZaehlerstand.FuelleDBFelderFromJson;
+begin
+  inherited;
+  fId   := fFeldList.FieldByName('ZS_ID').AsInteger;
+  fZaId := fFeldList.FieldByName('ZS_ZA_ID').AsInteger;
+  fWert := fFeldList.FieldByName('ZS_WERT').AsFloat;
+  fWertStr := fFeldList.FieldByName('ZS_WERTSTR').AsString;
+  fDatum := fFeldList.FieldByName('ZS_DATUM').AsDateTime;
+  fTimestamp := fFeldList.FieldByName('ZS_TIMESTAMP').AsString;
+
+  if fTimestamp = '' then
+  begin
+    fWertStr := fFeldList.FieldByName('ZS_WERT').AsString;
+    fTimestamp := FormatDateTime('yyyyy-mm-dd hh:nn:ss:zzz', now);
+    FeldList.FieldByName('ZS_WERTSTR').AsString := fWertStr;
+    FeldList.FieldByName('ZS_TIMESTAMP').AsString := fTimestamp;
+  end;
+
 end;
 
 function TDBZaehlerstand.getGeneratorName: string;
@@ -111,6 +132,8 @@ begin
   fTimestamp := aQuery.FieldByName('ZS_TIMESTAMP').AsString;
   FuelleDBFelder;
 end;
+
+
 
 
 

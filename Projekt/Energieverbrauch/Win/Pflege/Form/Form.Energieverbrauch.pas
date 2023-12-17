@@ -33,6 +33,9 @@ implementation
 
 {$R *.dfm}
 
+uses
+  Datenmodul.Rest;
+
 
 
 procedure Tfrm_Energieverbrauch.FormCreate(Sender: TObject);

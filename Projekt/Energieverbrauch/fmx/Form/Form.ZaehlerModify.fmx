@@ -1,0 +1,96 @@
+inherited frm_ZaehlerModify: Tfrm_ZaehlerModify
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Top: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rect_Hosteinstellung: TRectangle
+      Align = Client
+      Fill.Color = xFF3E78B2
+      Size.Width = 640.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      object gly_Return: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 10.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList
+      end
+      object lbl_Ueberschrift: TLabel
+        Align = Center
+        AutoSize = True
+        StyledSettings = []
+        Size.Width = 196.000000000000000000
+        Size.Height = 27.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        Text = 'Z'#228'hler hinzuf'#252'gen'
+        TabOrder = 1
+      end
+    end
+  end
+  object Layout1: TLayout
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 440.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Label1: TLabel
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Z'#228'hler:'
+      TabOrder = 0
+    end
+    object Edit1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 1
+      Position.X = 64.000000000000000000
+      Position.Y = 23.000000000000000000
+      Size.Width = 561.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object btn_Save: TCornerButton
+      Position.X = 64.000000000000000000
+      Position.Y = 72.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 114.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Speichern'
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+    end
+    object btn_Neu: TCornerButton
+      Position.X = 186.000000000000000000
+      Position.Y = 72.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 143.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Weiteren Z'#228'hler anlegen'
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+    end
+  end
+end

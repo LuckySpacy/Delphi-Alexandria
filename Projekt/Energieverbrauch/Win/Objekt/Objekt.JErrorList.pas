@@ -126,6 +126,8 @@ begin
         exit;
       end;
     end;
+    if ArrayElements = nil then
+      exit;
     for i1 := 0 to ArrayElements.Count -1 do
     begin
       JsonError := ArrayElements.Items[i1] as TJSONObject;

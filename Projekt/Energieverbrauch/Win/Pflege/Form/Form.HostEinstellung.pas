@@ -84,7 +84,8 @@ end;
 procedure Tfrm_Hosteinstellung.btn_ConnectClick(Sender: TObject);
 begin
   dm_Rest.HTTPRequest.MethodString := 'GET';
-  dm_Rest.HTTPRequest.URL := edt_Host.Text + ':' + Trim(edt_Port.Text);
+  dm_Rest.HTTPRequest.URL := 'http://' +edt_Host.Text + ':' + Trim(edt_Port.Text) + '/CheckConnect';
+//  dm_Rest.HTTPRequest.URL := 'http://www.blaisepascalmagazine.eu/';
   dm_Rest.HTTPRequest.OnRequestCompleted := HTTPRequestRequestCompleted;
   dm_Rest.HTTPRequest.Execute();
 end;

@@ -18,6 +18,7 @@ type
     property Item[Index:Integer]: TDBZaehlerstand read getItem;
     function Add: TDBZaehlerstand;
     procedure ReadAllByZaId(aZaId: Integer);
+    procedure ReadAllByZaIdAndJahr(aZaId, aJahr: Integer);
     procedure ReadbyId(aId: Integer);
   end;
 
@@ -85,6 +86,42 @@ begin
 end;
 
 
+
+procedure TDBZaehlerstandList.ReadAllByZaIdAndJahr(aZaId, aJahr: Integer);
+var
+  x: TDBZaehlerstand;
+  Von: TDateTime;
+  Bis: TDateTime;
+begin
+  fList.Clear;
+  if fTrans = nil then
+    exit;
+  Von := StrToDate('01.01.' + aJahr.ToString);
+  bis := StrToDate('31.12.' + aJahr.ToString);
+  fQuery.Trans := fTrans;
+  fQuery.Close;
+  fQuery.OpenTrans;
+  try
+    fQuery.SQL.Text := ' select * from zaehlerstand where zs_DELETE != ' + QuotedStr('T') +
+                       ' and zs_za_id = ' + aZaId.ToString +
+                       ' and zs_datum >= :datumvon' +
+                       ' and zs_datum <= :datumbis' +
+                       ' order by zs_datum desc';
+    fQuery.ParamByName('datumvon').AsDate := Von;
+    fQuery.ParamByName('datumbis').AsDate := Bis;
+    fQuery.Open;
+    while not fQuery.Eof do
+    begin
+      x := TDBZaehlerstand.Create(nil);
+      x.Trans := fTrans;
+      x.LoadByQuery(fQuery);
+      fList.Add(x);
+      fQuery.Next;
+    end;
+  finally
+    fQuery.RollbackTrans;
+  end;
+end;
 
 procedure TDBZaehlerstandList.ReadbyId(aId: Integer);
 var
