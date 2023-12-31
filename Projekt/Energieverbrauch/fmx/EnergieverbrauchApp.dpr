@@ -16,7 +16,9 @@ uses
   Form.ZaehlerModify in 'Form\Form.ZaehlerModify.pas' {frm_ZaehlerModify},
   Communication.Base in 'Communication\Communication.Base.pas',
   Communication.API in 'Communication\Communication.API.pas',
-  Objekt.JEnergieverbrauch in 'Objekt\Objekt.JEnergieverbrauch.pas';
+  Objekt.JEnergieverbrauch in 'Objekt\Objekt.JEnergieverbrauch.pas',
+  Thread.Timer in 'Timer\Thread.Timer.pas',
+  Form.DatenModify in 'Form\Form.DatenModify.pas' {frm_DatenModify};
 
 {$R *.res}
 

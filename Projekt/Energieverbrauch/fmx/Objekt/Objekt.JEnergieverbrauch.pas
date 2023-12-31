@@ -16,6 +16,9 @@ type
     constructor Create;
     destructor Destroy; override;
     function ReadZaehlerList: string;
+    function AddZaehler(aJsonString: string): string;
+    function DeleteZaehler(aJsonString: string): string;
+    function AddZaehlerstand(aJsonString: string): string;
   end;
 
 var
@@ -25,11 +28,14 @@ implementation
 
 { TJEnergieverbrauch }
 
+
+
 constructor TJEnergieverbrauch.Create;
 begin
   fCommunicationAPI := TCommunicationAPI.Create;
 
 end;
+
 
 destructor TJEnergieverbrauch.Destroy;
 begin
@@ -49,5 +55,48 @@ begin
     FreeAndNil(API);
   end;
 end;
+
+
+function TJEnergieverbrauch.AddZaehler(aJsonString: string): string;
+var
+  API: TCommunicationAPI;
+begin
+  API := TCommunicationAPI.Create;
+  try
+    API.Post('/Zaehler/Update', aJsonString);
+    Result := API.ReturnValue;
+  finally
+    FreeAndNil(API);
+  end;
+end;
+
+function TJEnergieverbrauch.DeleteZaehler(aJsonString: string): string;
+var
+  API: TCommunicationAPI;
+begin
+  API := TCommunicationAPI.Create;
+  try
+    API.delete('/Zaehler/Update', aJsonString);
+    Result := API.ReturnValue;
+  finally
+    FreeAndNil(API);
+  end;
+end;
+
+
+function TJEnergieverbrauch.AddZaehlerstand(aJsonString: string): string;
+var
+  API: TCommunicationAPI;
+begin
+  API := TCommunicationAPI.Create;
+  try
+    API.Post('/Zaehlerstand/Update', aJsonString);
+    Result := API.ReturnValue;
+  finally
+    FreeAndNil(API);
+  end;
+end;
+
+
 
 end.

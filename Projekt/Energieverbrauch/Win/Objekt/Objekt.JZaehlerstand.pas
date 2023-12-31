@@ -57,6 +57,7 @@ begin
 end;
 
 
+{
 function TJZaehlerstand.getJsonString: string;
 var
   i1: Integer;
@@ -75,6 +76,25 @@ begin
     FreeAndNil(JsonObject);
   end;
 end;
+}
+
+function TJZaehlerstand.getJsonString: string;
+var
+  i1: Integer;
+  //JsonObject: TJSONObject;
+  JsonFelder: TJSONObject;
+  //JsonPos: TJSONArray;
+begin
+  JsonFelder := TJSONObject.Create;
+  try
+    for i1 := 0 to FieldCount -1 do
+      JsonFelder.AddPair(Field[i1].Feldname, Field[i1].AsString);
+    Result := JsonFelder.ToJSON;
+  finally
+    FreeAndNil(JsonFelder);
+  end;
+end;
+
 
 
 procedure TJZaehlerstand.setErrorList(aJErrorList: TJErrorList);

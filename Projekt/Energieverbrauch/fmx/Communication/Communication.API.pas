@@ -20,6 +20,7 @@ type
     function Post(aUrl, aJsonString: string): Boolean;
     function Get(aUrl: string): Boolean;
     property ErrorList: TJErrorList read fJErrorList;
+    function Delete(aUrl, aJsonString: string): Boolean;
     //procedure Read_ErrorString(aValue: string);
   end;
 
@@ -98,6 +99,39 @@ begin
   end;
 end;
 
+
+function TCommunicationAPI.Delete(aUrl, aJsonString: string): Boolean;
+var
+  JError: TJError;
+  ErrorMsg: string;
+begin
+  ErrorMsg := '';
+  Result := true;
+  fClient.BaseURL := fBaseURL + aUrl;
+  fRequest.Params.Clear;
+  //fRequest.AddParameter('Content-Type', 'application/vnd.api+json', pkHTTPHEADER, [poDoNotEncode]);
+  fRequest.AddBody(aJsonString, ctAPPLICATION_JSON);
+  fRequest.Method := rmDELETE;
+  try
+    try
+      fRequest.Execute;
+    except
+      on E: Exception do
+      begin
+        ErrorMsg := E.Message;
+        Result := false;
+      end;
+    end;
+  finally
+    Read_Error;
+    if ErrorMsg > '' then
+    begin
+      JError := fJErrorList.Add;
+      JError.FieldByName('Title').AsString := ErrorMsg;
+    end;
+  end;
+end;
+
 procedure TCommunicationAPI.Read_Error;
 begin
   Read_ErrorString(fResponse.Content);
@@ -107,8 +141,8 @@ end;
 procedure TCommunicationAPI.Read_ErrorString(aValue: string);
 var
   ReturnValue: string;
-  i1: Integer;
-  JError: TJError;
+  //i1: Integer;
+  //JError: TJError;
 begin
   try
     fJErrorList.Clear;

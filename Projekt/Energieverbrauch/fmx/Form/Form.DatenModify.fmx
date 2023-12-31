@@ -1,0 +1,104 @@
+inherited frm_DatenModify: Tfrm_DatenModify
+  Caption = 'frm_Base1'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Lay_Top: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rect_Hosteinstellung: TRectangle
+      Align = Client
+      Fill.Color = xFF3E78B2
+      Size.Width = 640.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      object gly_Return: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 10.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList
+      end
+      object lbl_Ueberschrift: TLabel
+        Align = Center
+        StyledSettings = []
+        Size.Width = 159.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        Text = 'Z'#228'hlerstand'
+        TabOrder = 1
+      end
+    end
+  end
+  object Label1: TLabel
+    Align = Top
+    StyledSettings = [Style]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 30.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 70.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Roboto'
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.FontColor = claDimgray
+    Text = 'Ablesedatum'
+    TabOrder = 3
+  end
+  object lbl_Ablesedatum: TLabel
+    Align = Top
+    StyledSettings = [Style]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 92.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Courier New'
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = '31.12.2023 15:00'
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Align = Top
+    StyledSettings = [Style]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 30.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 139.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Roboto'
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.FontColor = xFF3E78B2
+    Text = 'Z'#228'hlerstand'
+    TabOrder = 2
+  end
+  object edt_Zaehlerstand: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 4
+    Position.X = 20.000000000000000000
+    Position.Y = 156.000000000000000000
+    Margins.Left = 20.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Size.Width = 600.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

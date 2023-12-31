@@ -4,6 +4,7 @@ inherited frm_Hosteinstellung: Tfrm_Hosteinstellung
   ClientWidth = 953
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object Lay_Top: TLayout
     Align = Top

@@ -23,11 +23,13 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btn_CheckConnectionClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     fCheckResult: string;
     fCanReturn: Boolean;
     function CheckConnection: Boolean;
     procedure Back(Sender: TObject);
+    procedure RequestError(const Sender: TObject; const AError: string);
   public
     procedure HTTPRequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
     procedure setActiv; override;
@@ -61,6 +63,11 @@ end;
 
 
 
+procedure Tfrm_Hosteinstellung.FormShow(Sender: TObject);
+begin //
+
+end;
+
 procedure Tfrm_Hosteinstellung.Back(Sender: TObject);
 begin
   fCanReturn := true;
@@ -80,6 +87,7 @@ begin //
   //dm_Rest.HTTPRequest.URL := 'http://' +edt_Host.Text + ':' + Trim(edt_Port.Text) + '/CheckConnect';
   dm_Rest.HTTPRequest.URL := edt_Host.Text + ':' + Trim(edt_Port.Text) + '/CheckConnect';
   dm_Rest.HTTPRequest.OnRequestCompleted := HTTPRequestRequestCompleted;
+  dm_Rest.HTTPRequest.OnRequestError := RequestError;
   dm_Rest.HTTPRequest.Execute();
 end;
 
@@ -116,9 +124,20 @@ end;
 
 
 
+procedure Tfrm_Hosteinstellung.RequestError(const Sender: TObject;
+  const AError: string);
+begin
+  TDialogService.MessageDialog(AError, TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+end;
+
 procedure Tfrm_Hosteinstellung.setActiv;
 begin
   inherited;
+  if Trim(Energieverbrauch.HostIni.Host) = '' then
+  begin
+    Energieverbrauch.HostIni.Host := 'http://94.46.94.56';
+    Energieverbrauch.HostIni.Port := 8079;
+  end;
   edt_Host.Text := Energieverbrauch.HostIni.Host;
   edt_Port.Text := Energieverbrauch.HostIni.Port.ToString;
 end;

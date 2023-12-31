@@ -57,7 +57,7 @@ var
   i1: Integer;
   JsonObject: TJSONObject;
   JsonFelder: TJSONObject;
-  JsonPos: TJSONArray;
+ // JsonPos: TJSONArray;
 begin
   JsonObject := TJSONObject.Create;
   try

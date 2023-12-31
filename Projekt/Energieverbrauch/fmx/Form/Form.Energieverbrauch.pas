@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, Objekt.Energieverbrauch,
   FMX.TabControl, Form.Main, Form.Hosteinstellung, Form.Daten, Form.Base,
   System.Generics.Collections, system.Net.HttpClient, Form.ZaehlerModify,
-  Objekt.JEnergieverbrauch;
+  Objekt.JEnergieverbrauch, FMX.Gestures, Form.DatenModify;
 
 type
   Tfrm_Energieverbrauch = class(TForm)
@@ -16,6 +16,8 @@ type
     tbs_Daten: TTabItem;
     tbs_Hosteinstellung: TTabItem;
     tbs_ZaehlerModify: TTabItem;
+    GestureManager: TGestureManager;
+    tbs_DatenModify: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -24,6 +26,7 @@ type
     fFormHosteinstellung: Tfrm_Hosteinstellung;
     fFormDaten: Tfrm_Daten;
     fFormZaehlerModify: Tfrm_ZaehlerModify;
+    fFormDatenModify: Tfrm_DatenModify;
     fTabVerlauf : TList<TTabItem>;
     fCheckResult: string;
     procedure DoZurueck(Sender: TObject);
@@ -33,6 +36,10 @@ type
     procedure HTTPRequestRequestError(const Sender: TObject; const AError: string);
     procedure ShowHostEinstellung(Sender: TObject);
     procedure ShowZaehlerModify(Sender: TObject);
+    procedure NewZaehler(Sender: TObject);
+    procedure ShowDaten(Sender: TObject);
+    procedure ShowDatenModify(Sender: TObject);
+    procedure AddZaehlerstand(Sender: TObject);
   public
   end;
 
@@ -44,7 +51,7 @@ implementation
 {$R *.fmx}
 
 uses
-  Datenmodul.Rest, fmx.DialogService;
+  Datenmodul.Rest, fmx.DialogService, Objekt.JZaehler;
 
 
 procedure Tfrm_Energieverbrauch.FormCreate(Sender: TObject);
@@ -59,6 +66,7 @@ begin
   fFormMain.OnZurueck := DoZurueck;
   fFormMain.OnHostEinstellung := ShowHostEinstellung;
   fFormMain.OnZaehlerModify := ShowZaehlerModify;
+  fFormMain.OnZaehlerClick := ShowDaten;
   tbs_Main.TagObject := fFormMain;
 
 
@@ -72,6 +80,7 @@ begin
   while fFormDaten.ChildrenCount > 0 do
     fFormDaten.Children[0].Parent := tbs_Daten;
   fFormDaten.OnZurueck := DoZurueck;
+  fFormDaten.OnAddZaehlerstand := AddZaehlerstand;
   tbs_Daten.TagObject := fFormDaten;
 
 
@@ -79,7 +88,18 @@ begin
   while fFormZaehlerModify.ChildrenCount > 0 do
     fFormZaehlerModify.Children[0].Parent := tbs_ZaehlerModify;
   fFormZaehlerModify.OnZurueck := DoZurueck;
+  fFormZaehlerModify.OnNewZaehler := NewZaehler;
+
   tbs_ZaehlerModify.TagObject := fFormZaehlerModify;
+
+
+  fFormDatenModify := Tfrm_DatenModify.Create(Self);
+  while fFormDatenModify.ChildrenCount > 0 do
+    fFormDatenModify.Children[0].Parent := tbs_DatenModify;
+  fFormDatenModify.OnZurueck := DoZurueck;
+
+  tbs_DatenModify.TagObject := fFormDatenModify;
+
 
 
 
@@ -115,6 +135,18 @@ begin
   Tfrm_Base(aTab.TagObject).setActiv;
 end;
 
+procedure Tfrm_Energieverbrauch.ShowDaten(Sender: TObject);
+begin
+  fFormDaten.setZaehler(TJZaehler(Sender));
+  setTabActiv(tbs_Daten);
+end;
+
+procedure Tfrm_Energieverbrauch.ShowDatenModify(Sender: TObject);
+begin
+  fFormDatenModify.setZaehler(TJZaehler(Sender));
+  setTabActiv(tbs_DatenModify);
+end;
+
 procedure Tfrm_Energieverbrauch.ShowHostEinstellung(Sender: TObject);
 begin //
   setTabActiv(tbs_Hosteinstellung);
@@ -122,8 +154,13 @@ end;
 
 procedure Tfrm_Energieverbrauch.ShowZaehlerModify(Sender: TObject);
 begin
+  if Sender = nil then
+    fFormZaehlerModify.setZaehler(nil)
+  else
+    fFormZaehlerModify.setZaehler(TJZaehler(Sender));
   setTabActiv(tbs_ZaehlerModify);
 end;
+
 
 procedure Tfrm_Energieverbrauch.DoZurueck(Sender: TObject);
 var
@@ -143,6 +180,12 @@ begin
     TabControl.ActiveTab := Tab;
     Tfrm_Base(Tab.TagObject).setActiv;
   end;
+end;
+
+procedure Tfrm_Energieverbrauch.AddZaehlerstand(Sender: TObject);
+begin
+  fFormDatenModify.setZaehler(TJZaehler(Sender));
+  setTabActiv(tbs_DatenModify);
 end;
 
 function Tfrm_Energieverbrauch.CheckConnection: Boolean;
@@ -186,6 +229,11 @@ begin
     s := 'Die Verbindung zum Server ist fehlgeschlagen.' + sLineBreak +  sLineBreak + AError + sLineBreak + sLineBreak +
          'Bitte überprüfen Sie die Internetverbindung sowie die Host-Einstellung.';
     TDialogService.MessageDialog(s, TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+end;
+
+procedure Tfrm_Energieverbrauch.NewZaehler(Sender: TObject);
+begin
+  fFormMain.Reload;
 end;
 
 end.

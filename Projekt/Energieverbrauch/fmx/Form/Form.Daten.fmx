@@ -40,6 +40,30 @@ inherited frm_Daten: Tfrm_Daten
         Text = 'Verbrauch'
         TabOrder = 1
       end
+      object gly_Add: TGlyph
+        Margins.Top = 4.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Align = Right
+        Position.X = 598.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 32.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 2
+        Images = dm_Bilder.SVGIconImageList
+      end
     end
+  end
+  object ListView1: TListView
+    ItemAppearanceClassName = 'TListItemAppearance'
+    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 440.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
   end
 end
