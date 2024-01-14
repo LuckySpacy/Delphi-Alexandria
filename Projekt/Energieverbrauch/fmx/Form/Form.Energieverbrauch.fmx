@@ -18,10 +18,12 @@ object frm_Energieverbrauch: Tfrm_Energieverbrauch
     Size.Width = 442.000000000000000000
     Size.Height = 632.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 4
+    TabIndex = 5
     TabOrder = 0
     TabPosition = PlatformDefault
     Sizes = (
+      442s
+      606s
       442s
       606s
       442s
@@ -92,13 +94,27 @@ object frm_Energieverbrauch: Tfrm_Energieverbrauch
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 111.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'tbs_DatenModify'
+      ExplicitSize.cx = 111.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object tbs_Statistik: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 83.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_Statistik'
     end
   end
   object GestureManager: TGestureManager

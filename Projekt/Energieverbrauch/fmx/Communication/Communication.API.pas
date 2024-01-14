@@ -18,7 +18,7 @@ type
     constructor Create; override;
     destructor Destroy; override;
     function Post(aUrl, aJsonString: string): Boolean;
-    function Get(aUrl: string): Boolean;
+    function Get(aUrl, aJsonString: string): Boolean;
     property ErrorList: TJErrorList read fJErrorList;
     function Delete(aUrl, aJsonString: string): Boolean;
     //procedure Read_ErrorString(aValue: string);
@@ -48,13 +48,15 @@ begin
   inherited;
 end;
 
-function TCommunicationAPI.Get(aUrl: string): Boolean;
+function TCommunicationAPI.Get(aUrl, aJsonString: string): Boolean;
 begin
   Result := true;
   fRequest.Params.Clear;
   fClient.BaseURL := fBaseURL + aUrl;
   //fClient.AddAuthParameter('Authorization', 'Bearer ' + fToken , TRESTRequestParameterKind.pkHTTPHEADER,[TRESTRequestParameterOption.poDoNotEncode]);
   fRequest.AddParameter('Content-Type', 'application/vnd.api+json', pkHTTPHEADER, [poDoNotEncode]);
+  if Trim(aJsonString) > '' then
+    fRequest.AddBody(aJsonString, ctAPPLICATION_JSON);
   fRequest.Method := rmGet;
   try
     try

@@ -25,6 +25,9 @@ type
       Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
     procedure wm_Energieverbrauchwai_ZaehlerstandReadJahrAction(Sender: TObject;
       Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+    procedure wm_Energieverbrauchwai_Zaehlerstand_ReadZeitraumAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
   private
     fDBSchnittstelle: TDBSchnittstelle;
   public
@@ -39,7 +42,7 @@ implementation
 uses
   Datenmodul.Database, JObjekt.Zaehler, Objekt.JZaehler, DB.Zaehler, Objekt.JErrorList,
   DB.ZaehlerList, Objekt.JZaehlerList, DB.ZaehlerstandList, DB.Zaehlerstand,
-  Objekt.JZaehlerstand, Objekt.JZaehlerstandList;
+  Objekt.JZaehlerstand, Objekt.JZaehlerstandList, wai.ZaehlerstandReadZeitraum;
 
 const
   cJOk : string = '{"OK":"1"}';
@@ -288,6 +291,8 @@ begin //
   end;
 end;
 
+
+
 procedure Twm_Energieverbrauch.wm_Energieverbrauchwai_Zaehlerstand_UpdateAction(
   Sender: TObject; Request: TWebRequest; Response: TWebResponse;
   var Handled: Boolean);
@@ -348,6 +353,21 @@ begin //
     FreeAndNil(DBZaehlerstand);
     FreeAndNil(DBZaehler);
   end;
+end;
+
+procedure Twm_Energieverbrauch.wm_Energieverbrauchwai_Zaehlerstand_ReadZeitraumAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  ZaehlerstandReadZeitraum: Twai_ZaehlerstandReadZeitraum;
+begin //
+  ZaehlerstandReadZeitraum := Twai_ZaehlerstandReadZeitraum.Create(Request, Response);
+  try
+    ZaehlerstandReadZeitraum.DoIt;
+  finally
+    FreeAndNil(ZaehlerstandReadZeitraum);
+  end;
+
 end;
 
 

@@ -43,7 +43,9 @@ uses
   DB.Zaehlerstand in 'DB\DB.Zaehlerstand.pas',
   Objekt.JZaehlerstand in '..\Objekt\Objekt.JZaehlerstand.pas',
   Objekt.JZaehlerstandList in '..\Objekt\Objekt.JZaehlerstandList.pas',
-  DB.ZaehlerstandList in 'DB\DB.ZaehlerstandList.pas';
+  DB.ZaehlerstandList in 'DB\DB.ZaehlerstandList.pas',
+  wai.base in 'wai\wai.base.pas',
+  wai.ZaehlerstandReadZeitraum in 'wai\wai.ZaehlerstandReadZeitraum.pas';
 
 {$R *.res}
 

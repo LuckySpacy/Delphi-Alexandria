@@ -48,6 +48,12 @@ object wm_Energieverbrauch: Twm_Energieverbrauch
       Name = 'wai_Zaehlerstand_ReadJahr'
       PathInfo = '/Zaehlerstand/ReadJahr'
       OnAction = wm_Energieverbrauchwai_ZaehlerstandReadJahrAction
+    end
+    item
+      MethodType = mtGet
+      Name = 'wai_Zaehlerstand_ReadZeitraum'
+      PathInfo = '/Zaehlerstand/ReadZeitraum'
+      OnAction = wm_Energieverbrauchwai_Zaehlerstand_ReadZeitraumAction
     end>
   Height = 230
   Width = 415

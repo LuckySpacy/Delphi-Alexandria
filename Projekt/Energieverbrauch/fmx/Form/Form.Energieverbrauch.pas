@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, Objekt.Energieverbrauch,
   FMX.TabControl, Form.Main, Form.Hosteinstellung, Form.Daten, Form.Base,
   System.Generics.Collections, system.Net.HttpClient, Form.ZaehlerModify,
-  Objekt.JEnergieverbrauch, FMX.Gestures, Form.DatenModify;
+  Objekt.JEnergieverbrauch, FMX.Gestures, Form.DatenModify, Form.Statistik;
 
 type
   Tfrm_Energieverbrauch = class(TForm)
@@ -18,6 +18,7 @@ type
     tbs_ZaehlerModify: TTabItem;
     GestureManager: TGestureManager;
     tbs_DatenModify: TTabItem;
+    tbs_Statistik: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -27,6 +28,7 @@ type
     fFormDaten: Tfrm_Daten;
     fFormZaehlerModify: Tfrm_ZaehlerModify;
     fFormDatenModify: Tfrm_DatenModify;
+    fFormStatistik: Tfrm_Statistik;
     fTabVerlauf : TList<TTabItem>;
     fCheckResult: string;
     procedure DoZurueck(Sender: TObject);
@@ -38,7 +40,8 @@ type
     procedure ShowZaehlerModify(Sender: TObject);
     procedure NewZaehler(Sender: TObject);
     procedure ShowDaten(Sender: TObject);
-    procedure ShowDatenModify(Sender: TObject);
+    procedure ShowStatistik(Sender: TObject);
+    //procedure ShowDatenModify(Sender: TObject);
     procedure AddZaehlerstand(Sender: TObject);
   public
   end;
@@ -67,6 +70,7 @@ begin
   fFormMain.OnHostEinstellung := ShowHostEinstellung;
   fFormMain.OnZaehlerModify := ShowZaehlerModify;
   fFormMain.OnZaehlerClick := ShowDaten;
+  //fFormMain.OnStatistik := ShowStatistik;
   tbs_Main.TagObject := fFormMain;
 
 
@@ -81,6 +85,7 @@ begin
     fFormDaten.Children[0].Parent := tbs_Daten;
   fFormDaten.OnZurueck := DoZurueck;
   fFormDaten.OnAddZaehlerstand := AddZaehlerstand;
+  fFormDaten.OnStatistik := ShowStatistik;
   tbs_Daten.TagObject := fFormDaten;
 
 
@@ -100,7 +105,11 @@ begin
 
   tbs_DatenModify.TagObject := fFormDatenModify;
 
-
+  fFormStatistik := Tfrm_Statistik.Create(Self);
+  while fFormStatistik.ChildrenCount > 0 do
+    fFormStatistik.Children[0].Parent := tbs_Statistik;
+  fFormStatistik.OnZurueck := DoZurueck;
+  tbs_Statistik.TagObject := fFormStatistik;
 
 
   fTabVerlauf := TList<TTabItem>.Create;
@@ -141,11 +150,21 @@ begin
   setTabActiv(tbs_Daten);
 end;
 
+
+procedure Tfrm_Energieverbrauch.ShowStatistik(Sender: TObject);
+begin
+  //fFormDaten.setZaehler(TJZaehler(Sender));
+  fFormStatistik.setZaehler(TJZaehler(Sender));
+  setTabActiv(tbs_Statistik);
+end;
+
+{
 procedure Tfrm_Energieverbrauch.ShowDatenModify(Sender: TObject);
 begin
   fFormDatenModify.setZaehler(TJZaehler(Sender));
   setTabActiv(tbs_DatenModify);
 end;
+}
 
 procedure Tfrm_Energieverbrauch.ShowHostEinstellung(Sender: TObject);
 begin //

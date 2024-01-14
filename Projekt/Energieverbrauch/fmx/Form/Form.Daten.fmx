@@ -53,17 +53,99 @@ inherited frm_Daten: Tfrm_Daten
         ImageIndex = 2
         Images = dm_Bilder.SVGIconImageList
       end
+      object Gly_Statistik: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 60.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 4
+        Images = dm_Bilder.SVGIconImageList
+      end
     end
   end
-  object ListView1: TListView
-    ItemAppearanceClassName = 'TListItemAppearance'
-    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+  object lv: TListView
+    Touch.GestureManager = GestureManager
+    OnGesture = lvGesture
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
     HeaderAppearanceClassName = 'TListHeaderObjects'
     FooterAppearanceClassName = 'TListHeaderObjects'
+    EditMode = True
+    Images = dm_Bilder.SVGIconImageList_Blue
     Align = Client
     Size.Width = 640.000000000000000000
     Size.Height = 440.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 100.000000000000000000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Stand'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Roboto'
+        Appearance.TextAlign = Leading
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 20.000000000000000000
+        Appearance.PlaceOffset.Y = 21.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Datum'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.TextAlign = Leading
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 20.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Verbrauch'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.TextAlign = Trailing
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 20.000000000000000000
+        Appearance.Align = Trailing
+        Appearance.PlaceOffset.Y = 21.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Label_Verbrauch'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.TextAlign = Trailing
+        Appearance.Width = 100.000000000000000000
+        Appearance.Height = 20.000000000000000000
+        Appearance.Align = Trailing
+      end
+      item
+        AppearanceObjectName = 'Img_Delete'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 32.000000000000000000
+        Appearance.Height = 32.000000000000000000
+        Appearance.Align = Trailing
+        Appearance.VertAlign = Center
+      end>
+    OnItemClickEx = lvItemClickEx
+  end
+  object GestureManager: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 304
+    Top = 232
+    GestureData = <
+      item
+        Control = lv
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end>
   end
 end

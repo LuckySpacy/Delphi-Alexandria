@@ -20,6 +20,7 @@ type
     procedure ReadAllByZaId(aZaId: Integer);
     procedure ReadAllByZaIdAndJahr(aZaId, aJahr: Integer);
     procedure ReadbyId(aId: Integer);
+    procedure ReadAllByZaIdAndZeitraum(aZaId: Integer; aDatumVon, aDatumBis: TDateTime);
   end;
 
 implementation
@@ -69,7 +70,7 @@ begin
   fQuery.OpenTrans;
   try
     fQuery.SQL.Text := ' select * from zaehlerstand where zs_DELETE != ' + QuotedStr('T') +
-                       ' where zs_za_id = ' + aZaId.ToString +
+                       ' and zs_za_id = ' + aZaId.ToString +
                        ' order by zs_datum desc';
     fQuery.Open;
     while not fQuery.Eof do
@@ -122,6 +123,39 @@ begin
     fQuery.RollbackTrans;
   end;
 end;
+
+procedure TDBZaehlerstandList.ReadAllByZaIdAndZeitraum(aZaId: Integer; aDatumVon, aDatumBis: TDateTime);
+var
+  x: TDBZaehlerstand;
+begin
+  fList.Clear;
+  if fTrans = nil then
+    exit;
+  fQuery.Trans := fTrans;
+  fQuery.Close;
+  fQuery.OpenTrans;
+  try
+    fQuery.SQL.Text := ' select * from zaehlerstand where zs_DELETE != ' + QuotedStr('T') +
+                       ' and zs_za_id = ' + aZaId.ToString +
+                       ' and zs_datum >= :datumvon' +
+                       ' and zs_datum <= :datumbis' +
+                       ' order by zs_datum desc';
+    fQuery.ParamByName('datumvon').AsDate := aDatumVon;
+    fQuery.ParamByName('datumbis').AsDate := aDatumBis;
+    fQuery.Open;
+    while not fQuery.Eof do
+    begin
+      x := TDBZaehlerstand.Create(nil);
+      x.Trans := fTrans;
+      x.LoadByQuery(fQuery);
+      fList.Add(x);
+      fQuery.Next;
+    end;
+  finally
+    fQuery.RollbackTrans;
+  end;
+end;
+
 
 procedure TDBZaehlerstandList.ReadbyId(aId: Integer);
 var

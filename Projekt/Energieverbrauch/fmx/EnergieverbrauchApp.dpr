@@ -18,7 +18,8 @@ uses
   Communication.API in 'Communication\Communication.API.pas',
   Objekt.JEnergieverbrauch in 'Objekt\Objekt.JEnergieverbrauch.pas',
   Thread.Timer in 'Timer\Thread.Timer.pas',
-  Form.DatenModify in 'Form\Form.DatenModify.pas' {frm_DatenModify};
+  Form.DatenModify in 'Form\Form.DatenModify.pas' {frm_DatenModify},
+  Form.Statistik in 'Form\Form.Statistik.pas' {frm_Statistik};
 
 {$R *.res}
 

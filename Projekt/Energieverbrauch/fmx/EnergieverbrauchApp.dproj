@@ -341,6 +341,10 @@
             <Form>frm_DatenModify</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Form\Form.Statistik.pas">
+            <Form>frm_Statistik</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -1521,6 +1525,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

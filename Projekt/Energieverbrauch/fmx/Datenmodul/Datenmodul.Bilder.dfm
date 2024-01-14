@@ -6,6 +6,7 @@ object dm_Bilder: Tdm_Bilder
       item
         MultiResBitmap = <
           item
+            Size = 36
           end>
         IconName = 'symbol-arrow-left'
         SVGText = 
@@ -71,14 +72,76 @@ object dm_Bilder: Tdm_Bilder
           'FFF"/>'#10'  </g>'#10'</svg>'#10
         FixedColor = xFFFCFBFB
         Opacity = 1.000000000000000000
+      end
+      item
+        MultiResBitmap = <
+          item
+          end>
+        IconName = 'symbol-ok'
+        SVGText = 
+          '<?xml version="1.0" encoding="UTF-8"?>'#10'<!DOCTYPE svg PUBLIC "-//' +
+          'W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/sv' +
+          'g11.dtd">'#10'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.o' +
+          'rg/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" ' +
+          'y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-ba' +
+          'ckground="new 0 0 16 16" xml:space="preserve">'#10'  <g id="icon">'#10' ' +
+          '   <path d="M15.8904,4.0771l-1.9415,-1.9415c-0.1801,-0.1801,-0.4' +
+          '884,-0.1639,-0.669,0.0156L6.3234,9.0554L2.6739,5.367c-0.0865,-0.' +
+          '0875,-0.2027,-0.1312,-0.3257,-0.1316c-0.1234,-0.0005,-0.2396,0.0' +
+          '541,-0.3265,0.1411L0.1506,7.2476c-0.1797,0.1797,-0.1842,0.4671,-' +
+          '0.0056,0.6478l3.483,3.4766c0.0204,0.0364,0.0715,0.0408,0.1016,0.' +
+          '0708l2.3642,2.3642c0.0902,0.0902,0.181,0.1628,0.2993,0.1628c0.11' +
+          '78,0,0.2218,-0.031,0.312,-0.1206l9.158,-9.0914c0.0871,-0.0865,0.' +
+          '1493,-0.2174,0.1495,-0.3402C16.0128,4.2949,15.9772,4.1639,15.890' +
+          '4,4.0771z" fill="#FFFFFF"/>'#10'  </g>'#10'</svg>'#10
+        FixedColor = xFFFCFBFB
+        Opacity = 1.000000000000000000
+      end
+      item
+        MultiResBitmap = <
+          item
+            Size = 36
+          end>
+        IconName = 'function-library-statistical'
+        SVGText = 
+          '<?xml version="1.0" encoding="UTF-8"?>'#10'<!DOCTYPE svg PUBLIC "-//' +
+          'W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/sv' +
+          'g11.dtd">'#10'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.o' +
+          'rg/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" ' +
+          'y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-ba' +
+          'ckground="new 0 0 16 16" xml:space="preserve">'#10'  <g id="icon">'#10' ' +
+          '   <path d="M13.9,16c-0.6,0,-8.139,-0.013,-11.653,-0.014c-0.633,' +
+          '0,-1.247,-0.906,-1.247,-1.524c0,-4.262,0,-8.818,0,-12.994C1,0.58' +
+          '2,1.621,-0.002,2.5,0v14c-0.579,0.102,-0.6,1,0,1c3.346,0,10.8,0,1' +
+          '1.5,0S14.5,16,13.9,16zM15,0c0,4.413,0,9.558,0,14.003c-3.45,0,-8.' +
+          '565,-0.003,-12,-0.003c0,-4.423,0,-9.564,0,-14C6.418,0,11.55,0,15' +
+          ',0zM7,9.442c0,-0.244,-0.198,-0.442,-0.442,-0.442H5.442C5.198,9,5' +
+          ',9.198,5,9.442V12h2V9.442zM10,8.442c0,-0.244,-0.198,-0.442,-0.44' +
+          '2,-0.442H8.442C8.198,8,8,8.198,8,8.442V12h2V8.442zM13,7.442c0,-0' +
+          '.244,-0.198,-0.442,-0.442,-0.442h-1.117c-0.244,0,-0.442,0.198,-0' +
+          '.442,0.442V12h2V7.442zM13.478,3.204c-0.033,-0.051,-0.089,-0.082,' +
+          '-0.149,-0.082c-0.009,0,-0.017,0.001,-0.026,0.002l-1.72,0.249c-0.' +
+          '062,0.009,-0.114,0.049,-0.139,0.107c-0.025,0.058,-0.017,0.123,0.' +
+          '019,0.174l0.288,0.401L9.596,5.852l-1.292,-1.35c-0.035,-0.043,-0.' +
+          '088,-0.068,-0.144,-0.068c-0.037,0,-0.073,0.011,-0.105,0.032L4.48' +
+          '8,6.935c-0.027,0.018,-0.046,0.046,-0.053,0.078c-0.007,0.032,0,0.' +
+          '065,0.018,0.093l0.29,0.439c0.019,0.029,0.051,0.049,0.086,0.054L4' +
+          '.841,7.6h0.005c0.024,0,0.047,-0.007,0.067,-0.02l3.132,-2.178L9.3' +
+          '6,6.756c0.036,0.044,0.09,0.069,0.148,0.069c0.034,0,0.068,-0.009,' +
+          '0.097,-0.026l0.005,-0.003l2.592,-2.107l0.252,0.346c0.034,0.047,0' +
+          '.087,0.074,0.145,0.074c0.07,0,0.134,-0.041,0.163,-0.106l0.729,-1' +
+          '.63C13.516,3.318,13.511,3.254,13.478,3.204z" fill="#FFFFFF"/>'#10'  ' +
+          '</g>'#10'</svg>'#10
+        FixedColor = xFFFCFBFB
+        Opacity = 1.000000000000000000
       end>
     Destination = <
       item
         Layers = <
           item
             Name = 'symbol-arrow-left'
-            SourceRect.Right = 30.000000000000000000
-            SourceRect.Bottom = 30.000000000000000000
+            SourceRect.Right = 36.000000000000000000
+            SourceRect.Bottom = 36.000000000000000000
           end>
       end
       item
@@ -93,6 +156,14 @@ object dm_Bilder: Tdm_Bilder
         Layers = <
           item
             Name = 'symbol-add'
+            SourceRect.Right = 32.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'symbol-ok'
             SourceRect.Right = 120.000000000000000000
             SourceRect.Bottom = 120.000000000000000000
           end>
@@ -100,9 +171,9 @@ object dm_Bilder: Tdm_Bilder
       item
         Layers = <
           item
-            Name = 'Item 0'
-            SourceRect.Right = 32.000000000000000000
-            SourceRect.Bottom = 32.000000000000000000
+            Name = 'function-library-statistical'
+            SourceRect.Right = 36.000000000000000000
+            SourceRect.Bottom = 36.000000000000000000
           end>
       end
       item
@@ -122,7 +193,6 @@ object dm_Bilder: Tdm_Bilder
       item
         MultiResBitmap = <
           item
-            Size = 40
           end>
         IconName = 'cloud-server'
         SVGText = 
@@ -153,7 +223,6 @@ object dm_Bilder: Tdm_Bilder
       item
         MultiResBitmap = <
           item
-            Size = 40
           end>
         IconName = 'tool-meter-add-2'
         SVGText = 
@@ -206,7 +275,6 @@ object dm_Bilder: Tdm_Bilder
       item
         MultiResBitmap = <
           item
-            Size = 40
           end>
         IconName = 'tool-meter-tools'
         SVGText = 
@@ -340,44 +408,134 @@ object dm_Bilder: Tdm_Bilder
           'ke="#3E78B2" stroke-width="1" stroke-linecap="round" stroke-mite' +
           'rlimit="10"/>'#10'  </g>'#10'</svg>'#10
         Opacity = 1.000000000000000000
+      end
+      item
+        MultiResBitmap = <
+          item
+          end>
+        IconName = 'symbol-delete'
+        SVGText = 
+          '<?xml version="1.0" encoding="UTF-8"?>'#10'<!DOCTYPE svg PUBLIC "-//' +
+          'W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/sv' +
+          'g11.dtd">'#10'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.o' +
+          'rg/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" ' +
+          'y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-ba' +
+          'ckground="new 0 0 16 16" xml:space="preserve">'#10'  <g id="icon">'#10' ' +
+          '   <path d="M14.7,15.983c-0.274,0,-0.53,-0.146,-0.668,-0.38C10.5' +
+          '12,9.61,6.088,5.668,0.508,3.552c-0.353,-0.134,-0.556,-0.506,-0.4' +
+          '72,-0.866c0.249,-1.062,0.793,-1.91,1.617,-2.52c0.13,-0.096,0.292' +
+          ',-0.149,0.457,-0.149c0.084,0,0.168,0.013,0.248,0.04c4.359,1.436,' +
+          '8.645,5.977,13.49,14.29c0.086,0.148,0.119,0.32,0.093,0.486c-0.05' +
+          '5,0.351,-0.266,0.826,-0.96,1.097C14.891,15.966,14.796,15.983,14.' +
+          '7,15.983C14.7,15.983,14.7,15.983,14.7,15.983z" fill="#CD4C32"/>'#10 +
+          '    <path d="M3.101,15.727c-0.055,0,-0.11,-0.006,-0.164,-0.018c-' +
+          '1.06,-0.24,-1.906,-0.766,-2.516,-1.563c-0.151,-0.197,-0.193,-0.4' +
+          '58,-0.111,-0.698C1.747,9.23,6.057,5.28,14.287,0.64c0.113,-0.064,' +
+          '0.242,-0.098,0.371,-0.098c0.037,0,0.074,0.003,0.11,0.008c0.35,0.' +
+          '053,0.825,0.257,1.096,0.931c0.14,0.347,-0.002,0.749,-0.329,0.935' +
+          'C9.568,5.807,5.948,9.765,3.8,15.249C3.688,15.535,3.407,15.727,3.' +
+          '101,15.727L3.101,15.727z" fill="#CD4C32"/>'#10'  </g>'#10'</svg>'#10
+        Opacity = 1.000000000000000000
+      end
+      item
+        MultiResBitmap = <
+          item
+          end>
+        IconName = 'trash'
+        SVGText = 
+          '<?xml version="1.0" encoding="UTF-8"?>'#10'<!DOCTYPE svg PUBLIC "-//' +
+          'W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/sv' +
+          'g11.dtd">'#10'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.o' +
+          'rg/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" ' +
+          'y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-ba' +
+          'ckground="new 0 0 16 16" xml:space="preserve">'#10'  <g id="icon">'#10' ' +
+          '   <path d="M2,4v10.8004C2,15.4871,2.6333,16,3.325,16h9.3454c0.6' +
+          '917,0,1.3296,-0.5129,1.3296,-1.1996V4H2zM6,13.3833c0,0.3406,-0.2' +
+          '761,0.6167,-0.6167,0.6167h-0.7667c-0.3406,0,-0.6167,-0.2761,-0.6' +
+          '167,-0.6167V6.6167C4,6.2761,4.2761,6,4.6167,6h0.7667C5.7239,6,6,' +
+          '6.2761,6,6.6167V13.3833zM9,13.3833c0,0.3406,-0.2761,0.6167,-0.61' +
+          '67,0.6167h-0.7667c-0.3406,0,-0.6167,-0.2761,-0.6167,-0.6167V6.61' +
+          '67C7,6.2761,7.2761,6,7.6167,6h0.7667C8.7239,6,9,6.2761,9,6.6167V' +
+          '13.3833zM12,13.3833c0,0.3406,-0.2761,0.6167,-0.6167,0.6167h-0.76' +
+          '67c-0.3406,0,-0.6167,-0.2761,-0.6167,-0.6167V6.6167c0,-0.3406,0.' +
+          '2761,-0.6167,0.6167,-0.6167h0.7667c0.3406,0,0.6167,0.2761,0.6167' +
+          ',0.6167V13.3833z" fill="#797979"/>'#10'    <path d="M14.1718,1H9.7V0' +
+          '.5348C9.7,0.2394,9.3724,0,9.075,0H6.9204C6.6229,0,6.3,0.2394,6.3' +
+          ',0.5348V1H1.8235C1.3661,1,1,1.4377,1,1.8918V3.248c0,0.144,0.1129' +
+          ',0.252,0.2579,0.252h13.4795c0.145,0,0.2626,-0.108,0.2626,-0.252V' +
+          '1.8918C15,1.4377,14.6292,1,14.1718,1z" fill="#3E79B4"/>'#10'    <pat' +
+          'h d="M5.3833,14h-0.7667c-0.3406,0,-0.6167,-0.2761,-0.6167,-0.616' +
+          '7V6.6167C4,6.2761,4.2761,6,4.6167,6h0.7667C5.7239,6,6,6.2761,6,6' +
+          '.6167v6.7667C6,13.7239,5.7239,14,5.3833,14zM9,13.3833V6.6167C9,6' +
+          '.2761,8.7239,6,8.3833,6h-0.7667C7.2761,6,7,6.2761,7,6.6167v6.766' +
+          '7c0,0.3406,0.2761,0.6167,0.6167,0.6167h0.7667C8.7239,14,9,13.723' +
+          '9,9,13.3833zM12,13.3833V6.6167c0,-0.3406,-0.2761,-0.6167,-0.6167' +
+          ',-0.6167h-0.7667c-0.3406,0,-0.6167,0.2761,-0.6167,0.6167v6.7667c' +
+          '0,0.3406,0.2761,0.6167,0.6167,0.6167h0.7667C11.7239,14,12,13.723' +
+          '9,12,13.3833z" fill="#FFFFFF"/>'#10'  </g>'#10'</svg>'#10
+        Opacity = 1.000000000000000000
       end>
     Destination = <
       item
         Layers = <
           item
             Name = 'cloud-server'
-            SourceRect.Right = 40.000000000000000000
-            SourceRect.Bottom = 40.000000000000000000
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
           end>
       end
       item
         Layers = <
           item
             Name = 'tool-meter-add-2'
-            SourceRect.Right = 40.000000000000000000
-            SourceRect.Bottom = 40.000000000000000000
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
           end>
       end
       item
         Layers = <
           item
             Name = 'tool-meter-tools'
-            SourceRect.Right = 40.000000000000000000
-            SourceRect.Bottom = 40.000000000000000000
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
           end>
       end
       item
         Layers = <
           item
             Name = 'tool-meter-trash'
-            SourceRect.Right = 32.000000000000000000
-            SourceRect.Bottom = 32.000000000000000000
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
           end>
       end
       item
         Layers = <
           item
             Name = 'save'
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'symbol-delete'
+            SourceRect.Right = 120.000000000000000000
+            SourceRect.Bottom = 120.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'trash'
+            SourceRect.Right = 30.000000000000000000
+            SourceRect.Bottom = 30.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Item 0'
             SourceRect.Right = 32.000000000000000000
             SourceRect.Bottom = 32.000000000000000000
           end>

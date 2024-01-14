@@ -38,6 +38,9 @@ begin
   Add('ZS_WERTSTR');
   Add('ZS_TIMESTAMP');
   Add('JAHR');
+  Add('DATUMVON');
+  Add('DATUMBIS');
+  Add('VERBRAUCH');
   fJErrorList := nil;
   Init;
 end;

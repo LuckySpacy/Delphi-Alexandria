@@ -151,6 +151,8 @@
         <DCCReference Include="..\Objekt\Objekt.JZaehlerstand.pas"/>
         <DCCReference Include="..\Objekt\Objekt.JZaehlerstandList.pas"/>
         <DCCReference Include="DB\DB.ZaehlerstandList.pas"/>
+        <DCCReference Include="wai\wai.base.pas"/>
+        <DCCReference Include="wai\wai.ZaehlerstandReadZeitraum.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -170,7 +170,7 @@ inherited frm_Main: Tfrm_Main
       Size.Width = 201.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 3
       OnClick = Lay_HostEinstellungClick
       object Label1: TLabel
         StyledSettings = [Style, FontColor]
@@ -203,7 +203,7 @@ inherited frm_Main: Tfrm_Main
       Size.Width = 201.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 2
       object Label2: TLabel
         StyledSettings = [Style, FontColor]
         Position.X = 73.000000000000000000
@@ -235,11 +235,11 @@ inherited frm_Main: Tfrm_Main
       Size.Width = 201.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
+      TabOrder = 1
       object lbl_ZaehlerBearb: TLabel
         StyledSettings = [Style, FontColor]
         Position.X = 73.000000000000000000
-        Position.Y = 18.000000000000000000
+        Position.Y = 17.000000000000000000
         Size.Width = 136.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
@@ -248,6 +248,38 @@ inherited frm_Main: Tfrm_Main
         TabOrder = 0
       end
       object Glyph2: TGlyph
+        Margins.Left = 12.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Align = Left
+        Position.X = 12.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 2
+        Images = dm_Bilder.SVGIconImageList_Blue
+      end
+    end
+    object lay_Statistik: TLayout
+      Align = Top
+      Position.Y = 150.000000000000000000
+      Size.Width = 201.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Label3: TLabel
+        StyledSettings = [Style, FontColor]
+        Position.X = 73.000000000000000000
+        Position.Y = 17.000000000000000000
+        Size.Width = 136.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        Text = 'Statistik'
+        TabOrder = 0
+      end
+      object Glyph3: TGlyph
         Margins.Left = 12.000000000000000000
         Margins.Top = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000

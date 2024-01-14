@@ -28,6 +28,9 @@ type
     lay_ZaehlerBearb: TLayout;
     lbl_ZaehlerBearb: TLabel;
     Glyph2: TGlyph;
+    lay_Statistik: TLayout;
+    Label3: TLabel;
+    Glyph3: TGlyph;
     procedure Lay_HostEinstellungClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -49,16 +52,19 @@ type
     fPressedItem: TListviewItem;
     fTimer: TThreadTimer;
     fBearbModus: Boolean;
+    fOnStatistik: TNotifyEvent;
     procedure MenuClick(Sender: TObject);
     procedure ZaehlerAddClick(Sender: TObject);
     procedure UpdateListView;
     procedure TapAndHold(Sender: TObject);
     procedure setBearbModus(const Value: Boolean);
     procedure ZaehlerBearbeiten(Sender: TObject);
+    procedure StatistikClick(Sender: TObject);
     procedure setZaehlerItemWidth(aTextObjectAppearance: TTextObjectAppearance);
   public
     property OnHostEinstellung: TNotifyEvent read fOnHostEinstellung write fOnHostEinstellung;
     property OnZaehlerModify: TNotifyEvent read fOnZaehlerModify write fOnZaehlerModify;
+    property OnStatistik: TNotifyEvent read fOnStatistik write fOnStatistik;
     procedure DoUpdateListView;
     property OnZaehlerClick: TNotifyEvent read fOnZaehlerClick write fOnZaehlerClick;
     property BearbModus: Boolean read fBearbModus write setBearbModus;
@@ -89,6 +95,9 @@ begin  //
   Lay_Zaehleranlegen.OnClick := ZaehlerAddClick;
   lay_ZaehlerBearb.HitTest := true;
   lay_ZaehlerBearb.OnClick := ZaehlerBearbeiten;
+  lay_Statistik.HitTest := true;
+  lay_Statistik.OnClick := StatistikClick;
+
   fTimer := TThreadTimer.Create;
   fTimer.OnTimer := TapAndHold;
   fBearbModus := false;
@@ -273,8 +282,8 @@ end;
 
 procedure Tfrm_Main.lvMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
-var
-  ElapsedTime: Double;
+//var
+//  ElapsedTime: Double;
 begin
   // lv.ItemByPoint(X, Y);
   fTimer.Stop;
@@ -303,9 +312,16 @@ var
   iWidth: single;
 begin
   iWidth := lv.Width - 25;  // links/rechtes Margin
-  iWidth := lv.Width - 32;
-  iWidth := lv.Width - 32;
+  iWidth := iWidth - 32;
+  iWidth := iWidth - 32;
   aTextObjectAppearance.Width := iWidth;
+end;
+
+procedure Tfrm_Main.StatistikClick(Sender: TObject);
+begin
+  MultiView.HideMaster;
+  if Assigned(fOnStatistik) then
+    fOnStatistik(Self);
 end;
 
 procedure Tfrm_Main.lvUpdateObjects(const Sender: TObject;
