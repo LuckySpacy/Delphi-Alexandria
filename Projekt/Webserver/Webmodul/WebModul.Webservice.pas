@@ -1,0 +1,76 @@
+unit WebModul.Webservice;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Web.HTTPApp;
+
+type
+  Twem_Webservice = class(TWebModule)
+    procedure WebModule1DefaultHandlerAction(Sender: TObject;
+      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+    procedure wem_Webservicewai_LoginAction(Sender: TObject;
+      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehler_ReadAllAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  WebModuleClass: TComponentClass = Twem_Webservice;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+uses
+  wma.Login, wma.Energieverbrauch;
+
+procedure Twem_Webservice.WebModule1DefaultHandlerAction(Sender: TObject;
+  Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+begin
+  Response.Content :=
+    '<html>' +
+    '<head><title>Webserver-Anwendung</title></head>' +
+    '<body>Webserver-Anwendung</body>' +
+    '</html>';
+end;
+
+
+
+procedure Twem_Webservice.wem_Webservicewai_LoginAction(Sender: TObject;
+  Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+var
+  wmaLogin: TwmaLogin;
+begin //
+  wmaLogin := TwmaLogin.Create;
+  try
+    wmaLogin.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaLogin);
+  end;
+end;
+
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehler_ReadAllAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehler.ReadAll.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+
+end;
+
+end.

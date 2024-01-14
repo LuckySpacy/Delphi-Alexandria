@@ -67,6 +67,11 @@ end;
 procedure TDBZaehlerstand.Init;
 begin
   inherited;
+  fZaId      := 0;
+  fWertStr   := '';
+  fTimestamp := '';
+  fDatum     := 0;
+  fWert      := 0;
   FuelleDBFelder;
 end;
 

@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{10FE16DA-CE3F-4CEC-8B20-10F9557864E0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Webservice.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\Minitools\JWT\JWT.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Webservice">
+        <MSBuild Projects="Webservice.dproj"/>
+    </Target>
+    <Target Name="Webservice:Clean">
+        <MSBuild Projects="Webservice.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Webservice:Make">
+        <MSBuild Projects="Webservice.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ServerEnergieverbrauch">
+        <MSBuild Projects="..\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj"/>
+    </Target>
+    <Target Name="ServerEnergieverbrauch:Clean">
+        <MSBuild Projects="..\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ServerEnergieverbrauch:Make">
+        <MSBuild Projects="..\Energieverbrauch\Win\Webserver\ServerEnergieverbrauch.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="JWT">
+        <MSBuild Projects="..\..\Minitools\JWT\JWT.dproj"/>
+    </Target>
+    <Target Name="JWT:Clean">
+        <MSBuild Projects="..\..\Minitools\JWT\JWT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JWT:Make">
+        <MSBuild Projects="..\..\Minitools\JWT\JWT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Webservice;ServerEnergieverbrauch;JWT"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Webservice:Clean;ServerEnergieverbrauch:Clean;JWT:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Webservice:Make;ServerEnergieverbrauch:Make;JWT:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

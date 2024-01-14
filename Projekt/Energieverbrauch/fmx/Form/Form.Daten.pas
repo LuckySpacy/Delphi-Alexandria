@@ -83,7 +83,7 @@ begin
   inherited;
   if fJZaehler = nil then
     exit;
-  ReadZaehlerstandZeitraum(IncYear(now, -1), now);
+  ReadZaehlerstandZeitraum(IncYear(now, -2), now);
   UpdateListView;
 end;
 
