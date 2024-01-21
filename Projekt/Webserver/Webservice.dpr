@@ -60,7 +60,8 @@ uses
   DB.EnergieverbrauchZaehlerstandList in 'DB\Energieverbrauch\DB.EnergieverbrauchZaehlerstandList.pas',
   Payload.EnergieverbrauchZaehlerstandRead in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandRead.pas',
   wma.EnergieverbrauchZaehlerstandUpdate in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas',
-  Payload.EnergieverbrauchZaehlerstandUpdate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas';
+  Payload.EnergieverbrauchZaehlerstandUpdate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas',
+  wma.EnergieverbrauchZaehlerstandDelete in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandDelete.pas';
 
 {$R *.res}
 

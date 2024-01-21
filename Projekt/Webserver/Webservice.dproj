@@ -175,6 +175,7 @@
         <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandRead.pas"/>
         <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas"/>
         <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandDelete.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

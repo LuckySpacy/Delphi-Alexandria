@@ -26,6 +26,9 @@ type
     procedure wem_Webservicewai_Energieverbrauch_Zaehlerstand_UpdateAction(
       Sender: TObject; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehlerstand_DeleteAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
   private
     { Private-Deklarationen }
   public
@@ -120,6 +123,8 @@ begin
 end;
 
 
+
+
 procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehlerstand_ReadZeitraumAction(
   Sender: TObject; Request: TWebRequest; Response: TWebResponse;
   var Handled: Boolean);
@@ -148,6 +153,20 @@ begin
     FreeAndNil(wmaEnergieverbrauch);
   end;
 
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehlerstand_DeleteAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehlerstand.DBDelete.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
 end;
 
 end.

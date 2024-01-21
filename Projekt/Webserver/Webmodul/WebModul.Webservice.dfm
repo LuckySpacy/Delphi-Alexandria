@@ -41,6 +41,12 @@ object wem_Webservice: Twem_Webservice
       Name = 'wai_Energieverbrauch_Zaehlerstand_Update'
       PathInfo = '/Energieverbrauch/Zaehlerstand/Update'
       OnAction = wem_Webservicewai_Energieverbrauch_Zaehlerstand_UpdateAction
+    end
+    item
+      MethodType = mtDelete
+      Name = 'wai_Energieverbrauch_Zaehlerstand_Delete'
+      PathInfo = '/Energieverbrauch/Zaehlerstand/Delete'
+      OnAction = wem_Webservicewai_Energieverbrauch_Zaehlerstand_DeleteAction
     end>
   Height = 230
   Width = 415
