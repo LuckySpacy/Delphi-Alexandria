@@ -29,7 +29,7 @@ implementation
 { TAccessPermission }
 
 uses
-  Objekt.Webservice, DB.Token, Datenmodul.Database;
+  Objekt.Webservice, DB.Token, Datenmodul.Database, db.TBTransaction;
 
 constructor TAccessPermission.Create;
 begin
@@ -51,11 +51,14 @@ end;
 function TAccessPermission.CheckToken(aToken: string): string;
 var
   DBToken: TDBToken;
+  fTrans: TTBTransaction;
 begin
   Result := '';
+  fTrans  := TTBTransaction.Create(nil);
   DBToken := TDBToken.Create(nil);
   try
-    DBToken.Trans := dm.Trans_Token;
+    fTrans.DefaultDatabase := dm.IB_Token;
+    DBToken.Trans := fTrans;
     if not DBToken.CheckToken(aToken) then
     begin
       Result := 'Token zum abgleichen nicht gefunden.';
@@ -68,8 +71,8 @@ begin
     end;
   finally
     FreeAndNil(DBToken);
+    FreeAndNil(fTrans);
   end;
-
 end;
 
 end.

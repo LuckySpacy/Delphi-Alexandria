@@ -45,7 +45,22 @@ uses
   Json.EnergieverbrauchZaehlerList in 'Json\Energieverbrauch\Json.EnergieverbrauchZaehlerList.pas',
   DB.EnergieverbrauchZaehler in 'DB\Energieverbrauch\DB.EnergieverbrauchZaehler.pas',
   DB.EnergieverbrauchZaehlerList in 'DB\Energieverbrauch\DB.EnergieverbrauchZaehlerList.pas',
-  DB.BasisList in 'DB\DB.BasisList.pas';
+  DB.BasisList in 'DB\DB.BasisList.pas',
+  Objekt.IniWebservice in 'Objekt\Objekt.IniWebservice.pas',
+  Payload.EnergieverbrauchZaehlerUpdate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas',
+  wma.EnergieverbrauchZaehlerUpdate in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerUpdate.pas',
+  wma.EnergieverbrauchZaehlerDelete in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerDelete.pas',
+  wma.BaseEnergieverbrauch in 'WebmodulAction\Energieverbrauch\wma.BaseEnergieverbrauch.pas',
+  wma.EnergieverbrauchZaehlerstand in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstand.pas',
+  wma.EnergieverbrauchZaehlerstandRead in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandRead.pas',
+  wma.EnergieverbrauchZaehlerstandReadZeitraum in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandReadZeitraum.pas',
+  DB.EnergieverbrauchZaehlerstand in 'DB\Energieverbrauch\DB.EnergieverbrauchZaehlerstand.pas',
+  Json.EnergieverbrauchZaehlerstand in 'Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstand.pas',
+  Json.EnergieverbrauchZaehlerstandList in 'Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstandList.pas',
+  DB.EnergieverbrauchZaehlerstandList in 'DB\Energieverbrauch\DB.EnergieverbrauchZaehlerstandList.pas',
+  Payload.EnergieverbrauchZaehlerstandRead in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandRead.pas',
+  wma.EnergieverbrauchZaehlerstandUpdate in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas',
+  Payload.EnergieverbrauchZaehlerstandUpdate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas';
 
 {$R *.res}
 

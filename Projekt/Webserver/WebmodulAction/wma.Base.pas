@@ -4,13 +4,14 @@ interface
 
 uses
   System.SysUtils, System.Variants, System.Classes, Json.ErrorList, Web.HTTPApp,
-  Objekt.AccessPermission, c.JsonError;
-
+  Objekt.AccessPermission, c.JsonError, db.TBTransaction;
 type
   TwmaBase = class
   private
     fJErrorList: TJErrorList;
     fAccessPermission: TAccessPermission;
+  protected
+    fTrans: TTBTransaction;
   public
     constructor Create; virtual;
     destructor Destroy; override;
@@ -22,16 +23,21 @@ implementation
 
 { TwmaBase }
 
+uses
+  Datenmodul.Database;
+
 constructor TwmaBase.Create;
 begin
   fJErrorList := TJErrorList.Create;
   fAccessPermission := TAccessPermission.Create;
+  fTrans := TTBTransaction.Create(nil);
 end;
 
 destructor TwmaBase.Destroy;
 begin
   FreeAndNil(fAccessPermission);
   FreeAndNil(fJErrorList);
+  FreeAndNil(fTrans);
   inherited;
 end;
 
@@ -42,7 +48,7 @@ var
 begin
   JErrorList.Clear;
   aResponse.ContentType := 'application/json;charset=utf-8';
-  exit; // muss später wenn der Token funktioniert wieder raus.
+  //exit; // muss später wenn der Token funktioniert wieder raus.
   BearerToken := fAccessPermission.getBearerToken(aRequest.Authorization);
   ErrorStr := fAccessPermission.CheckToken(BearerToken);
   if ErrorStr > '' then

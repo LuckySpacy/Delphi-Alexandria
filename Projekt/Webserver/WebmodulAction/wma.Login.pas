@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Variants, System.Classes, wma.Base, Web.HTTPApp,
-  Payload.Login, c.JsonError;
+  Payload.Login, c.JsonError, db.TBTransaction;
 
 type
   TwmaLogin = class(TwmaBase)
@@ -38,9 +38,11 @@ var
   PLogin: TPLogin;
   DBToken: TDBToken;
   Token: string;
+  fTokenTrans: TTBTransaction;
 begin
   inherited;
   JErrorList.Clear;
+  fTokenTrans := TTBTransaction.Create(nil);
   PLogin := TPLogin.Create;
   DBToken := TDBToken.Create(nil);
   try
@@ -64,8 +66,9 @@ begin
       exit;
     end;
 
-
-    DBToken.Trans := dm.Trans_Token;
+    fTokenTrans.DefaultDatabase := dm.IB_Token;
+    DBToken.Trans := fTokenTrans;
+    //DBToken.Trans := dm.Trans_Token;
     Token := DBToken.getToken(PLogin.FieldByName('User').AsString, PLogin.FieldByName('Password').AsString, PLogin.FieldByName('Modul').AsString);
 
     if Token = '' then
@@ -80,6 +83,7 @@ begin
     aResponse.Content := '{"Token":"'+Token+'"}';
 
   finally
+    FreeAndNil(fTokenTrans);
     FreeAndNil(PLogin);
     FreeAndNil(DBToken);
   end;

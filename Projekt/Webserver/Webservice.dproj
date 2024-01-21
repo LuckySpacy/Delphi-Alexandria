@@ -160,6 +160,21 @@
         <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchZaehler.pas"/>
         <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchZaehlerList.pas"/>
         <DCCReference Include="DB\DB.BasisList.pas"/>
+        <DCCReference Include="Objekt\Objekt.IniWebservice.pas"/>
+        <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerUpdate.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerDelete.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.BaseEnergieverbrauch.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstand.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandRead.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandReadZeitraum.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchZaehlerstand.pas"/>
+        <DCCReference Include="Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstand.pas"/>
+        <DCCReference Include="Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstandList.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchZaehlerstandList.pas"/>
+        <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandRead.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas"/>
+        <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

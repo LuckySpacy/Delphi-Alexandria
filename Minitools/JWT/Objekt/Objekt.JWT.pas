@@ -15,17 +15,17 @@ type
     fAustelldatum: TDateTime;
     fAussteller: string;
     fSchluessel: string;
-    constructor Create;
-    destructor Destroy; override;
-    function BuildToken: string;
     procedure Init;
+  public
     property Algorithm: Integer read fAlgorithm write fAlgorithm;
     property Thema: string read fThema write fThema;
     property Aussteller: string read fAussteller write fAussteller;
     property Austelldatum: TDateTime read fAustelldatum write fAustelldatum;
     property Ablaufdatum: TDateTime read fAblaufdatum write fAblaufdatum;
     property Schluessel: string read fSchluessel write fSchluessel;
-  public
+    constructor Create;
+    destructor Destroy; override;
+    function BuildToken: string;
   end;
 
 implementation

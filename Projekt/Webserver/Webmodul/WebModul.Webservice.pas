@@ -14,6 +14,18 @@ type
     procedure wem_Webservicewai_Energieverbrauch_Zaehler_ReadAllAction(
       Sender: TObject; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehler_UpdateAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehler_DeleteAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehlerstand_ReadZeitraumAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_Zaehlerstand_UpdateAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
   private
     { Private-Deklarationen }
   public
@@ -58,6 +70,8 @@ begin //
 end;
 
 
+
+
 procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehler_ReadAllAction(
   Sender: TObject; Request: TWebRequest; Response: TWebResponse;
   var Handled: Boolean);
@@ -67,6 +81,69 @@ begin
   wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
   try
     wmaEnergieverbrauch.Zaehler.ReadAll.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehler_UpdateAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehler.DBUdate.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+
+end;
+
+
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehler_DeleteAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehler.DBDelete.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+
+end;
+
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehlerstand_ReadZeitraumAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehlerstand.Lese.Zeitraum.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehlerstand_UpdateAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Zaehlerstand.DBUdate.DoIt(Request, Response);
   finally
     FreeAndNil(wmaEnergieverbrauch);
   end;

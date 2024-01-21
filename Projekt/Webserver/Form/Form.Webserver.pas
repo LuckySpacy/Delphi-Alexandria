@@ -6,7 +6,7 @@ uses
   Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.AppEvnts, Vcl.StdCtrls, IdHTTPWebBrokerBridge, IdGlobal, Web.HTTPApp,
-  Vcl.ExtCtrls, Form.Datenbank, Objekt.Webservice;
+  Vcl.ExtCtrls, Form.Datenbank, Objekt.Webservice, IdContext;
 
 type
   Tfrm_Webservice = class(TForm)
@@ -28,6 +28,7 @@ type
     FServer: TIdHTTPWebBrokerBridge;
     fFormDatenbank: Tfrm_Datenbank;
     procedure StartServer;
+    procedure DoParseAuthentication(AContext: TIdContext; const AAuthType, AAuthData: String; var VUsername, VPassword: String; var VHandled: Boolean);
     { Private-Deklarationen }
   public
     function CheckDatenbankverbindungen: Boolean;
@@ -54,6 +55,7 @@ begin
   fFormDatenbank.Parent := pnl_Client;
   fFormDatenbank.Align := alClient;
   fFormDatenbank.Show;
+  edt_Port.Text := Webservice.Ini.Webservice.Port.ToString;
 end;
 
 procedure Tfrm_Webservice.FormDestroy(Sender: TObject);
@@ -113,10 +115,19 @@ begin
   end;
 end;
 
+procedure Tfrm_Webservice.DoParseAuthentication(AContext: TIdContext;
+  const AAuthType, AAuthData: String; var VUsername, VPassword: String;
+  var VHandled: Boolean);
+begin
+  VHandled := true;
+end;
+
 procedure Tfrm_Webservice.StartServer;
 begin
   if not FServer.Active then
   begin
+    Webservice.Ini.Webservice.Port := StrToInt(edt_Port.Text);
+    FServer.OnParseAuthentication := DoParseAuthentication;
     FServer.Bindings.Clear;
     FServer.DefaultPort := StrToInt(edt_Port.Text);
     FServer.Active := True;
