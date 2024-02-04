@@ -20,6 +20,7 @@ type
     procedure ReadAll;
     procedure ReadbyId(aId: Integer);
     procedure ReadZeitraum(aZaId: Integer; aDatumvon, aDatumbis: TDateTime);
+    procedure ReadAllByZaehler(aZaId: Integer);
   end;
 
 implementation
@@ -70,6 +71,35 @@ begin
   try
     fQuery.SQL.Text := 'select * from zaehlerstand where zs_DELETE != ' + QuotedStr('T') +
                        ' order by zs_za_id, zs_datum';
+    fQuery.Open;
+    while not fQuery.Eof do
+    begin
+      x := TDBEnergieverbrauchZaehlerstand.Create(nil);
+      x.Trans := fTrans;
+      x.LoadByQuery(fQuery);
+      fList.Add(x);
+      fQuery.Next;
+    end;
+  finally
+    fQuery.RollbackTrans;
+  end;
+end;
+
+procedure TDBEnergieverbrauchZaehlerstandList.ReadAllByZaehler(aZaId: Integer);
+var
+  x: TDBEnergieverbrauchZaehlerstand;
+begin
+  fList.Clear;
+  if fTrans = nil then
+    exit;
+  fQuery.Trans := fTrans;
+  fQuery.Close;
+  fQuery.OpenTrans;
+  try
+    fQuery.SQL.Text := 'select * from zaehlerstand where zs_DELETE != ' + QuotedStr('T') +
+                       ' and zs_za_id = :ZaId' +
+                       ' order by zs_za_id, zs_datum';
+    fQuery.ParamByName('zaid').AsInteger := aZaId;
     fQuery.Open;
     while not fQuery.Eof do
     begin

@@ -404,6 +404,7 @@ end;
 procedure TDBBasis.setTrans(const Value: TTBTransaction);
 begin
   fTrans := Value;
+  fQuery.Trans := fTrans;
   if Assigned(fOnNewTransaction) then
     fOnNewTransaction(nil);
 end;

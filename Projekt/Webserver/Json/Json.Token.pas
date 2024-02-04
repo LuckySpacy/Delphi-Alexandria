@@ -1,13 +1,12 @@
-unit Payload.EnergieverbrauchZaehlerUpdate;
+unit Json.Token;
 
 interface
 
 uses
-  System.SysUtils, System.Variants, System.Classes, Objekt.Feld, Objekt.FeldList,
-  Json.ErrorList;
+  System.SysUtils, System.Variants, System.Classes, Objekt.Feld, Objekt.FeldList, Json.ErrorList;
 
 type
-  TPEnergieverbrauchZaehlerUpdate = class(TFeldList)
+  TJToken = class(TFeldList)
   private
     fJErrorList: TJErrorList;
     function getJsonString: string;
@@ -17,40 +16,39 @@ type
     destructor Destroy; override;
     procedure Init;
     property JsonString: string read getJsonString write setJsonString;
-    property JErrorList: TJErrorList read fJErrorList;
+    procedure setErrorList(aJErrorList: TJErrorList);
   end;
 
 implementation
 
-{ TPEnergieverbrauchZaehlerUpdate }
+{ TJToken }
 
 uses
-  System.JSON, System.Generics.Collections, c.JsonError;
+  System.JSON, System.Generics.Collections;
 
-constructor TPEnergieverbrauchZaehlerUpdate.Create;
+constructor TJToken.Create;
 begin
   inherited;
-  Add('ZA_ID');
-  Add('ZA_ZAEHLER');
-  fJErrorList := TJErrorList.Create;
+  Add('Token');
+  fJErrorList := nil;
   Init;
 end;
 
-procedure TPEnergieverbrauchZaehlerUpdate.Init;
+destructor TJToken.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TJToken.Init;
 var
   i1: Integer;
 begin
   for i1 := 0 to FieldCount -1 do
-      Field[i1].AsString := '';
+    Field[i1].AsString := '';
 end;
 
-destructor TPEnergieverbrauchZaehlerUpdate.Destroy;
-begin
-  FreeAndNil(fJErrorList);
-  inherited;
-end;
-
-function TPEnergieverbrauchZaehlerUpdate.getJsonString: string;
+function TJToken.getJsonString: string;
 var
   i1: Integer;
   JsonObject: TJSONObject;
@@ -67,25 +65,22 @@ end;
 
 
 
-procedure TPEnergieverbrauchZaehlerUpdate.setJsonString(const Value: string);
+procedure TJToken.setErrorList(aJErrorList: TJErrorList);
+begin
+
+end;
+
+procedure TJToken.setJsonString(const Value: string);
 var
   JsonObject: TJSONObject;
-  i1: Integer;
   s: string;
   JsonStr: string;
+  i1: Integer;
 begin
   Init;
   JsonStr := Value;
   try
     JsonObject := TJSONObject.ParseJSONValue(JsonStr) as TJSONObject;
-  except
-    on E: Exception do
-    begin
-      fJErrorList.setError(E.Message, cJIdPayloadNichtKorrekt);
-      exit;
-    end;
-  end;
-  try
     for i1 := 0 to FieldCount -1 do
     begin
       if JsonObject.TryGetValue(Field[i1].Feldname, s) then

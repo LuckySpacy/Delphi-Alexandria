@@ -37,6 +37,9 @@ type
     property WertStr: string read fWertStr write setWertStr;
     property Datum: TDateTime read fDatum write setDatum;
     property Timestamp: string read fTimestamp write setTimestamp;
+    function getLetzterEndpunkt(aZaId: Integer; aDatum: TDateTime): TDateTime;
+    function getNaechsterEndpunkt(aZaId: Integer; aDatum: TDateTime): TDateTime;
+    function getEndpunktWert(aZaId: Integer;aDatum: TDateTime): Extended;
   end;
 
 implementation
@@ -139,7 +142,7 @@ end;
 procedure TDBEnergieverbrauchZaehlerstand.setDatum(const Value: TDateTime);
 begin
   UpdateV(fDatum, Value);
-  fFeldList.FieldByName('ZS_DATUM').AsDateTime := fDatum;
+  fFeldList.FieldByName('ZS_DATUM').AsDateTime := trunc(fDatum);
 end;
 
 procedure TDBEnergieverbrauchZaehlerstand.setTimestamp(const Value: string);
@@ -165,5 +168,62 @@ begin
   UpdateV(fZaId, Value);
   fFeldList.FieldByName('ZS_ZA_ID').AsInteger := fZaId;
 end;
+
+function TDBEnergieverbrauchZaehlerstand.getLetzterEndpunkt(aZaId: Integer; aDatum: TDateTime): TDateTime;
+begin
+  fQuery.Close;
+  fQuery.Sql.Text := ' select zs_datum from zaehlerstand' +
+                     ' where zs_datum < :datum' +
+                     ' and   zs_za_id = :zaid' +
+                     ' order by zs_datum desc' ;
+  fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
+  fQuery.ParamByName('zaid').AsInteger   := aZaId;
+  fQuery.OpenTrans;
+  fQuery.Open;
+  if not fQuery.Eof then
+    Result := trunc(fQuery.Fields[0].AsDateTime)
+  else
+    Result := 0;
+  fQuery.Close;
+  fQuery.RollbackTrans;
+end;
+
+function TDBEnergieverbrauchZaehlerstand.getNaechsterEndpunkt(aZaId: Integer; aDatum: TDateTime): TDateTime;
+begin
+  fQuery.Close;
+  fQuery.Sql.Text := ' select zs_datum from zaehlerstand' +
+                     ' where zs_datum > :datum' +
+                     ' and   zs_za_id = :zaid' +
+                     ' order by zs_datum desc' ;
+  fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
+  fQuery.ParamByName('zaid').AsInteger := aZaId;
+  fQuery.OpenTrans;
+  fQuery.Open;
+  if not fQuery.Eof then
+    Result := trunc(fQuery.Fields[0].AsDateTime)
+  else
+    Result := 0;
+  fQuery.Close;
+  fQuery.RollbackTrans;
+end;
+
+function TDBEnergieverbrauchZaehlerstand.getEndpunktWert(aZaId: Integer; aDatum: TDateTime): Extended;
+begin
+  fQuery.Close;
+  fQuery.Sql.Text := ' select zs_wert from zaehlerstand' +
+                     ' where zs_datum = :datum'+
+                     ' and   zs_za_id = :zaid';
+  fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
+  fQuery.ParamByName('zaid').AsInteger := aZaId;
+  fQuery.OpenTrans;
+  fQuery.Open;
+  if not fQuery.Eof then
+    Result := fQuery.Fields[0].AsFloat
+  else
+    Result := 0;
+  fQuery.Close;
+  fQuery.RollbackTrans;
+end;
+
 
 end.

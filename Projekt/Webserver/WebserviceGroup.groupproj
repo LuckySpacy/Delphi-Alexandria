@@ -12,6 +12,9 @@
         <Projects Include="..\..\Minitools\JWT\JWT.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\Energieverbrauch\fmx\EnergieverbrauchApp.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="JWT:Make">
         <MSBuild Projects="..\..\Minitools\JWT\JWT.dproj" Targets="Make"/>
     </Target>
+    <Target Name="EnergieverbrauchApp">
+        <MSBuild Projects="..\Energieverbrauch\fmx\EnergieverbrauchApp.dproj"/>
+    </Target>
+    <Target Name="EnergieverbrauchApp:Clean">
+        <MSBuild Projects="..\Energieverbrauch\fmx\EnergieverbrauchApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EnergieverbrauchApp:Make">
+        <MSBuild Projects="..\Energieverbrauch\fmx\EnergieverbrauchApp.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Webservice;ServerEnergieverbrauch;JWT"/>
+        <CallTarget Targets="Webservice;ServerEnergieverbrauch;JWT;EnergieverbrauchApp"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Webservice:Clean;ServerEnergieverbrauch:Clean;JWT:Clean"/>
+        <CallTarget Targets="Webservice:Clean;ServerEnergieverbrauch:Clean;JWT:Clean;EnergieverbrauchApp:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Webservice:Make;ServerEnergieverbrauch:Make;JWT:Make"/>
+        <CallTarget Targets="Webservice:Make;ServerEnergieverbrauch:Make;JWT:Make;EnergieverbrauchApp:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

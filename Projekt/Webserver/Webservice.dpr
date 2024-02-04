@@ -61,7 +61,19 @@ uses
   Payload.EnergieverbrauchZaehlerstandRead in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandRead.pas',
   wma.EnergieverbrauchZaehlerstandUpdate in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas',
   Payload.EnergieverbrauchZaehlerstandUpdate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas',
-  wma.EnergieverbrauchZaehlerstandDelete in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandDelete.pas';
+  wma.EnergieverbrauchZaehlerstandDelete in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandDelete.pas',
+  wma.CheckConnect in 'WebmodulAction\wma.CheckConnect.pas',
+  Json.CheckResult in 'Json\Json.CheckResult.pas',
+  Json.Token in 'Json\Json.Token.pas',
+  Json.BasisList in 'Json\Json.BasisList.pas',
+  DB.EnergieverbrauchVerbrauch in 'DB\Energieverbrauch\DB.EnergieverbrauchVerbrauch.pas',
+  DB.EnergieverbrauchVerbrauchList in 'DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchList.pas',
+  DB.EnergieverbrauchVerbrauchMonat in 'DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchMonat.pas',
+  DB.EnergieverbrauchVerbrauchMonatList in 'DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchMonatList.pas',
+  Objekt.EnergieverbrauchCalc in 'Objekt\Energieverbrauch\Objekt.EnergieverbrauchCalc.pas',
+  Payload.EnergieverbrauchCalc in 'Payload\Energieverbrauch\Payload.EnergieverbrauchCalc.pas',
+  wma.EnergieverbrauchKomplNeuBerechnen in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchKomplNeuBerechnen.pas',
+  wma.EnergieverbrauchVerbrauch in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauch.pas';
 
 {$R *.res}
 

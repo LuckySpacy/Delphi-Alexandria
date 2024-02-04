@@ -55,8 +55,18 @@ end;
 
 
 function TPLogin.getJsonString: string;
+var
+  i1: Integer;
+  JsonObject: TJSONObject;
 begin
-
+  JsonObject := TJSONObject.Create;
+  try
+    for i1 := 0 to FieldCount -1 do
+      JsonObject.AddPair(Field[i1].Feldname, Field[i1].AsString);
+    Result := JsonObject.ToJSON;
+  finally
+    FreeAndNil(JsonObject);
+  end;
 end;
 
 

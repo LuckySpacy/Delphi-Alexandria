@@ -1,13 +1,16 @@
-unit Payload.EnergieverbrauchZaehlerstandUpdate;
+unit Payload.EnergieverbrauchCalc;
 
 interface
+
+
+// Payload für alle Zählerstandread Abfragen.
 
 uses
   System.SysUtils, System.Variants, System.Classes, Objekt.Feld, Objekt.FeldList,
   Json.ErrorList;
 
 type
-  TPEnergieverbrauchZaehlerstandUpdate = class(TFeldList)
+  TPEnergieverbrauchCalc = class(TFeldList)
   private
     fJErrorList: TJErrorList;
     function getJsonString: string;
@@ -22,23 +25,28 @@ type
 
 implementation
 
-{ TPEnergieverbrauchZaehlerstandUpdate }
+{ TPEnergieverbrauchCalc }
 
 uses
   System.JSON, System.Generics.Collections, c.JsonError;
 
-constructor TPEnergieverbrauchZaehlerstandUpdate.Create;
+constructor TPEnergieverbrauchCalc.Create;
 begin
   inherited;
-  Add('ZS_ID');
   Add('ZS_ZA_ID');
-  Add('ZS_WERT');
-  Add('ZS_DATUM');
+  Add('DATUMVON');
+  Add('DATUMBIS');
   fJErrorList := TJErrorList.Create;
   Init;
 end;
 
-procedure TPEnergieverbrauchZaehlerstandUpdate.Init;
+destructor TPEnergieverbrauchCalc.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TPEnergieverbrauchCalc.Init;
 var
   i1: Integer;
 begin
@@ -46,13 +54,8 @@ begin
       Field[i1].AsString := '';
 end;
 
-destructor TPEnergieverbrauchZaehlerstandUpdate.Destroy;
-begin
-  FreeAndNil(fJErrorList);
-  inherited;
-end;
 
-function TPEnergieverbrauchZaehlerstandUpdate.getJsonString: string;
+function TPEnergieverbrauchCalc.getJsonString: string;
 var
   i1: Integer;
   JsonObject: TJSONObject;
@@ -67,9 +70,7 @@ begin
   end;
 end;
 
-
-
-procedure TPEnergieverbrauchZaehlerstandUpdate.setJsonString(const Value: string);
+procedure TPEnergieverbrauchCalc.setJsonString(const Value: string);
 var
   JsonObject: TJSONObject;
   i1: Integer;
@@ -98,5 +99,4 @@ begin
   end;
 
 end;
-
 end.

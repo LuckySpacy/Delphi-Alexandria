@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.Classes, Communication.Base, Rest.Types,
-  Objekt.JError, Objekt.JErrorList;
+  Json.Error, Json.ErrorList;
 
 type
   TCommunicationAPI = class(TCommunicationBase)
@@ -15,7 +15,7 @@ type
   protected
     procedure Read_Error;
   public
-    constructor Create; override;
+    constructor Create(aToken: string); override;
     destructor Destroy; override;
     function Post(aUrl, aJsonString: string): Boolean;
     function Get(aUrl, aJsonString: string): Boolean;
@@ -31,12 +31,12 @@ implementation
 uses
   Objekt.Energieverbrauch;
 
-constructor TCommunicationAPI.Create;
+constructor TCommunicationAPI.Create(aToken: string);
 begin
-  inherited;
+  inherited Create(aToken);
   fJError     := nil;
   fJErrorList := TJErrorList.Create;
-  fBaseUrl    := Energieverbrauch.HostIni.Host + ':' + Energieverbrauch.HostIni.Port.ToString;
+  fBaseUrl    := Energieverbrauch.HostIni.Host + ':' + Energieverbrauch.HostIni.Port.ToString + '/Energieverbrauch';
 end;
 
 destructor TCommunicationAPI.Destroy;

@@ -11,6 +11,7 @@ type
   TJEnergieverbrauch = class
   private
     fCommunicationAPI: TCommunicationAPI;
+    fToken: string;
   protected
   public
     constructor Create;
@@ -21,6 +22,7 @@ type
     function AddZaehlerstand(aJsonString: string): string;
     function ReadZaehlerstandListInZeitraum(aJsonString: string): string;
     function DeleteZaehlerstand(aJsonString: string): string;
+    property Token: string read fToken write fToken;
   end;
 
 var
@@ -34,8 +36,8 @@ implementation
 
 constructor TJEnergieverbrauch.Create;
 begin
-  fCommunicationAPI := TCommunicationAPI.Create;
-
+//  fCommunicationAPI := TCommunicationAPI.Create;
+  fToken := '';
 end;
 
 
@@ -49,10 +51,13 @@ function TJEnergieverbrauch.ReadZaehlerList: string;
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
-    API.Get('/Zaehler/Read', '');
-    Result := API.ReturnValue;
+    API.Get('/Zaehler/ReadAll', '');
+    if API.ErrorList.Count > 0 then
+      Result := API.ErrorList.JsonString
+    else
+      Result := API.ReturnValue;
   finally
     FreeAndNil(API);
   end;
@@ -63,7 +68,7 @@ function TJEnergieverbrauch.AddZaehler(aJsonString: string): string;
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
     API.Post('/Zaehler/Update', aJsonString);
     Result := API.ReturnValue;
@@ -76,7 +81,7 @@ function TJEnergieverbrauch.DeleteZaehler(aJsonString: string): string;
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
     API.delete('/Zaehler/Update', aJsonString);
     Result := API.ReturnValue;
@@ -90,7 +95,7 @@ function TJEnergieverbrauch.AddZaehlerstand(aJsonString: string): string;
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
     API.Post('/Zaehlerstand/Update', aJsonString);
     Result := API.ReturnValue;
@@ -104,9 +109,9 @@ function TJEnergieverbrauch.ReadZaehlerstandListInZeitraum(aJsonString: string):
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
-    API.Get('/Zaehlerstand/ReadZeitraum', aJsonString);
+    API.Post('/Zaehlerstand/ReadZeitraum', aJsonString);
     Result := API.ReturnValue;
   finally
     FreeAndNil(API);
@@ -117,9 +122,9 @@ function TJEnergieverbrauch.DeleteZaehlerstand(aJsonString: string): string;
 var
   API: TCommunicationAPI;
 begin
-  API := TCommunicationAPI.Create;
+  API := TCommunicationAPI.Create(fToken);
   try
-    API.delete('/Zaehlerstand/Update', aJsonString);
+    API.delete('/Zaehlerstand/Delete', aJsonString);
     Result := API.ReturnValue;
   finally
     FreeAndNil(API);

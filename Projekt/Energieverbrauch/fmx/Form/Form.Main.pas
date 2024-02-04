@@ -79,7 +79,8 @@ implementation
 {$R *.fmx}
 
 uses
-  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch, Objekt.JZaehlerList, Objekt.JZaehler,
+  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch,
+  JSON.EnergieverbrauchZaehler, Json.EnergieverbrauchZaehlerList,
   DateUtils, Datenmodul.Bilder;
 
 
@@ -167,7 +168,7 @@ end;
 procedure Tfrm_Main.UpdateListView;
 var
   i1: Integer;
-  JZaehlerList: TJZaehlerList;
+  JZaehlerList: TJEnergieverbrauchZaehlerList;
   Item: TListViewItem;
   iWidth: single;
 begin
@@ -213,7 +214,7 @@ procedure Tfrm_Main.lvItemClickEx(const Sender: TObject; ItemIndex: Integer;
   const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
 var
   s: string;
-  JZaehler: TJZaehler;
+  JZaehler: TJEnergieverbrauchZaehler;
 begin //
 
 
@@ -234,7 +235,7 @@ begin //
                                 begin
                                  if AResult = mrYes then
                                  begin
-                                   JZaehler := TJZaehler(lv.Items[ItemIndex].TagObject);
+                                   JZaehler := TJEnergieverbrauchZaehler(lv.Items[ItemIndex].TagObject);
                                    JEnergieverbrauch.DeleteZaehler(JZaehler.JsonString);
                                    Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
                                    TDialogService.MessageDialog('Zähler wurde gelöscht', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbNo, 0, nil);

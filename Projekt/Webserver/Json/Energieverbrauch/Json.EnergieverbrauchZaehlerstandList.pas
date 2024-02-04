@@ -112,6 +112,8 @@ begin
   try
     try
       ArrayElements := JsonObject.GetValue('Zaehlerstandlist') as TJSONArray;
+      if ArrayElements = nil then
+        exit;
     except
       on E: Exception do
       begin

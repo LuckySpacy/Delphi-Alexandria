@@ -115,6 +115,8 @@ object frm_Energieverbrauch: Tfrm_Energieverbrauch
       StyleLookup = ''
       TabOrder = 0
       Text = 'tbs_Statistik'
+      ExplicitSize.cx = 83.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
     end
   end
   object GestureManager: TGestureManager

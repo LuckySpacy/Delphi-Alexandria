@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, Objekt.Energieverbrauch,
   FMX.TabControl, Form.Main, Form.Hosteinstellung, Form.Daten, Form.Base,
   System.Generics.Collections, system.Net.HttpClient, Form.ZaehlerModify,
-  Objekt.JEnergieverbrauch, FMX.Gestures, Form.DatenModify, Form.Statistik;
+  Objekt.JEnergieverbrauch, FMX.Gestures, Form.DatenModify, Form.Statistik,
+  JSON.EnergieverbrauchZaehler;
 
 type
   Tfrm_Energieverbrauch = class(TForm)
@@ -30,12 +31,12 @@ type
     fFormDatenModify: Tfrm_DatenModify;
     fFormStatistik: Tfrm_Statistik;
     fTabVerlauf : TList<TTabItem>;
-    fCheckResult: string;
+    //fCheckResult: string;
     procedure DoZurueck(Sender: TObject);
     procedure setTabActiv(aTab: TTabItem);
-    function CheckConnection: Boolean;
-    procedure HTTPRequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
-    procedure HTTPRequestRequestError(const Sender: TObject; const AError: string);
+    //function CheckConnection: Boolean;
+    //procedure HTTPRequestRequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
+    //procedure HTTPRequestRequestError(const Sender: TObject; const AError: string);
     procedure ShowHostEinstellung(Sender: TObject);
     procedure ShowZaehlerModify(Sender: TObject);
     procedure NewZaehler(Sender: TObject);
@@ -54,7 +55,7 @@ implementation
 {$R *.fmx}
 
 uses
-  Datenmodul.Rest, fmx.DialogService, Objekt.JZaehler;
+  Datenmodul.Rest, fmx.DialogService, Objekt.Login, fmx.Platform;
 
 
 procedure Tfrm_Energieverbrauch.FormCreate(Sender: TObject);
@@ -126,14 +127,67 @@ end;
 
 
 procedure Tfrm_Energieverbrauch.FormShow(Sender: TObject);
+var
+  Login: TLogin;
+//  Url: string;
+  Error: string;
+  i1: Integer;
 begin
   if (Energieverbrauch.HostIni.Host = '') or (Energieverbrauch.HostIni.Port = 0) then
   begin
     setTabActiv(tbs_Hosteinstellung);
   end
   else
-    CheckConnection;
+  begin
+    Login := TLogin.Create;
+    try
+      Login.BaseUrl := Energieverbrauch.HostIni.Host + ':' + Energieverbrauch.HostIni.Port.ToString;
+      if not Login.CheckConnect('/CheckConnect') then
+      begin
+        Error := 'Entweder die Parameter in der Hosteinstellung sind falsch oder der Server ist nicht aktiv!';
+        TDialogService.MessageDialog(Error, TMsgDlgType.mtError, [TMsgDlgBtn.mbOk], TMsgDlgBtn.mbOK, 0, nil);
+        setTabActiv(tbs_Hosteinstellung);
+        exit;
+      end;
+      Energieverbrauch.Token := Login.getToken('/Login', 'Thomas', 'Thomas1970', 'Energieverbrauch');
+      if Energieverbrauch.Token = '{}' then
+      begin
+        Error := 'Benutzername oder Passwort scheint falsch zu sein';
+        TDialogService.MessageDialog(Error, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbOk], TMsgDlgBtn.mbOk, 0,
+                                 procedure(const AResult: TModalResult)
+                                 begin
+                                    if TPlatformServices.Current.SupportsPlatformService(IFMXApplicationService) then
+                                      (TPlatformServices.Current.GetPlatformService(IFMXApplicationService) as IFMXApplicationService).Terminate;
+                                 end);
+        exit;
+      end;
+      if Login.JErrorList.Count > 0 then
+      begin
+        Error := '';
+        for i1 := 0 to Login.JErrorList.Count -1 do
+        begin
+          Error := Error + Login.JErrorList.Item[0].FieldByName('Title').AsString + sLineBreak;
+        end;
+        TDialogService.MessageDialog(Error, TMsgDlgType.mtError, [TMsgDlgBtn.mbOk], TMsgDlgBtn.mbOK, 0, nil);
+        TDialogService.MessageDialog('Fehler beim Login', TMsgDlgType.mtError, [TMsgDlgBtn.mbOk], TMsgDlgBtn.mbOK, 0, nil);
+        setTabActiv(tbs_Hosteinstellung);
+      end;
+      JEnergieverbrauch.Token := Energieverbrauch.Token;
+      Energieverbrauch.ZaehlerList.LadeListe;
+      fFormMain.DoUpdateListView;
+
+    finally
+      FreeAndNil(Login);
+    end;
+
+    //CheckConnection;
+  end;
 end;
+
+
+
+
+
 
 
 
@@ -146,7 +200,7 @@ end;
 
 procedure Tfrm_Energieverbrauch.ShowDaten(Sender: TObject);
 begin
-  fFormDaten.setZaehler(TJZaehler(Sender));
+  fFormDaten.setZaehler(TJEnergieverbrauchZaehler(Sender));
   setTabActiv(tbs_Daten);
 end;
 
@@ -154,7 +208,7 @@ end;
 procedure Tfrm_Energieverbrauch.ShowStatistik(Sender: TObject);
 begin
   //fFormDaten.setZaehler(TJZaehler(Sender));
-  fFormStatistik.setZaehler(TJZaehler(Sender));
+  fFormStatistik.setZaehler(TJEnergieverbrauchZaehler(Sender));
   setTabActiv(tbs_Statistik);
 end;
 
@@ -176,7 +230,7 @@ begin
   if Sender = nil then
     fFormZaehlerModify.setZaehler(nil)
   else
-    fFormZaehlerModify.setZaehler(TJZaehler(Sender));
+    fFormZaehlerModify.setZaehler(TJEnergieverbrauchZaehler(Sender));
   setTabActiv(tbs_ZaehlerModify);
 end;
 
@@ -203,10 +257,11 @@ end;
 
 procedure Tfrm_Energieverbrauch.AddZaehlerstand(Sender: TObject);
 begin
-  fFormDatenModify.setZaehler(TJZaehler(Sender));
+  fFormDatenModify.setZaehler(TJEnergieverbrauchZaehler(Sender));
   setTabActiv(tbs_DatenModify);
 end;
 
+{
 function Tfrm_Energieverbrauch.CheckConnection: Boolean;
 begin //
   Result := true;
@@ -217,7 +272,9 @@ begin //
   dm_Rest.HTTPRequest.OnRequestError := HTTPRequestRequestError;
   dm_Rest.HTTPRequest.Execute();
 end;
+}
 
+{
 procedure Tfrm_Energieverbrauch.HTTPRequestRequestCompleted(
   const Sender: TObject; const AResponse: IHTTPResponse);
 var
@@ -238,8 +295,9 @@ begin
   end;
 
 end;
+}
 
-
+{
 procedure Tfrm_Energieverbrauch.HTTPRequestRequestError(const Sender: TObject;
   const AError: string);
 var
@@ -249,6 +307,7 @@ begin
          'Bitte überprüfen Sie die Internetverbindung sowie die Host-Einstellung.';
     TDialogService.MessageDialog(s, TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
 end;
+}
 
 procedure Tfrm_Energieverbrauch.NewZaehler(Sender: TObject);
 begin

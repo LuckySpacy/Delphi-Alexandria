@@ -3,10 +3,11 @@ unit Json.EnergieverbrauchZaehlerList;
 interface
 
 uses
-  System.SysUtils, System.Variants, System.Classes, Objekt.BasisList, Json.EnergieverbrauchZaehler;
+  System.SysUtils, System.Variants, System.Classes, Objekt.BasisList, Json.EnergieverbrauchZaehler,
+  Json.ErrorList, Json.BasisList;
 
 type
-  TJEnergieverbrauchZaehlerList = class(TBasisList)
+  TJEnergieverbrauchZaehlerList = class(TJBasisList)
   private
     function getItem(Index: Integer): TJEnergieverbrauchZaehler;
     function getJsonString: string;
@@ -26,7 +27,7 @@ implementation
 { TJEnergieverbrauchZaehlerList }
 
 uses
-  System.JSON, System.Generics.Collections;
+  System.JSON, System.Generics.Collections, c.JsonError;
 
 
 constructor TJEnergieverbrauchZaehlerList.Create;
@@ -42,7 +43,6 @@ end;
 
 destructor TJEnergieverbrauchZaehlerList.Destroy;
 begin
-
   inherited;
 end;
 
@@ -112,6 +112,11 @@ begin
   try
     try
       ArrayElements := JsonObject.GetValue('Zaehlerlist') as TJSONArray;
+      if ArrayElements = nil then
+      begin //
+        fJErrorList.setError('Fehler in der Json-Zaehlerlist', cJIdJsonError);
+        exit;
+      end;
     except
       on E: Exception do
       begin

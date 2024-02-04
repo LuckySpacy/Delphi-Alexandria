@@ -1,4 +1,4 @@
-unit Payload.EnergieverbrauchZaehlerstandUpdate;
+unit Payload.ZaehlerstandReadZeitraum;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Json.ErrorList;
 
 type
-  TPEnergieverbrauchZaehlerstandUpdate = class(TFeldList)
+  TPReadZaehlerstandZeitraum = class(TFeldList)
   private
     fJErrorList: TJErrorList;
     function getJsonString: string;
@@ -22,37 +22,28 @@ type
 
 implementation
 
-{ TPEnergieverbrauchZaehlerstandUpdate }
+{ TReadZaehlerstandZeitraum }
 
 uses
   System.JSON, System.Generics.Collections, c.JsonError;
 
-constructor TPEnergieverbrauchZaehlerstandUpdate.Create;
+constructor TPReadZaehlerstandZeitraum.Create;
 begin
   inherited;
-  Add('ZS_ID');
   Add('ZS_ZA_ID');
-  Add('ZS_WERT');
-  Add('ZS_DATUM');
+  Add('DATUMVON');
+  Add('DATUMBIS');
   fJErrorList := TJErrorList.Create;
   Init;
 end;
 
-procedure TPEnergieverbrauchZaehlerstandUpdate.Init;
-var
-  i1: Integer;
-begin
-  for i1 := 0 to FieldCount -1 do
-      Field[i1].AsString := '';
-end;
-
-destructor TPEnergieverbrauchZaehlerstandUpdate.Destroy;
+destructor TPReadZaehlerstandZeitraum.Destroy;
 begin
   FreeAndNil(fJErrorList);
   inherited;
 end;
 
-function TPEnergieverbrauchZaehlerstandUpdate.getJsonString: string;
+function TPReadZaehlerstandZeitraum.getJsonString: string;
 var
   i1: Integer;
   JsonObject: TJSONObject;
@@ -67,9 +58,15 @@ begin
   end;
 end;
 
+procedure TPReadZaehlerstandZeitraum.Init;
+var
+  i1: Integer;
+begin
+  for i1 := 0 to FieldCount -1 do
+      Field[i1].AsString := '';
+end;
 
-
-procedure TPEnergieverbrauchZaehlerstandUpdate.setJsonString(const Value: string);
+procedure TPReadZaehlerstandZeitraum.setJsonString(const Value: string);
 var
   JsonObject: TJSONObject;
   i1: Integer;

@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
-  FMX.Edit, Objekt.JZaehler;
+  FMX.Edit, Json.EnergieverbrauchZaehler;
 
 type
   Tfrm_ZaehlerModify = class(Tfrm_Base)
@@ -27,10 +27,10 @@ type
     procedure btn_SaveClick(Sender: TObject);
   private
     fOnNewZaehler: TNotifyEvent;
-    fJZaehler: TJZaehler;
+    fJZaehler: TJEnergieverbrauchZaehler;
     procedure Back(Sender: TObject);
   public
-    procedure setZaehler(aJZaehler: TJZaehler);
+    procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
     property OnNewZaehler: TNotifyEvent read fOnNewZaehler write fOnNewZaehler;
   end;
 
@@ -45,7 +45,7 @@ implementation
 
 uses
   Objekt.JEnergieverbrauch, Objekt.Energieverbrauch, FMX.DialogService,
-  Datenmodul.Bilder;
+  Datenmodul.Bilder, Payload.EnergieverbrauchZaehlerUpdate;
 
 
 
@@ -73,7 +73,7 @@ begin //
 end;
 
 
-procedure Tfrm_ZaehlerModify.setZaehler(aJZaehler: TJZaehler);
+procedure Tfrm_ZaehlerModify.setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
 begin
   fJZaehler := aJZaehler;
 
@@ -96,45 +96,47 @@ end;
 
 procedure Tfrm_ZaehlerModify.btn_SaveClick(Sender: TObject);
 var
-  JZaehler: TJZaehler;
+  PZaehlerUpdate: TPEnergieverbrauchZaehlerUpdate;
   s: string;
 begin
-  if fJZaehler = nil then
-  begin
-    JZaehler := TJZaehler.Create;
-    try
-      JZaehler.FieldByName('ZA_ZAEHLER').AsString :=  edt_Zaehler.Text;
-      JEnergieverbrauch.AddZaehler(JZaehler.JsonString);
+  PZaehlerUpdate := TPEnergieverbrauchZaehlerUpdate.Create;
+  try
+    if fJZaehler = nil then
+    begin
+        PZaehlerUpdate.FieldByName('ZA_ZAEHLER').AsString :=  edt_Zaehler.Text;
+        PZaehlerUpdate.FieldByName('ZA_ID').AsString :=  '0';
+        JEnergieverbrauch.AddZaehler(PZaehlerUpdate.JsonString);
+        Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
+        if Assigned(fOnNewZaehler) then
+          fOnNewZaehler(Self);
+        s:= 'Zähler wurde angelegt.' + sLineBreak +
+            'Möchten Sie weitere Zähler anlegen?';
+        TDialogService.MessageDialog(s, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], TMsgDlgBtn.mbNo, 0,
+                                  procedure(const AResult: TModalResult)
+                                  begin
+                                   if AResult = mrYes then
+                                   begin
+                                     edt_Zaehler.Text := '';
+                                     exit;
+                                   end
+                                   else
+                                   begin
+                                     Back(nil);
+                                   end;
+                                 end);
+    end
+    else
+    begin
+      PZaehlerUpdate.FieldByName('ZA_ZAEHLER').AsString :=  edt_Zaehler.Text;
+      PZaehlerUpdate.FieldByName('ZA_ID').AsString :=  fJZaehler.FieldByName('ZA_ID').AsString;
+      JEnergieverbrauch.AddZaehler(PZaehlerUpdate.JsonString);  // Patch Zähler
       Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
       if Assigned(fOnNewZaehler) then
         fOnNewZaehler(Self);
-      s:= 'Zähler wurde angelegt.' + sLineBreak +
-          'Möchten Sie weitere Zähler anlegen?';
-      TDialogService.MessageDialog(s, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], TMsgDlgBtn.mbNo, 0,
-                                procedure(const AResult: TModalResult)
-                                begin
-                                 if AResult = mrYes then
-                                 begin
-                                   edt_Zaehler.Text := '';
-                                   exit;
-                                 end
-                                 else
-                                 begin
-                                   Back(nil);
-                                 end;
-                               end);
-    finally
-      FreeAndNil(JZaehler);
+      Back(nil);
     end;
-  end
-  else
-  begin
-    fJZaehler.FieldByName('ZA_ZAEHLER').AsString :=  edt_Zaehler.Text;
-    JEnergieverbrauch.AddZaehler(fJZaehler.JsonString);  // Patch Zähler
-    Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
-    if Assigned(fOnNewZaehler) then
-      fOnNewZaehler(Self);
-    Back(nil);
+  finally
+    FreeAndNil(PZaehlerUpdate);
   end;
 
   //JEnergieverbrauch.

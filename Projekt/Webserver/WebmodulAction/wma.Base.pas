@@ -24,7 +24,7 @@ implementation
 { TwmaBase }
 
 uses
-  Datenmodul.Database;
+  Datenmodul.Database, Fmx.DialogService;
 
 constructor TwmaBase.Create;
 begin
@@ -53,6 +53,7 @@ begin
   ErrorStr := fAccessPermission.CheckToken(BearerToken);
   if ErrorStr > '' then
     fJErrorList.setError(ErrorStr, cJIdTokenError);
+  //TDialogService.ShowMessage('ErrorStr = ' + ErrorStr);
 end;
 
 end.

@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Android64</Platform>
         <TargetedPlatforms>558099</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>EnergieverbrauchApp.dpr</MainSource>
@@ -267,7 +267,7 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>.\bin\32</DCC_ExeOutput>
         <DCC_DcuOutput>.\dcu\32</DCC_DcuOutput>
-        <DCC_UnitSearchPath>..\Win\Objekt;..\..\Allgemein\Vcl\Objekt;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\..\Allgemein\Vcl\Objekt;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -345,6 +345,24 @@
             <Form>frm_Statistik</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Objekt\Objekt.Login.pas"/>
+        <DCCReference Include="..\..\Webserver\Payload\Payload.Login.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Json.Error.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Json.ErrorList.pas"/>
+        <DCCReference Include="..\..\Webserver\const\c.JsonError.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Json.CheckResult.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerList.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehler.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Json.Token.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Json.BasisList.pas"/>
+        <DCCReference Include="Objekt\Objekt.ZaehlerList.pas"/>
+        <DCCReference Include="Payload\Payload.ZaehlerstandReadZeitraum.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstand.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstandList.pas"/>
+        <DCCReference Include="..\..\Webserver\Objekt\Objekt.Feld.pas"/>
+        <DCCReference Include="..\..\Webserver\Objekt\Objekt.FeldList.pas"/>
+        <DCCReference Include="..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas"/>
+        <DCCReference Include="..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

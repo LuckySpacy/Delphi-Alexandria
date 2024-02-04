@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
-  FMX.DateTimeCtrls, Objekt.JZaehlerstandList, Objekt.JZaehlerstand, Objekt.JZaehler,
+  FMX.DateTimeCtrls, Json.EnergieverbrauchZaehlerstandList, Json.EnergieverbrauchZaehlerstand, Json.EnergieverbrauchZaehler,
   FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart;
 
 type
@@ -25,15 +25,15 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-    fJZaehler: TJZaehler;
-    fJZaehlerstandList : TJZaehlerstandList;
+    fJZaehler: TJEnergieverbrauchZaehler;
+    fJZaehlerstandList : TJEnergieverbrauchZaehlerstandList;
     procedure Back(Sender: TObject);
     procedure ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
     procedure UpdateChart;
     function getWert(aMonat, aJahr: Integer): Extended;
   public
     procedure setActiv; override;
-    procedure setZaehler(aJZaehler: TJZaehler);
+    procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
   end;
 
 var
@@ -54,7 +54,7 @@ begin //
   gly_Return.HitTest := true;
   gly_Return.OnClick := Back;
   fJZaehler := nil;
-  fJZaehlerstandList := TJZaehlerstandList.Create;
+  fJZaehlerstandList := TJEnergieverbrauchZaehlerstandList.Create;
 end;
 
 procedure Tfrm_Statistik.FormDestroy(Sender: TObject);
@@ -73,7 +73,7 @@ begin
   ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_Datumbis.Date);
 end;
 
-procedure Tfrm_Statistik.setZaehler(aJZaehler: TJZaehler);
+procedure Tfrm_Statistik.setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
 begin
   fJZaehler := aJZaehler;
 end;
@@ -86,11 +86,11 @@ end;
 
 procedure Tfrm_Statistik.ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
 var
-  JZaehlerstand: TJZaehlerstand;
+  JZaehlerstand: TJEnergieverbrauchZaehlerstand;
 begin //
   if fJZaehler = nil then
     exit;
-  JZaehlerstand := TJZaehlerstand.Create;
+  JZaehlerstand := TJEnergieverbrauchZaehlerstand.Create;
   try
     JZaehlerstand.FieldByName('DATUMVON').AsDateTime := trunc(aDatumVon);
     JZaehlerstand.FieldByName('DATUMBIS').AsDateTime := trunc(aDatumBis);
@@ -106,7 +106,7 @@ end;
 procedure Tfrm_Statistik.UpdateChart;
 var
   iMonth: Integer;  // = x Achse
-  i1: Integer;
+//  i1: Integer;
   Wert: Extended;
 begin //
   for iMonth := 1 to 12 do

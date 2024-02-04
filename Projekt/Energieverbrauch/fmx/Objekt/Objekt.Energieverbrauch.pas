@@ -3,20 +3,22 @@ unit Objekt.Energieverbrauch;
 interface
 
 uses
-  System.SysUtils, Objekt.HostIni, Objekt.JZaehlerList;
+  System.SysUtils, Objekt.HostIni, Objekt.ZaehlerList;
 
 type
   TEnergieverbrauch = class
   private
     fHostIni: THostIni;
     fHostConnectionOk: Boolean;
-    fJZaehlerList: TJZaehlerlist;
+    fZaehlerList: TZaehlerList;
+    fToken: string;
   public
     constructor Create;
     destructor Destroy; override;
     property HostIni: THostIni read fHostIni write fHostIni;
     property HostConnectionOk: Boolean read fHostConnectionOk write fHostConnectionOk;
-    property ZaehlerList: TJZaehlerlist read fJZaehlerList;
+    property ZaehlerList: TZaehlerList read fZaehlerList;
+    property Token: string read fToken write fToken;
   end;
 
 var
@@ -30,13 +32,13 @@ constructor TEnergieverbrauch.Create;
 begin
   fHostIni := THostIni.Create;
   fHostConnectionOk := false;
-  fJZaehlerList := TJZaehlerList.Create;
+  fZaehlerList := TZaehlerList.Create;
 end;
 
 destructor TEnergieverbrauch.Destroy;
 begin
   FreeAndNil(fHostIni);
-  FreeAndNil(fJZaehlerList);
+  FreeAndNil(fZaehlerList);
   inherited;
 end;
 

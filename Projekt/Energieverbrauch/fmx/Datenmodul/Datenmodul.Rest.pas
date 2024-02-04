@@ -27,7 +27,7 @@ implementation
 { Tdm_Rest }
 
 uses
-  Objekt.Energieverbrauch, Objekt.JZaehlerList;
+  Objekt.Energieverbrauch;
 
 procedure Tdm_Rest.ReadZaehlerList;
 begin

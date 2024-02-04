@@ -176,6 +176,18 @@
         <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandUpdate.pas"/>
         <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas"/>
         <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchZaehlerstandDelete.pas"/>
+        <DCCReference Include="WebmodulAction\wma.CheckConnect.pas"/>
+        <DCCReference Include="Json\Json.CheckResult.pas"/>
+        <DCCReference Include="Json\Json.Token.pas"/>
+        <DCCReference Include="Json\Json.BasisList.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchVerbrauch.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchList.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchMonat.pas"/>
+        <DCCReference Include="DB\Energieverbrauch\DB.EnergieverbrauchVerbrauchMonatList.pas"/>
+        <DCCReference Include="Objekt\Energieverbrauch\Objekt.EnergieverbrauchCalc.pas"/>
+        <DCCReference Include="Payload\Energieverbrauch\Payload.EnergieverbrauchCalc.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchKomplNeuBerechnen.pas"/>
+        <DCCReference Include="WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauch.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

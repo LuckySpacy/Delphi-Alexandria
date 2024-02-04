@@ -44,7 +44,7 @@ implementation
 {$R *.fmx}
 
 uses
-  Datenmodul.Rest, FMX.DialogService, Objekt.Energieverbrauch;
+  Datenmodul.Rest, FMX.DialogService, Objekt.Energieverbrauch, Json.CheckResult;
 
 
 procedure Tfrm_Hosteinstellung.FormCreate(Sender: TObject);
@@ -96,28 +96,36 @@ procedure Tfrm_Hosteinstellung.HTTPRequestRequestCompleted(
 var
   s: string;
   iPort: Integer;
+  JCheckResult: TJCheckResult;
 begin
   fCheckResult := AResponse.ContentAsString;
-  if SameText(fCheckResult, 'Alive') then
-  begin
-    if not TryStrToInt(edt_Port.Text, iPort) then
+  JCheckResult := TJCheckResult.Create;
+  try
+    JCheckResult.JsonString := fCheckResult;
+    //if SameText(fCheckResult, 'Alive') then
+    if SameText(JCheckResult.FieldByName('OK').AsString, 'true') then
     begin
-      TDialogService.MessageDialog('Port ist nicht numerisch', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
-      exit;
-    end;
+      if not TryStrToInt(edt_Port.Text, iPort) then
+      begin
+        TDialogService.MessageDialog('Port ist nicht numerisch', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+        exit;
+      end;
 
-    Energieverbrauch.HostIni.Host := edt_Host.Text;
-    Energieverbrauch.HostIni.Port := iPort;
-    if fCanReturn then
-      DoZurueck(nil)
+      Energieverbrauch.HostIni.Host := edt_Host.Text;
+      Energieverbrauch.HostIni.Port := iPort;
+      if fCanReturn then
+        DoZurueck(nil)
+      else
+        TDialogService.MessageDialog('Verbindung erfolgreich', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+    end
     else
-      TDialogService.MessageDialog('Verbindung erfolgreich', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
-  end
-  else
-  begin
-    s := 'Keine Verbindung zum Server: ' +  sLineBreak +
-         fCheckResult;
-    TDialogService.MessageDialog(s, TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+    begin
+      s := 'Keine Verbindung zum Server: ' +  sLineBreak +
+           fCheckResult;
+      TDialogService.MessageDialog(s, TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil);
+    end;
+  finally
+    FreeAndNil(JCheckResult);
   end;
 
 end;

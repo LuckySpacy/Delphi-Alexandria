@@ -5,9 +5,11 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts, Objekt.JZaehler,
+  Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView, Objekt.JZaehlerstandList, FMX.Gestures;
+  FMX.ListView, FMX.Gestures, Payload.ZaehlerstandReadZeitraum, Json.EnergieverbrauchZaehlerstandList,
+  JSON.EnergieverbrauchZaehlerstand, JSON.EnergieverbrauchZaehler,
+  FMX.DateTimeCtrls;
 
 type
   Tfrm_Daten = class(Tfrm_Base)
@@ -19,25 +21,33 @@ type
     lv: TListView;
     GestureManager: TGestureManager;
     Gly_Statistik: TGlyph;
+    Panel1: TPanel;
+    Label1: TLabel;
+    edt_DatumVon: TDateEdit;
+    Label2: TLabel;
+    edt_DatumBis: TDateEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure lvGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
     procedure lvItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+    procedure edt_DatumExit(Sender: TObject);
   private
-    fJZaehler: TJZaehler;
-    fJZaehlerstandList: TJZaehlerstandList;
+    fJZaehler: TJEnergieverbrauchZaehler;
+    fJZaehlerstandList: TJEnergieverbrauchZaehlerstandList;
     fOnAddZaehlerstand: TNotifyEvent;
     fOnStatistik: TNotifyEvent;
+    fPZaehlerstandReadZeitraum: TPReadZaehlerstandZeitraum;
     procedure Back(Sender: TObject);
     procedure AddZaehlerstand(Sender: TObject);
     procedure ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
     procedure UpdateListView;
     procedure GetStartEndItemsIndex(const AListView: TListView; out AStartItemIndex: Integer; out AEndItemIndex: Integer);
     procedure StatistikClick(Sender: TObject);
+    procedure DeleteZaehlerstand(aJZaehlerstand: TJEnergieverbrauchZaehlerstand);
   public
-    procedure setZaehler(aJZaehler: TJZaehler);
+    procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
     property OnAddZaehlerstand: TNotifyEvent read fOnAddZaehlerstand write fOnAddZaehlerstand;
     property OnStatistik: TNotifyEvent read fOnStatistik write fOnStatistik;
     procedure setActiv; override;
@@ -51,8 +61,8 @@ implementation
 {$R *.fmx}
 
 uses
-  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch, Objekt.JZaehlerList,
-  DateUtils, Datenmodul.Bilder, Objekt.JZaehlerstand;
+  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch,
+  DateUtils, Datenmodul.Bilder, Payload.EnergieverbrauchZaehlerstandUpdate;
 
 { Tfrm_Daten }
 
@@ -66,13 +76,15 @@ begin //
   gly_Add.OnClick := AddZaehlerstand;
   Gly_Statistik.HitTest := true;
   Gly_Statistik.OnClick := StatistikClick;
-  fJZaehlerstandList := TJZaehlerstandList.Create;
+  fJZaehlerstandList := TJEnergieverbrauchZaehlerstandList.Create;
   fJZaehler := nil;
+  fPZaehlerstandReadZeitraum := TPReadZaehlerstandZeitraum.Create;
 end;
 
 procedure Tfrm_Daten.FormDestroy(Sender: TObject);
 begin //
   FreeAndNil(fJZaehlerstandList);
+  FreeAndNil(fPZaehlerstandReadZeitraum);
   inherited;
 end;
 
@@ -83,11 +95,13 @@ begin
   inherited;
   if fJZaehler = nil then
     exit;
-  ReadZaehlerstandZeitraum(IncYear(now, -2), now);
+  edt_DatumVon.Date := trunc(IncYear(now, -2));
+  edt_DatumBis.Date := trunc(now);
+  ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_Datumbis.Date);
   UpdateListView;
 end;
 
-procedure Tfrm_Daten.setZaehler(aJZaehler: TJZaehler);
+procedure Tfrm_Daten.setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
 begin
   fJZaehler := aJZaehler;
   //ReadZaehlerstandZeitraum(IncYear(now, -1), now);
@@ -103,7 +117,7 @@ end;
 procedure Tfrm_Daten.UpdateListView;
 var
   i1: Integer;
-  JZaehlerstand: TJZaehlerstand;
+  JZaehlerstand: TJEnergieverbrauchZaehlerstand;
   Item: TListViewItem;
   ListItemImage: TListItemImage;
 begin
@@ -144,18 +158,18 @@ end;
 
 procedure Tfrm_Daten.ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
 var
-  JZaehlerstand: TJZaehlerstand;
+  lJEnergieverbrauch: TJEnergieverbrauch;
 begin //
-  JZaehlerstand := TJZaehlerstand.Create;
+  lJEnergieverbrauch := TJEnergieverbrauch.Create;
   try
-    JZaehlerstand.FieldByName('DATUMVON').AsDateTime := trunc(aDatumVon);
-    JZaehlerstand.FieldByName('DATUMBIS').AsDateTime := trunc(aDatumBis);
-    JZaehlerstand.FieldByName('ZS_ZA_ID').AsInteger := fJZaehler.FieldByName('ZA_ID').AsInteger;
-    fJZaehlerstandList.JsonString := JEnergieverbrauch.ReadZaehlerstandListInZeitraum(JZaehlerstand.JsonString);
+    lJEnergieverbrauch.Token := Energieverbrauch.Token;
+    fPZaehlerstandReadZeitraum.FieldByName('DATUMVON').AsDateTime := trunc(aDatumVon);
+    fPZaehlerstandReadZeitraum.FieldByName('DATUMBIS').AsDateTime := trunc(aDatumBis);
+    fPZaehlerstandReadZeitraum.FieldByName('ZS_ZA_ID').AsInteger := fJZaehler.FieldByName('ZA_ID').AsInteger;
+    fJZaehlerstandList.JsonString := lJEnergieverbrauch.ReadZaehlerstandListInZeitraum(fPZaehlerstandReadZeitraum.JsonString);
   finally
-    FreeAndNil(JZaehlerstand);
+    FreeAndNil(lJEnergieverbrauch);
   end;
-
 end;
 
 
@@ -254,7 +268,6 @@ procedure Tfrm_Daten.lvItemClickEx(const Sender: TObject; ItemIndex: Integer;
   const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
 var
   s: string;
-  JZaehlerstand: TJZaehlerstand;
 begin   //
 //  fAktListViewItem := lv.Items[ItemIndex];
    if (ItemObject <> nil) and (SameText(ItemObject.Name, 'Img_Delete')) then
@@ -265,12 +278,7 @@ begin   //
                                 begin
                                  if AResult = mrYes then
                                  begin
-                                   JZaehlerstand := TJZaehlerstand(lv.Items[ItemIndex].TagObject);
-                                   JEnergieverbrauch.DeleteZaehlerstand(JZaehlerstand.JsonString);
-                                   Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
-                                   TDialogService.MessageDialog('Zählerstand wurde gelöscht', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbNo, 0, nil);
-                                   ReadZaehlerstandZeitraum(IncYear(now, -1), now);
-                                   UpdateListView;
+                                   DeleteZaehlerstand(TJEnergieverbrauchZaehlerstand(lv.Items[ItemIndex].TagObject));
                                    exit;
                                  end
                                  else
@@ -281,5 +289,29 @@ begin   //
     exit;
   end;
 end;
+
+procedure Tfrm_Daten.DeleteZaehlerstand(aJZaehlerstand: TJEnergieverbrauchZaehlerstand);
+var
+  PEnergieverbrauchZaehlerstandUpdate: TPEnergieverbrauchZaehlerstandUpdate;
+begin
+  PEnergieverbrauchZaehlerstandUpdate := TPEnergieverbrauchZaehlerstandUpdate.Create;
+  try
+    PEnergieverbrauchZaehlerstandUpdate.FieldByName('ZS_ID').AsString := aJZaehlerstand.FieldByName('ZS_ID').AsString;
+    JEnergieverbrauch.DeleteZaehlerstand(PEnergieverbrauchZaehlerstandUpdate.JsonString);
+  finally
+    FreeAndNil(PEnergieverbrauchZaehlerstandUpdate);
+  end;
+  //Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
+  TDialogService.MessageDialog('Zählerstand wurde gelöscht', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbNo, 0, nil);
+  ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_DatumBis.Date);
+  UpdateListView;
+end;
+
+procedure Tfrm_Daten.edt_DatumExit(Sender: TObject);
+begin
+  ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_DatumBis.Date);
+  UpdateListView;
+end;
+
 
 end.

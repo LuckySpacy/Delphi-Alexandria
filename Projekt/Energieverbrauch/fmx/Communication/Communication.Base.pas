@@ -15,7 +15,7 @@ type
     fRequest : TRESTRequest;
   private
   public
-    constructor Create; virtual;
+    constructor Create(aToken: string); virtual;
     destructor Destroy; override;
     property Token: string read fToken write fToken;
     function ReturnValue: string;
@@ -26,16 +26,23 @@ implementation
 
 { TCommunicationBase }
 
-constructor TCommunicationBase.Create;
+uses
+  REST.Types;
+
+constructor TCommunicationBase.Create(aToken: string);
 begin
   fBaseURL := '';
-  fToken   := '';
+  fToken   := aToken;
   fClient   := TRESTClient.Create(nil);
   fResponse := TRESTResponse.Create(nil);
   fRequest  := TRESTRequest.Create(nil);
 
   fRequest.Client   := fClient;
   fRequest.Response := fResponse;
+
+  if aToken > '' then
+    fClient.AddAuthParameter('Authorization', 'Bearer ' + fToken , TRESTRequestParameterKind.pkHTTPHEADER,[TRESTRequestParameterOption.poDoNotEncode]);
+
 end;
 
 destructor TCommunicationBase.Destroy;

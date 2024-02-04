@@ -29,6 +29,11 @@ type
     procedure wem_Webservicewai_Energieverbrauch_Zaehlerstand_DeleteAction(
       Sender: TObject; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
+    procedure wem_Webservicewai_CheckConnectAction(Sender: TObject;
+      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_VerbrauchKomplNeuBerechnenAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
   private
     { Private-Deklarationen }
   public
@@ -45,16 +50,19 @@ implementation
 {$R *.dfm}
 
 uses
-  wma.Login, wma.Energieverbrauch;
+  wma.Login, wma.Energieverbrauch, wma.CheckConnect;
 
 procedure Twem_Webservice.WebModule1DefaultHandlerAction(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 begin
+  Response.Content :=  '{"OK":"false"}';
+  {
   Response.Content :=
     '<html>' +
     '<head><title>Webserver-Anwendung</title></head>' +
     '<body>Webserver-Anwendung</body>' +
     '</html>';
+  }
 end;
 
 
@@ -153,6 +161,34 @@ begin
     FreeAndNil(wmaEnergieverbrauch);
   end;
 
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_CheckConnectAction(Sender: TObject;
+  Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+var
+  wmaCheckConnect: TwmaCheckConnect;
+begin //
+  wmaCheckConnect := TwmaCheckConnect.Create;
+  try
+    wmaCheckConnect.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaCheckConnect);
+  end;
+
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_VerbrauchKomplNeuBerechnenAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin//
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Verbrauch.KomplNeuBerechnen.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
 end;
 
 procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_Zaehlerstand_DeleteAction(

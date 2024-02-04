@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Edit,
-  FMX.Layouts, Objekt.JZaehler, oBjekt.JZaehlerstand, FMX.DateTimeCtrls;
+  FMX.Layouts, JSON.EnergieverbrauchZaehler, FMX.DateTimeCtrls, JSON.EnergieverbrauchZaehlerstand;
 
 type
   Tfrm_DatenModify = class(Tfrm_Base)
@@ -22,11 +22,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-    fJZaehler: TJZaehler;
+    fJZaehler: TJEnergieverbrauchZaehler;
     procedure Back(Sender: TObject);
     procedure save(Sender: TObject);
   public
-    procedure setZaehler(aJZaehler: TJZaehler);
+    procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
     procedure setActiv; override;
   end;
 
@@ -38,7 +38,7 @@ implementation
 {$R *.fmx}
 
 uses
-  Objekt.Energieverbrauch, Objekt.JEnergieverbrauch;
+  Objekt.Energieverbrauch, Objekt.JEnergieverbrauch, Payload.EnergieverbrauchZaehlerstandUpdate;
 
 
 procedure Tfrm_DatenModify.FormCreate(Sender: TObject);
@@ -63,7 +63,7 @@ begin
   edt_Ablesedatum.SetFocus;
 end;
 
-procedure Tfrm_DatenModify.setZaehler(aJZaehler: TJZaehler);
+procedure Tfrm_DatenModify.setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
 begin
   fJZaehler := aJZaehler;
   //lbl_Ablesedatum.Text := FormatDateTime('dd.mm.yyyy hh:nn:ss', fZaehlerdatum);
@@ -81,22 +81,22 @@ end;
 procedure Tfrm_DatenModify.save(Sender: TObject);
 var
   JsonString: String;
-  JZaehlerstand: TJZaehlerstand;
+  PEnergieverbrauchZaehlerstandUpdate: TPEnergieverbrauchZaehlerstandUpdate;
 begin
   if Trim(edt_Zaehlerstand.Text) > '' then
   begin
-    JZaehlerstand := TJZaehlerstand.Create;
+    PEnergieverbrauchZaehlerstandUpdate := TPEnergieverbrauchZaehlerstandUpdate.Create;
     try
-      JZaehlerstand.FieldByName('ZS_ID').AsInteger      := 0;
-      JZaehlerstand.FieldByName('ZS_ZA_ID').AsInteger   := fJZaehler.FieldByName('ZA_ID').AsInteger;
-      JZaehlerstand.FieldByName('ZS_WERT').AsString     := Trim(edt_Zaehlerstand.Text);
-      JZaehlerstand.FieldByName('ZS_DATUM').AsDateTime  := edt_Ablesedatum.Date;
-      JsonString := JZaehlerstand.JsonString;
+      PEnergieverbrauchZaehlerstandUpdate.FieldByName('ZS_ID').AsInteger      := 0;
+      PEnergieverbrauchZaehlerstandUpdate.FieldByName('ZS_ZA_ID').AsInteger   := fJZaehler.FieldByName('ZA_ID').AsInteger;
+      PEnergieverbrauchZaehlerstandUpdate.FieldByName('ZS_WERT').AsString     := Trim(edt_Zaehlerstand.Text);
+      PEnergieverbrauchZaehlerstandUpdate.FieldByName('ZS_DATUM').AsDateTime  := edt_Ablesedatum.Date;
+      JsonString := PEnergieverbrauchZaehlerstandUpdate.JsonString;
       JEnergieverbrauch.AddZaehlerstand(JsonString);
       edt_Zaehlerstand.Text := '';
       edt_Ablesedatum.SetFocus;
     finally
-      FreeAndNil(JZaehlerstand);
+      FreeAndNil(PEnergieverbrauchZaehlerstandUpdate);
     end;
   end;
 end;

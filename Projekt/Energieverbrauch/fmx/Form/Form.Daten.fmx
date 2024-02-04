@@ -79,7 +79,7 @@ inherited frm_Daten: Tfrm_Daten
     Images = dm_Bilder.SVGIconImageList_Blue
     Align = Client
     Size.Width = 640.000000000000000000
-    Size.Height = 440.000000000000000000
+    Size.Height = 400.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -131,6 +131,60 @@ inherited frm_Daten: Tfrm_Daten
         Appearance.VertAlign = Center
       end>
     OnItemClickEx = lvItemClickEx
+  end
+  object Panel1: TPanel
+    Align = Top
+    Position.Y = 40.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object Label1: TLabel
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 31.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Von:'
+      TabOrder = 1
+    end
+    object edt_DatumVon: TDateEdit
+      Date = 45325.000000000000000000
+      Align = Left
+      Margins.Top = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 41.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      OnExit = edt_DatumExit
+    end
+    object Label2: TLabel
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Position.X = 151.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Bis:'
+      TabOrder = 0
+    end
+    object edt_DatumBis: TDateEdit
+      Date = 45325.000000000000000000
+      Align = Left
+      Margins.Top = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 176.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      OnExit = edt_DatumExit
+    end
   end
   object GestureManager: TGestureManager
     Sensitivity = 80.000000000000000000

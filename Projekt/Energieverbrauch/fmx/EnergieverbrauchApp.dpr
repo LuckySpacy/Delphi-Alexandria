@@ -19,7 +19,25 @@ uses
   Objekt.JEnergieverbrauch in 'Objekt\Objekt.JEnergieverbrauch.pas',
   Thread.Timer in 'Timer\Thread.Timer.pas',
   Form.DatenModify in 'Form\Form.DatenModify.pas' {frm_DatenModify},
-  Form.Statistik in 'Form\Form.Statistik.pas' {frm_Statistik};
+  Form.Statistik in 'Form\Form.Statistik.pas' {frm_Statistik},
+  Objekt.Login in 'Objekt\Objekt.Login.pas',
+  Payload.Login in '..\..\Webserver\Payload\Payload.Login.pas',
+  Json.Error in '..\..\Webserver\Json\Json.Error.pas',
+  Json.ErrorList in '..\..\Webserver\Json\Json.ErrorList.pas',
+  c.JsonError in '..\..\Webserver\const\c.JsonError.pas',
+  Json.CheckResult in '..\..\Webserver\Json\Json.CheckResult.pas',
+  Json.EnergieverbrauchZaehlerList in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerList.pas',
+  Json.EnergieverbrauchZaehler in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehler.pas',
+  Json.Token in '..\..\Webserver\Json\Json.Token.pas',
+  Json.BasisList in '..\..\Webserver\Json\Json.BasisList.pas',
+  Objekt.ZaehlerList in 'Objekt\Objekt.ZaehlerList.pas',
+  Payload.ZaehlerstandReadZeitraum in 'Payload\Payload.ZaehlerstandReadZeitraum.pas',
+  Json.EnergieverbrauchZaehlerstand in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstand.pas',
+  Json.EnergieverbrauchZaehlerstandList in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchZaehlerstandList.pas',
+  Objekt.Feld in '..\..\Webserver\Objekt\Objekt.Feld.pas',
+  Objekt.FeldList in '..\..\Webserver\Objekt\Objekt.FeldList.pas',
+  Payload.EnergieverbrauchZaehlerstandUpdate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas',
+  Payload.EnergieverbrauchZaehlerUpdate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas';
 
 {$R *.res}
 
