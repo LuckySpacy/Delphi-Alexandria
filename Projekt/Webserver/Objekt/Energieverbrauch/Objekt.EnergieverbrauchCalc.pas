@@ -13,6 +13,7 @@ type
     constructor Create(aTrans: TTBTransaction);
     destructor Destroy; override;
     procedure CalcVerbrauch(aZaId: Integer; aDatum: TDateTime);
+    procedure CalcVerbrauchMonate(aZaId: Integer; aJahr: Integer);
     procedure VerbrauchKomplettNeuBerechnen(aZaId: Integer);
   end;
 
@@ -22,7 +23,8 @@ implementation
 
 uses
   DB.EnergieverbrauchVerbrauch, DB.EnergieverbrauchZaehlerstand, DB.EnergieverbrauchZaehlerstandList,
-  DateUtils;
+  DateUtils, DB.EnergieverbrauchVerbrauchList, DB.EnergieverbrauchVerbrauchMonat;
+
 
 constructor TEnergieverbrauchCalc.Create(aTrans: TTBTransaction);
 begin
@@ -128,7 +130,11 @@ var
   DBVerbrauch: TDBEnergieverbrauchVerbrauch;
   DBZaehlerstandList: TDBEnergieverbrauchZaehlerstandList;
   i1: Integer;
+  JahrVon: Integer;
+  JahrBis: Integer;
 begin
+  JahrVon := 3000;
+  JahrBis := 0;
   DBZaehlerstandList := TDBEnergieverbrauchZaehlerstandList.Create;
   DBVerbrauch    := TDBEnergieverbrauchVerbrauch.Create(nil);
   try
@@ -139,12 +145,65 @@ begin
     for i1 := 0 to DBZaehlerstandList.Count -1 do
     begin
       CalcVerbrauch(aZaId, DBZaehlerstandList.Item[i1].Datum);
+      if YearOf(DBZaehlerstandList.Item[i1].Datum) < JahrVon then
+        JahrVon := YearOf(DBZaehlerstandList.Item[i1].Datum);
+
+      if YearOf(DBZaehlerstandList.Item[i1].Datum) > JahrBis then
+        JahrBis := YearOf(DBZaehlerstandList.Item[i1].Datum);
+
     end;
+    for i1 := JahrVon to JahrBis do
+      CalcVerbrauchMonate(aZaId, i1);
   finally
     FreeAndNil(DBVerbrauch);
     FreeAndNil(DBZaehlerstandList);
   end;
 
 end;
+
+
+procedure TEnergieverbrauchCalc.CalcVerbrauchMonate(aZaId, aJahr: Integer);
+var
+  DBVerbrauchList: TDBEnergieverbrauchVerbrauchList;
+  DBVerbrauch: TDBEnergieverbrauchVerbrauch;
+  DBVerbrauchMonat: TDBEnergieverbrauchVerbrauchMonat;
+  DatumVon: TDateTime;
+  DatumBis: TDateTime;
+  i1: Integer;
+  Monat: Integer;
+  Verbrauch: Currency;
+begin //
+  DBVerbrauchList  := TDBEnergieverbrauchVerbrauchList.Create;
+  DBVerbrauchMonat := TDBEnergieverbrauchVerbrauchMonat.Create(nil);
+  try
+    DBVerbrauchList.Trans  := fTrans;
+    DBVerbrauchMonat.Trans := fTrans;
+
+    for Monat := 1 to 12 do
+    begin
+      DatumVon := StrToDate('01.' +  Monat.ToString  + '.' + aJahr.ToString);
+      DatumBis := EndOfTheMonth(DatumVon);
+      DBVerbrauchList.ReadZeitraum(aZaId, DatumVon, DatumBis);
+      Verbrauch := 0;
+      for i1 := 0 to DBVerbrauchList.Count -1 do
+      begin
+        DBVerbrauch := DBVerbrauchList.Item[i1];
+        Verbrauch := Verbrauch + DBVerbrauch.Wert;
+      end;
+      DBVerbrauchMonat.Read(aZaId, Monat, aJahr);
+      DBVerbrauchMonat.ZaId  := aZaId;
+      DBVerbrauchMonat.Wert  := Verbrauch;
+      DBVerbrauchMonat.Monat := Monat;
+      DBVerbrauchMonat.Jahr  := aJahr;
+      DBVerbrauchMonat.SaveToDB;
+    end;
+
+  finally
+    FreeAndNil(DBVerbrauchList);
+    FreeAndNil(DBVerbrauchMonat);
+  end;
+
+end;
+
 
 end.

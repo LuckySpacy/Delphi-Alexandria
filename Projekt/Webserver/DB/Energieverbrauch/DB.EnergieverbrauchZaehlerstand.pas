@@ -173,11 +173,13 @@ function TDBEnergieverbrauchZaehlerstand.getLetzterEndpunkt(aZaId: Integer; aDat
 begin
   fQuery.Close;
   fQuery.Sql.Text := ' select zs_datum from zaehlerstand' +
-                     ' where zs_datum < :datum' +
+                     ' where zs_delete != :del' +
+                     ' and   zs_datum < :datum' +
                      ' and   zs_za_id = :zaid' +
                      ' order by zs_datum desc' ;
   fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
   fQuery.ParamByName('zaid').AsInteger   := aZaId;
+  fQuery.ParamByName('del').AsString     := 'T';
   fQuery.OpenTrans;
   fQuery.Open;
   if not fQuery.Eof then
@@ -192,11 +194,13 @@ function TDBEnergieverbrauchZaehlerstand.getNaechsterEndpunkt(aZaId: Integer; aD
 begin
   fQuery.Close;
   fQuery.Sql.Text := ' select zs_datum from zaehlerstand' +
-                     ' where zs_datum > :datum' +
+                     ' where zs_delete != :del' +
+                     ' and   zs_datum > :datum' +
                      ' and   zs_za_id = :zaid' +
                      ' order by zs_datum desc' ;
   fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
   fQuery.ParamByName('zaid').AsInteger := aZaId;
+  fQuery.ParamByName('del').AsString     := 'T';
   fQuery.OpenTrans;
   fQuery.Open;
   if not fQuery.Eof then
@@ -211,8 +215,10 @@ function TDBEnergieverbrauchZaehlerstand.getEndpunktWert(aZaId: Integer; aDatum:
 begin
   fQuery.Close;
   fQuery.Sql.Text := ' select zs_wert from zaehlerstand' +
-                     ' where zs_datum = :datum'+
+                     ' where zs_delete != :del' +
+                     ' and   zs_datum = :datum'+
                      ' and   zs_za_id = :zaid';
+  fQuery.ParamByName('del').AsString     := 'T';
   fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
   fQuery.ParamByName('zaid').AsInteger := aZaId;
   fQuery.OpenTrans;

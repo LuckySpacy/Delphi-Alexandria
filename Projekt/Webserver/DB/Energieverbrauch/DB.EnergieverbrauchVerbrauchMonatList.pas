@@ -124,7 +124,7 @@ begin
   fQuery.Close;
   fQuery.OpenTrans;
   try
-    fQuery.SQL.Text := ' select * from verbrauch where vm_DELETE != ' + QuotedStr('T') +
+    fQuery.SQL.Text := ' select * from verbrauchmonat where vm_DELETE != ' + QuotedStr('T') +
                        ' and vm_za_id = ' + aZaId.ToString +
                        ' and vm_Jahr  >=  :Jahrvon ' +
                        ' and vm_Monat >=  :Monatvon ' +

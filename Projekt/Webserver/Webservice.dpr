@@ -73,7 +73,14 @@ uses
   Objekt.EnergieverbrauchCalc in 'Objekt\Energieverbrauch\Objekt.EnergieverbrauchCalc.pas',
   Payload.EnergieverbrauchCalc in 'Payload\Energieverbrauch\Payload.EnergieverbrauchCalc.pas',
   wma.EnergieverbrauchKomplNeuBerechnen in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchKomplNeuBerechnen.pas',
-  wma.EnergieverbrauchVerbrauch in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauch.pas';
+  wma.EnergieverbrauchVerbrauch in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauch.pas',
+  Payload.EnergieverbrauchVerbrauchMonate in 'Payload\Energieverbrauch\Payload.EnergieverbrauchVerbrauchMonate.pas',
+  Json.EnergieverbrauchVerbrauchMonate in 'Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonate.pas',
+  Json.EnergieverbrauchVerbrauchMonateList in 'Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonateList.pas',
+  wma.EnergieverbrauchVerbrauchVerbrauchMonate in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauchVerbrauchMonate.pas',
+  Json.EnergieverbrauchVerbrauchJahre in 'Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchJahre.pas',
+  Json.EnergieverbrauchVerbrauchJahreList in 'Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchJahreList.pas',
+  wma.EnergieverbrauchVerbrauchVerbrauchJahre in 'WebmodulAction\Energieverbrauch\wma.EnergieverbrauchVerbrauchVerbrauchJahre.pas';
 
 {$R *.res}
 

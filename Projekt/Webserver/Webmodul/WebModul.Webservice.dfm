@@ -59,6 +59,18 @@ object wem_Webservice: Twem_Webservice
       Name = 'wai_Energieverbrauch_VerbrauchKomplNeuBerechnen'
       PathInfo = '/Energieverbrauch/Verbrauch/KomplNeuBerechnen'
       OnAction = wem_Webservicewai_Energieverbrauch_VerbrauchKomplNeuBerechnenAction
+    end
+    item
+      MethodType = mtPost
+      Name = 'wai_Energieverbrauch_VerbrauchMonate'
+      PathInfo = '/Energieverbrauch/Verbrauch/Monate'
+      OnAction = wem_Webservicewai_Energieverbrauch_VerbrauchMonateAction
+    end
+    item
+      MethodType = mtPost
+      Name = 'wai_Energieverbrauch_VerbrauchJahre'
+      PathInfo = '/Energieverbrauch/Verbrauch/Jahre'
+      OnAction = wem_Webservicewai_Energieverbrauch_VerbrauchJahreAction
     end>
   Height = 230
   Width = 415

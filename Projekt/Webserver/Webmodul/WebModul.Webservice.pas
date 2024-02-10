@@ -34,6 +34,12 @@ type
     procedure wem_Webservicewai_Energieverbrauch_VerbrauchKomplNeuBerechnenAction(
       Sender: TObject; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_VerbrauchMonateAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
+    procedure wem_Webservicewai_Energieverbrauch_VerbrauchJahreAction(
+      Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+      var Handled: Boolean);
   private
     { Private-Deklarationen }
   public
@@ -177,6 +183,20 @@ begin //
 
 end;
 
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_VerbrauchJahreAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Verbrauch.Jahre.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+end;
+
 procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_VerbrauchKomplNeuBerechnenAction(
   Sender: TObject; Request: TWebRequest; Response: TWebResponse;
   var Handled: Boolean);
@@ -186,6 +206,20 @@ begin//
   wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
   try
     wmaEnergieverbrauch.Verbrauch.KomplNeuBerechnen.DoIt(Request, Response);
+  finally
+    FreeAndNil(wmaEnergieverbrauch);
+  end;
+end;
+
+procedure Twem_Webservice.wem_Webservicewai_Energieverbrauch_VerbrauchMonateAction(
+  Sender: TObject; Request: TWebRequest; Response: TWebResponse;
+  var Handled: Boolean);
+var
+  wmaEnergieverbrauch: TwmaEnergieverbrauch;
+begin
+  wmaEnergieverbrauch := TwmaEnergieverbrauch.Create;
+  try
+    wmaEnergieverbrauch.Verbrauch.Monate.DoIt(Request, Response);
   finally
     FreeAndNil(wmaEnergieverbrauch);
   end;

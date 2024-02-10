@@ -1,16 +1,13 @@
-unit Payload.EnergieverbrauchZaehlerstandRead;
+unit Payload.EnergieverbrauchVerbrauchMonate;
 
 interface
-
-
-// Payload für alle Zählerstandread Abfragen.
 
 uses
   System.SysUtils, System.Variants, System.Classes, Objekt.Feld, Objekt.FeldList,
   Json.ErrorList;
 
 type
-  TPEnergieverbrauchZaehlerstandRead = class(TFeldList)
+  TPEnergieverbrauchVerbrauchMonate = class(TFeldList)
   private
     fJErrorList: TJErrorList;
     function getJsonString: string;
@@ -25,28 +22,27 @@ type
 
 implementation
 
-{ TPEnergieverbrauchZaehlerstandRead }
+{ TPEnergieverbrauchVerbrauchMonate }
 
 uses
   System.JSON, System.Generics.Collections, c.JsonError;
 
-constructor TPEnergieverbrauchZaehlerstandRead.Create;
+constructor TPEnergieverbrauchVerbrauchMonate.Create;
 begin
   inherited;
-  Add('ZS_ZA_ID');
-  Add('DATUMVON');
-  Add('DATUMBIS');
+  Add('VM_ZA_ID');
+  Add('JAHR');
   fJErrorList := TJErrorList.Create;
   Init;
 end;
 
-destructor TPEnergieverbrauchZaehlerstandRead.Destroy;
+destructor TPEnergieverbrauchVerbrauchMonate.Destroy;
 begin
 
   inherited;
 end;
 
-procedure TPEnergieverbrauchZaehlerstandRead.Init;
+procedure TPEnergieverbrauchVerbrauchMonate.Init;
 var
   i1: Integer;
 begin
@@ -55,7 +51,7 @@ begin
 end;
 
 
-function TPEnergieverbrauchZaehlerstandRead.getJsonString: string;
+function TPEnergieverbrauchVerbrauchMonate.getJsonString: string;
 var
   i1: Integer;
   JsonObject: TJSONObject;
@@ -70,7 +66,8 @@ begin
   end;
 end;
 
-procedure TPEnergieverbrauchZaehlerstandRead.setJsonString(const Value: string);
+
+procedure TPEnergieverbrauchVerbrauchMonate.setJsonString(const Value: string);
 var
   JsonObject: TJSONObject;
   i1: Integer;
@@ -99,5 +96,6 @@ begin
   end;
 
 end;
+
 
 end.

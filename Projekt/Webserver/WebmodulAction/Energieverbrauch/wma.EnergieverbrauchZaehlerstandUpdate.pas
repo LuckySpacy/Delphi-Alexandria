@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Variants, System.Classes, wma.BaseEnergieverbrauch, Web.HTTPApp,
   c.JsonError, DB.EnergieverbrauchZaehlerstand, DB.EnergieverbrauchVerbrauchMonat,
-  DB.EnergieverbrauchVerbrauch, Objekt.EnergieverbrauchCalc;
+  DB.EnergieverbrauchVerbrauch, Objekt.EnergieverbrauchCalc, DateUtils;
 
 type
   TwmaEnergieverbrauchZaehlerstandUpdate = class(TwmaBaseEnergieverbrauch)
@@ -23,7 +23,7 @@ implementation
 { TwmaEnergieverbrauchZaehlerstandUpdate }
 
 uses
-  Payload.EnergieverbrauchZaehlerstandUpdate, DateUtils, DB.EnergieverbrauchZaehlerstandList;
+  Payload.EnergieverbrauchZaehlerstandUpdate, DB.EnergieverbrauchZaehlerstandList;
 
 
 constructor TwmaEnergieverbrauchZaehlerstandUpdate.Create;
@@ -45,6 +45,8 @@ var
   DBZaehlerstand: TDBEnergieverbrauchZaehlerstand;
   Stand: Extended;
   Datum: TDateTime;
+  Jahr: Integer;
+  JahrVon, JahrBis: Integer;
   ZaId: Integer;
   EnergieverbrauchCalc: TEnergieverbrauchCalc;
 begin
@@ -101,6 +103,11 @@ begin
     EnergieverbrauchCalc := TEnergieverbrauchCalc.Create(fTrans);
     try
       EnergieverbrauchCalc.CalcVerbrauch(ZaId, Datum);
+      Jahr := YearOf(Datum);
+      JahrVon := Jahr - 1;
+      JahrBis := Jahr + 1;
+      for Jahr := JahrVon to JahrBis do
+        EnergieverbrauchCalc.CalcVerbrauchMonate(ZaId, Jahr);
     finally
       FreeAndNil(EnergieverbrauchCalc);
     end;

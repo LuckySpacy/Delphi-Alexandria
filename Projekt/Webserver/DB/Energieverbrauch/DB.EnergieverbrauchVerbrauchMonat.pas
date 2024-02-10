@@ -34,6 +34,10 @@ type
     property Wert: Currency read fWert write setWert;
     property Monat: Integer read fMonat write setMonat;
     property Jahr: Integer read fJahr write setJahr;
+    procedure Read(aId: Integer); overload; override;
+    procedure Read(aZaId, aMonat, aJahr: Integer); overload;
+    function MinJahr(aZaId: Integer): Integer;
+    function MaxJahr(aZaId: Integer): Integer;
   end;
 
 implementation
@@ -110,6 +114,12 @@ begin
   FuelleDBFelder;
 end;
 
+
+procedure TDBEnergieverbrauchVerbrauchMonat.Read(aId: Integer);
+begin
+  inherited;
+end;
+
 procedure TDBEnergieverbrauchVerbrauchMonat.SaveToDB;
 begin
   inherited;
@@ -140,5 +150,76 @@ begin
   UpdateV(fZaId, Value);
   fFeldList.FieldByName('VM_ZA_ID').AsInteger := fZaId;
 end;
+
+
+
+procedure TDBEnergieverbrauchVerbrauchMonat.Read(aZaId, aMonat, aJahr: Integer);
+begin
+  Init;
+  if not Assigned(fTrans) then
+    exit;
+  fQuery.Close;
+  fQuery.Trans := fTrans;
+  fQuery.SQL.Text := 'select * from ' + getTableName +
+                     ' where vm_delete != :del' +
+                     ' and   vm_jahr  = :jahr' +
+                     ' and   vm_monat = :monat' +
+                     ' and   vm_za_id = :zaid';
+  fQuery.ParamByName('del').AsString := 'T';
+  fQuery.ParamByName('jahr').AsInteger := aJahr;
+  fQuery.ParamByName('monat').AsInteger := aMonat;
+  fQuery.ParamByName('zaid').AsInteger  := aZaId;
+  fQuery.OpenTrans;
+  try
+    fQuery.Open;
+    LoadByQuery(fQuery);
+  finally
+    fQuery.CommitTrans;
+  end;
+end;
+
+
+function TDBEnergieverbrauchVerbrauchMonat.MaxJahr(aZaId: Integer): Integer;
+begin
+  Init;
+  if not Assigned(fTrans) then
+    exit;
+  fQuery.Close;
+  fQuery.Trans := fTrans;
+  fQuery.SQL.Text := 'select max(vm_jahr) from ' + getTableName +
+                     ' where vm_delete != :del' +
+                     ' and   vm_za_id = :zaid';
+  fQuery.ParamByName('del').AsString := 'T';
+  fQuery.ParamByName('zaid').AsInteger  := aZaId;
+  fQuery.OpenTrans;
+  try
+    fQuery.Open;
+    Result := fQuery.Fields[0].AsInteger;
+  finally
+    fQuery.CommitTrans;
+  end;
+end;
+
+function TDBEnergieverbrauchVerbrauchMonat.MinJahr(aZaId: Integer): Integer;
+begin
+  Init;
+  if not Assigned(fTrans) then
+    exit;
+  fQuery.Close;
+  fQuery.Trans := fTrans;
+  fQuery.SQL.Text := 'select min(vm_jahr) from ' + getTableName +
+                     ' where vm_delete != :del' +
+                     ' and   vm_za_id = :zaid';
+  fQuery.ParamByName('del').AsString := 'T';
+  fQuery.ParamByName('zaid').AsInteger  := aZaId;
+  fQuery.OpenTrans;
+  try
+    fQuery.Open;
+    Result := fQuery.Fields[0].AsInteger;
+  finally
+    fQuery.CommitTrans;
+  end;
+end;
+
 
 end.
