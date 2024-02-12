@@ -37,7 +37,16 @@ uses
   Objekt.Feld in '..\..\Webserver\Objekt\Objekt.Feld.pas',
   Objekt.FeldList in '..\..\Webserver\Objekt\Objekt.FeldList.pas',
   Payload.EnergieverbrauchZaehlerstandUpdate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas',
-  Payload.EnergieverbrauchZaehlerUpdate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas';
+  Payload.EnergieverbrauchZaehlerUpdate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas',
+  Form.StatistikMonate in 'Form\Form.StatistikMonate.pas' {frm_StatistikMonate},
+  Objekt.StatistikJahreMonatList in 'Objekt\Statistik\Objekt.StatistikJahreMonatList.pas',
+  Objekt.StatistikMonatList in 'Objekt\Statistik\Objekt.StatistikMonatList.pas',
+  Objekt.StatistikMonat in 'Objekt\Statistik\Objekt.StatistikMonat.pas',
+  Objekt.ObjektList in 'Objekt\Objekt.ObjektList.pas',
+  Objekt.BasisList in 'Objekt\Objekt.BasisList.pas',
+  Payload.EnergieverbrauchVerbrauchMonate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchVerbrauchMonate.pas',
+  Json.EnergieverbrauchVerbrauchMonateList in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonateList.pas',
+  Json.EnergieverbrauchVerbrauchMonate in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonate.pas';
 
 {$R *.res}
 

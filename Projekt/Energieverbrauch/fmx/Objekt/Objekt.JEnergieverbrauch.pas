@@ -23,6 +23,7 @@ type
     function ReadZaehlerstandListInZeitraum(aJsonString: string): string;
     function DeleteZaehlerstand(aJsonString: string): string;
     property Token: string read fToken write fToken;
+    function ReadVerbrauchMonatListImJahr(aJsonString: string): string;
   end;
 
 var
@@ -45,6 +46,19 @@ destructor TJEnergieverbrauch.Destroy;
 begin
   FreeAndNil(fCommunicationAPI);
   inherited;
+end;
+
+function TJEnergieverbrauch.ReadVerbrauchMonatListImJahr(aJsonString: string): string;
+var
+  API: TCommunicationAPI;
+begin
+  API := TCommunicationAPI.Create(fToken);
+  try
+    API.Post('/Verbrauch/Monate', aJsonString);
+    Result := API.ReturnValue;
+  finally
+    FreeAndNil(API);
+  end;
 end;
 
 function TJEnergieverbrauch.ReadZaehlerList: string;

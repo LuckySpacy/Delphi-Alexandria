@@ -1,18 +1,20 @@
 inherited frm_Statistik: Tfrm_Statistik
   Caption = 'frm_Base1'
+  ClientHeight = 652
+  ClientWidth = 802
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignerMasterStyle = 0
   object Lay_Top: TLayout
     Align = Top
-    Size.Width = 640.000000000000000000
+    Size.Width = 802.000000000000000000
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Rect_Hosteinstellung: TRectangle
       Align = Client
       Fill.Color = xFF3E78B2
-      Size.Width = 640.000000000000000000
+      Size.Width = 802.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       object gly_Return: TGlyph
@@ -45,7 +47,7 @@ inherited frm_Statistik: Tfrm_Statistik
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 4.000000000000000000
         Align = Right
-        Position.X = 598.000000000000000000
+        Position.X = 760.000000000000000000
         Position.Y = 4.000000000000000000
         Size.Width = 32.000000000000000000
         Size.Height = 32.000000000000000000
@@ -53,61 +55,64 @@ inherited frm_Statistik: Tfrm_Statistik
         ImageIndex = 2
         Images = dm_Bilder.SVGIconImageList
       end
+      object gly_Menu: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Align = Left
+        Position.X = 60.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 1
+        Images = dm_Bilder.SVGIconImageList
+      end
     end
   end
-  object Layout1: TLayout
-    Align = Top
-    Position.Y = 40.000000000000000000
-    Size.Width = 640.000000000000000000
+  object TabControl: TTabControl
+    Align = Client
+    Size.Width = 802.000000000000000000
+    Size.Height = 612.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 1
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      802s
+      586s
+      802s
+      586s)
+    object tbs_StatistikMonate: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 124.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_StatistikMonate'
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 69.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+    end
+  end
+  object MultiView: TMultiView
+    NavigationPaneOptions.CollapsedWidth = 153.000000000000000000
+    Size.Width = 250.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 1
-    object Label1: TLabel
-      Position.X = 17.000000000000000000
-      Position.Y = 17.000000000000000000
-      Size.Width = 64.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Zeitraum'
-      TabOrder = 0
-    end
-    object edt_Datumvon: TDateEdit
-      Date = 45298.000000000000000000
-      Position.X = 77.000000000000000000
-      Position.Y = 16.000000000000000000
-      TabOrder = 2
-    end
-    object edt_Datumbis: TDateEdit
-      Date = 45298.000000000000000000
-      Position.X = 195.000000000000000000
-      Position.Y = 16.000000000000000000
-      TabOrder = 1
-    end
-  end
-  object Chart: TChart
-    Foot.Font.StyleExt = {00040000000200000004000000}
-    Legend.Title.Font.StyleExt = {00070000000000000004000000}
-    SubFoot.Font.StyleExt = {00040000000200000004000000}
-    Title.Text.Strings = (
-      'TChart')
-    Zoom.Brush.Kind = None
-    Zoom.Pen.Fill.Color = claSilver
-    Align = Client
-    BevelOuter = bvNone
     TabOrder = 2
-    Cursor = crSizeWE
-    Size.Width = 640.000000000000000000
-    Size.Height = 390.000000000000000000
-    Size.PlatformDefault = False
-    ColorPaletteIndex = 13
-    object Series1: TBarSeries
-      HoverElement = []
-      Legend.Visible = False
-      ShowInLegend = False
-      XValues.Name = 'X'
-      XValues.Order = loAscending
-      YValues.Name = 'Bar'
-      YValues.Order = loNone
-    end
   end
 end

@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
   FMX.DateTimeCtrls, Json.EnergieverbrauchZaehlerstandList, Json.EnergieverbrauchZaehlerstand, Json.EnergieverbrauchZaehler,
-  FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart;
+  FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.TabControl,
+  FMX.MultiView, Form.StatistikMonate;
 
 type
   Tfrm_Statistik = class(Tfrm_Base)
@@ -16,21 +17,23 @@ type
     gly_Return: TGlyph;
     lbl_Ueberschrift: TLabel;
     gly_Add: TGlyph;
-    Layout1: TLayout;
-    Label1: TLabel;
-    edt_Datumvon: TDateEdit;
-    edt_Datumbis: TDateEdit;
-    Chart: TChart;
-    Series1: TBarSeries;
+    TabControl: TTabControl;
+    gly_Menu: TGlyph;
+    MultiView: TMultiView;
+    tbs_StatistikMonate: TTabItem;
+    TabItem2: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
     fJZaehler: TJEnergieverbrauchZaehler;
     fJZaehlerstandList : TJEnergieverbrauchZaehlerstandList;
+    fFormStatistikMonate: Tfrm_StatistikMonate;
     procedure Back(Sender: TObject);
-    procedure ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
-    procedure UpdateChart;
-    function getWert(aMonat, aJahr: Integer): Extended;
+    procedure ShowStatistikMonate;
+    procedure MenuClick(Sender: TObject);
+    //procedure ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
+    //procedure UpdateChart;
+    //function getWert(aMonat, aJahr: Integer): Extended;
   public
     procedure setActiv; override;
     procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
@@ -53,8 +56,22 @@ begin //
   inherited;
   gly_Return.HitTest := true;
   gly_Return.OnClick := Back;
+  gly_Menu.HitTest := true;
+  gly_Menu.OnClick := MenuClick;
+
   fJZaehler := nil;
   fJZaehlerstandList := TJEnergieverbrauchZaehlerstandList.Create;
+
+  TabControl.TabPosition := TTabPosition.None;
+
+  fFormStatistikMonate := Tfrm_StatistikMonate.Create(Self);
+  while fFormStatistikMonate.ChildrenCount > 0 do
+    fFormStatistikMonate.Children[0].Parent := tbs_StatistikMonate;
+
+  MultiView.Width := 250;
+  MultiView.Mode := TMultiViewMode.Drawer;
+
+
 end;
 
 procedure Tfrm_Statistik.FormDestroy(Sender: TObject);
@@ -64,26 +81,41 @@ begin   //
   inherited;
 end;
 
+procedure Tfrm_Statistik.MenuClick(Sender: TObject);
+begin
+  MultiView.ShowMaster;
+end;
+
 procedure Tfrm_Statistik.setActiv;
 begin
   inherited;
-  edt_Datumbis.Date := trunc(now);
+ // edt_Datumbis.Date := trunc(now);
   //edt_Datumvon.Date := IncYear(now, -1);
-  edt_Datumvon.Date := StrToDate('01.01.2023');
-  ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_Datumbis.Date);
+  //edt_Datumvon.Date := StrToDate('01.01.2023');
+  //ReadZaehlerstandZeitraum(edt_DatumVon.Date, edt_Datumbis.Date);
 end;
 
 procedure Tfrm_Statistik.setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
 begin
   fJZaehler := aJZaehler;
+  ShowStatistikMonate;
 end;
 
+
+procedure Tfrm_Statistik.ShowStatistikMonate;
+begin
+  TabControl.ActiveTab := tbs_StatistikMonate;
+  fFormStatistikMonate.setZaehler(fJZaehler);
+  fFormStatistikMonate.setActiv;
+
+end;
 
 procedure Tfrm_Statistik.Back(Sender: TObject);
 begin
   DoZurueck(Self);
 end;
 
+{
 procedure Tfrm_Statistik.ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
 var
   JZaehlerstand: TJEnergieverbrauchZaehlerstand;
@@ -136,5 +168,5 @@ begin
   end;
 end;
 
-
+}
 end.

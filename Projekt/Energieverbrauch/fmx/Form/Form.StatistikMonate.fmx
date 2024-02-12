@@ -1,0 +1,110 @@
+inherited frm_StatistikMonate: Tfrm_StatistikMonate
+  Caption = 'frm_Base1'
+  ClientHeight = 571
+  ClientWidth = 686
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Chart: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'TChart')
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    BevelOuter = bvNone
+    TabOrder = 1
+    Cursor = crSizeWE
+    Size.Width = 686.000000000000000000
+    Size.Height = 538.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: TBarSeries
+      HoverElement = []
+      Legend.Visible = False
+      ShowInLegend = False
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
+  end
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 686.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Layout2: TLayout
+      Align = Center
+      Size.Width = 519.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object cbx_VonMonat: TComboBox
+        Align = Left
+        Items.Strings = (
+          'Januar'
+          'Februar'
+          'M'#228'rz'
+          'April'
+          'Mai'
+          'Juni'
+          'Juli'
+          'August '
+          'September'
+          'Oktober'
+          'November'
+          'Dezember')
+        Size.Width = 121.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        OnChange = cbx_VonMonatChange
+      end
+      object edt_VonJahr: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Left
+        TabOrder = 3
+        KeyboardType = NumberPad
+        Position.X = 121.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object cbx_BisMonat: TComboBox
+        Align = Right
+        Items.Strings = (
+          'Januar'
+          'Februar'
+          'M'#228'rz'
+          'April'
+          'Mai'
+          'Juni'
+          'Juli'
+          'August '
+          'September'
+          'Oktober'
+          'November'
+          'Dezember')
+        Position.X = 298.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object edt_BisJahr: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Right
+        TabOrder = 2
+        KeyboardType = NumberPad
+        Position.X = 419.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end

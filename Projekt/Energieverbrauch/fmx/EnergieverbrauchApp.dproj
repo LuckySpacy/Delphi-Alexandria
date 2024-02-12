@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Android64</Platform>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>558099</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>EnergieverbrauchApp.dpr</MainSource>
@@ -363,6 +363,18 @@
         <DCCReference Include="..\..\Webserver\Objekt\Objekt.FeldList.pas"/>
         <DCCReference Include="..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerstandUpdate.pas"/>
         <DCCReference Include="..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchZaehlerUpdate.pas"/>
+        <DCCReference Include="Form\Form.StatistikMonate.pas">
+            <Form>frm_StatistikMonate</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Objekt\Statistik\Objekt.StatistikJahreMonatList.pas"/>
+        <DCCReference Include="Objekt\Statistik\Objekt.StatistikMonatList.pas"/>
+        <DCCReference Include="Objekt\Statistik\Objekt.StatistikMonat.pas"/>
+        <DCCReference Include="Objekt\Objekt.ObjektList.pas"/>
+        <DCCReference Include="Objekt\Objekt.BasisList.pas"/>
+        <DCCReference Include="..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchVerbrauchMonate.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonateList.pas"/>
+        <DCCReference Include="..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
