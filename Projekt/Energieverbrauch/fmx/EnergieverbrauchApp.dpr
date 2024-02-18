@@ -46,7 +46,9 @@ uses
   Objekt.BasisList in 'Objekt\Objekt.BasisList.pas',
   Payload.EnergieverbrauchVerbrauchMonate in '..\..\Webserver\Payload\Energieverbrauch\Payload.EnergieverbrauchVerbrauchMonate.pas',
   Json.EnergieverbrauchVerbrauchMonateList in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonateList.pas',
-  Json.EnergieverbrauchVerbrauchMonate in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonate.pas';
+  Json.EnergieverbrauchVerbrauchMonate in '..\..\Webserver\Json\Energieverbrauch\Json.EnergieverbrauchVerbrauchMonate.pas',
+  Datenmodul.Stylebook in 'Datenmodul\Datenmodul.Stylebook.pas' {dm_Stylebook: TDataModule},
+  Form.StatistikMonateVgl in 'Form\Form.StatistikMonateVgl.pas' {frm_StatistikMonateVgl};
 
 {$R *.res}
 
@@ -55,5 +57,6 @@ begin
   Application.CreateForm(Tfrm_Energieverbrauch, frm_Energieverbrauch);
   Application.CreateForm(Tdm_Rest, dm_Rest);
   Application.CreateForm(Tdm_Bilder, dm_Bilder);
+  Application.CreateForm(Tdm_Stylebook, dm_Stylebook);
   Application.Run;
 end.

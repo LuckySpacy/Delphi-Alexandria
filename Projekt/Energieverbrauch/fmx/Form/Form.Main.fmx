@@ -1,20 +1,20 @@
 inherited frm_Main: Tfrm_Main
   Caption = 'frm_Base1'
   ClientHeight = 537
-  ClientWidth = 697
+  ClientWidth = 649
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignerMasterStyle = 0
   object Lay_Top: TLayout
     Align = Top
-    Size.Width = 697.000000000000000000
+    Size.Width = 649.000000000000000000
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Rect_Hosteinstellung: TRectangle
       Align = Client
       Fill.Color = xFF3E78B2
-      Size.Width = 697.000000000000000000
+      Size.Width = 649.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       object gly_Menu: TGlyph
@@ -54,7 +54,7 @@ inherited frm_Main: Tfrm_Main
     EditMode = True
     Images = dm_Bilder.SVGIconImageList_Blue
     Align = Client
-    Size.Width = 697.000000000000000000
+    Size.Width = 649.000000000000000000
     Size.Height = 497.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
@@ -89,6 +89,15 @@ inherited frm_Main: Tfrm_Main
         Appearance.Height = 32.000000000000000000
         Appearance.Align = Trailing
         Appearance.VertAlign = Center
+      end
+      item
+        AppearanceObjectName = 'Img_ZaehlerNeuBerrechnen'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 32.000000000000000000
+        Appearance.Height = 32.000000000000000000
+        Appearance.Align = Trailing
+        Appearance.VertAlign = Center
+        Appearance.PlaceOffset.X = -40.000000000000000000
       end>
     OnItemClickEx = lvItemClickEx
     object SVGIconImage1: TSVGIconImage
@@ -160,14 +169,14 @@ inherited frm_Main: Tfrm_Main
     end
   end
   object MultiView: TMultiView
-    NavigationPaneOptions.CollapsedWidth = 201.000000000000000000
+    NavigationPaneOptions.CollapsedWidth = 177.000000000000000000
     Size.Width = 250.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     object Lay_HostEinstellung: TLayout
       Align = Top
-      Size.Width = 201.000000000000000000
+      Size.Width = 177.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
@@ -200,7 +209,7 @@ inherited frm_Main: Tfrm_Main
     object Lay_Zaehleranlegen: TLayout
       Align = Top
       Position.Y = 50.000000000000000000
-      Size.Width = 201.000000000000000000
+      Size.Width = 177.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -232,7 +241,7 @@ inherited frm_Main: Tfrm_Main
     object lay_ZaehlerBearb: TLayout
       Align = Top
       Position.Y = 100.000000000000000000
-      Size.Width = 201.000000000000000000
+      Size.Width = 177.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -264,7 +273,7 @@ inherited frm_Main: Tfrm_Main
     object lay_Statistik: TLayout
       Align = Top
       Position.Y = 150.000000000000000000
-      Size.Width = 201.000000000000000000
+      Size.Width = 177.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0

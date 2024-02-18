@@ -197,7 +197,7 @@ begin
                      ' where zs_delete != :del' +
                      ' and   zs_datum > :datum' +
                      ' and   zs_za_id = :zaid' +
-                     ' order by zs_datum desc' ;
+                     ' order by zs_datum' ;
   fQuery.ParamByName('datum').AsDateTime := trunc(aDatum);
   fQuery.ParamByName('zaid').AsInteger := aZaId;
   fQuery.ParamByName('del').AsString     := 'T';

@@ -8,12 +8,14 @@ uses
 type
   TStatistikJahreMonatsList = class(TBasisList)
   private
+    function getItem(Index: Integer): TStatistikMonatList;
   protected
   public
     constructor Create; override;
     destructor Destroy; override;
     function Add(aJahr: Integer): TStatistikMonatList;
     function getJahr(aJahr: Integer): TStatistikMonatList;
+    property Item[Index:Integer]: TStatistikMonatList read getItem;
   end;
 
 implementation
@@ -32,6 +34,14 @@ begin
   inherited;
 end;
 
+
+function TStatistikJahreMonatsList.getItem(Index: Integer): TStatistikMonatList;
+begin
+  Result := nil;
+  if Index > fList.Count -1 then
+    exit;
+  Result := TStatistikMonatList(fList.Items[Index]);
+end;
 
 function TStatistikJahreMonatsList.getJahr(aJahr: Integer): TStatistikMonatList;
 var

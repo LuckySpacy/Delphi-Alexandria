@@ -8,7 +8,7 @@ uses
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
   FMX.DateTimeCtrls, Json.EnergieverbrauchZaehlerstandList, Json.EnergieverbrauchZaehlerstand, Json.EnergieverbrauchZaehler,
   FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.TabControl,
-  FMX.MultiView, Form.StatistikMonate;
+  FMX.MultiView, Form.StatistikMonate, Form.StatistikMonateVgl;
 
 type
   Tfrm_Statistik = class(Tfrm_Base)
@@ -16,20 +16,30 @@ type
     Rect_Hosteinstellung: TRectangle;
     gly_Return: TGlyph;
     lbl_Ueberschrift: TLabel;
-    gly_Add: TGlyph;
     TabControl: TTabControl;
     gly_Menu: TGlyph;
     MultiView: TMultiView;
     tbs_StatistikMonate: TTabItem;
     TabItem2: TTabItem;
+    tbs_StatistikMonateVgl: TTabItem;
+    Lay_StatistikMonate: TLayout;
+    Label1: TLabel;
+    Gly_Host: TGlyph;
+    Lay_StatistikMonateVgl: TLayout;
+    Label2: TLabel;
+    Glyph1: TGlyph;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Lay_StatistikMonateClick(Sender: TObject);
+    procedure Lay_StatistikMonateVglClick(Sender: TObject);
   private
     fJZaehler: TJEnergieverbrauchZaehler;
     fJZaehlerstandList : TJEnergieverbrauchZaehlerstandList;
     fFormStatistikMonate: Tfrm_StatistikMonate;
+    fFormStatistikMonateVgl: Tfrm_StatistikMonateVgl;
     procedure Back(Sender: TObject);
     procedure ShowStatistikMonate;
+    procedure ShowStatistikMonateVgl;
     procedure MenuClick(Sender: TObject);
     //procedure ReadZaehlerstandZeitraum(aDatumVon, aDatumBis: TDateTime);
     //procedure UpdateChart;
@@ -59,6 +69,9 @@ begin //
   gly_Menu.HitTest := true;
   gly_Menu.OnClick := MenuClick;
 
+  Lay_StatistikMonate.HitTest := true;
+  Lay_StatistikMonateVgl.HitTest := true;
+
   fJZaehler := nil;
   fJZaehlerstandList := TJEnergieverbrauchZaehlerstandList.Create;
 
@@ -67,6 +80,11 @@ begin //
   fFormStatistikMonate := Tfrm_StatistikMonate.Create(Self);
   while fFormStatistikMonate.ChildrenCount > 0 do
     fFormStatistikMonate.Children[0].Parent := tbs_StatistikMonate;
+
+  fFormStatistikMonateVgl := Tfrm_StatistikMonateVgl.Create(Self);
+  while fFormStatistikMonateVgl.ChildrenCount > 0 do
+    fFormStatistikMonateVgl.Children[0].Parent := tbs_StatistikMonateVgl;
+
 
   MultiView.Width := 250;
   MultiView.Mode := TMultiViewMode.Drawer;
@@ -79,6 +97,18 @@ begin   //
   if fJZaehlerstandList <> nil then
     FreeAndNil(fJZaehlerstandList);
   inherited;
+end;
+
+procedure Tfrm_Statistik.Lay_StatistikMonateClick(Sender: TObject);
+begin
+  MultiView.HideMaster;
+  ShowStatistikMonate;
+end;
+
+procedure Tfrm_Statistik.Lay_StatistikMonateVglClick(Sender: TObject);
+begin
+  MultiView.HideMaster;
+  ShowStatistikMonateVgl;
 end;
 
 procedure Tfrm_Statistik.MenuClick(Sender: TObject);
@@ -108,6 +138,13 @@ begin
   fFormStatistikMonate.setZaehler(fJZaehler);
   fFormStatistikMonate.setActiv;
 
+end;
+
+procedure Tfrm_Statistik.ShowStatistikMonateVgl;
+begin
+  TabControl.ActiveTab := tbs_StatistikMonateVgl;
+  fFormStatistikMonateVgl.setZaehler(fJZaehler);
+  fFormStatistikMonateVgl.setActiv;
 end;
 
 procedure Tfrm_Statistik.Back(Sender: TObject);

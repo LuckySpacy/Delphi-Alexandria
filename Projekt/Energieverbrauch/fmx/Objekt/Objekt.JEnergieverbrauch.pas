@@ -24,6 +24,7 @@ type
     function DeleteZaehlerstand(aJsonString: string): string;
     property Token: string read fToken write fToken;
     function ReadVerbrauchMonatListImJahr(aJsonString: string): string;
+    function ZaehlerverbrauchNeuBerechnen(aJsonString: string): string;
   end;
 
 var
@@ -139,6 +140,20 @@ begin
   API := TCommunicationAPI.Create(fToken);
   try
     API.delete('/Zaehlerstand/Delete', aJsonString);
+    Result := API.ReturnValue;
+  finally
+    FreeAndNil(API);
+  end;
+end;
+
+
+function TJEnergieverbrauch.ZaehlerverbrauchNeuBerechnen(aJsonString: string): string;
+var
+  API: TCommunicationAPI;
+begin
+  API := TCommunicationAPI.Create(fToken);
+  try
+    API.Post('/Verbrauch/KomplNeuBerechnen', aJsonString);
     Result := API.ReturnValue;
   finally
     FreeAndNil(API);

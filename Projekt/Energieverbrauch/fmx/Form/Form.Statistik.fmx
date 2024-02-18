@@ -42,25 +42,12 @@ inherited frm_Statistik: Tfrm_Statistik
         Text = 'Statistik'
         TabOrder = 1
       end
-      object gly_Add: TGlyph
-        Margins.Top = 4.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 4.000000000000000000
-        Align = Right
-        Position.X = 760.000000000000000000
-        Position.Y = 4.000000000000000000
-        Size.Width = 32.000000000000000000
-        Size.Height = 32.000000000000000000
-        Size.PlatformDefault = False
-        ImageIndex = 2
-        Images = dm_Bilder.SVGIconImageList
-      end
       object gly_Menu: TGlyph
         Margins.Left = 10.000000000000000000
         Margins.Top = 2.000000000000000000
         Margins.Bottom = 2.000000000000000000
-        Align = Left
-        Position.X = 60.000000000000000000
+        Align = Right
+        Position.X = 762.000000000000000000
         Position.Y = 2.000000000000000000
         Size.Width = 40.000000000000000000
         Size.Height = 36.000000000000000000
@@ -82,6 +69,8 @@ inherited frm_Statistik: Tfrm_Statistik
       802s
       586s
       802s
+      586s
+      802s
       586s)
     object tbs_StatistikMonate: TTabItem
       CustomIcon = <
@@ -94,6 +83,8 @@ inherited frm_Statistik: Tfrm_Statistik
       StyleLookup = ''
       TabOrder = 0
       Text = 'tbs_StatistikMonate'
+      ExplicitSize.cx = 124.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
     end
     object TabItem2: TTabItem
       CustomIcon = <
@@ -106,6 +97,22 @@ inherited frm_Statistik: Tfrm_Statistik
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem2'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object tbs_StatistikMonateVgl: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 141.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbs_StatistikMonateVgl'
+      ExplicitSize.cx = 141.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
     end
   end
   object MultiView: TMultiView
@@ -114,5 +121,70 @@ inherited frm_Statistik: Tfrm_Statistik
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
+    object Lay_StatistikMonate: TLayout
+      Align = Top
+      Size.Width = 153.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      OnClick = Lay_StatistikMonateClick
+      object Label1: TLabel
+        StyledSettings = [Style, FontColor]
+        Position.X = 67.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 134.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        Text = 'Monate'
+        TabOrder = 0
+      end
+      object Gly_Host: TGlyph
+        Margins.Left = 12.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Align = Left
+        Position.X = 12.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList_Blue
+      end
+    end
+    object Lay_StatistikMonateVgl: TLayout
+      Align = Top
+      Position.Y = 50.000000000000000000
+      Size.Width = 153.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      OnClick = Lay_StatistikMonateVglClick
+      object Label2: TLabel
+        StyledSettings = [Style, FontColor]
+        Position.X = 67.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 134.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        Text = 'Monate im Vergleich'
+        TabOrder = 0
+      end
+      object Glyph1: TGlyph
+        Margins.Left = 12.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Align = Left
+        Position.X = 12.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dm_Bilder.SVGIconImageList_Blue
+      end
+    end
   end
 end

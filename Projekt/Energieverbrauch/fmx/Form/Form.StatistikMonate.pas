@@ -22,11 +22,15 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure cbx_VonMonatChange(Sender: TObject);
+    procedure cbx_BisMonatChange(Sender: TObject);
+    procedure edt_BisJahrExit(Sender: TObject);
+    procedure edt_VonJahrExit(Sender: TObject);
   private
     fJZaehler: TJEnergieverbrauchZaehler;
     fStatistikJahreMonatList: TStatistikJahreMonatsList;
-    function getWert(aMonat, aJahr: Integer): Extended;
+    fVerbrauchJahreMonatList: TList;
     procedure UpdateChart;
+    function getMonatslabel(aMonat: Integer): string;
   public
     procedure setActiv; override;
     procedure setZaehler(aJZaehler: TJEnergieverbrauchZaehler);
@@ -55,14 +59,21 @@ begin //
   edt_VonJahr.Text := IntToStr(YearOf(IncYear(now, -1)));
   edt_BisJahr.Text := IntToStr(YearOf(now));
   fStatistikJahreMonatList := TStatistikJahreMonatsList.Create;
+  fVerbrauchJahreMonatList := TList.Create;
 end;
 
 procedure Tfrm_StatistikMonate.FormDestroy(Sender: TObject);
 begin //
   FreeAndNil(fStatistikJahreMonatList);
+  FreeAndNil(fVerbrauchJahreMonatList);
   inherited;
 end;
 
+
+procedure Tfrm_StatistikMonate.cbx_BisMonatChange(Sender: TObject);
+begin
+  setActiv;
+end;
 
 procedure Tfrm_StatistikMonate.cbx_VonMonatChange(Sender: TObject);
 begin
@@ -72,9 +83,21 @@ end;
 
 
 
+procedure Tfrm_StatistikMonate.edt_BisJahrExit(Sender: TObject);
+begin
+  setActiv;
+end;
+
+procedure Tfrm_StatistikMonate.edt_VonJahrExit(Sender: TObject);
+begin
+  setActiv;
+end;
+
 procedure Tfrm_StatistikMonate.ReadVerbrauchMonatListImJahr;
 var
   Jahr: Integer;
+  JahrVon: Integer;
+  JahrBis: Integer;
   i1: Integer;
   PVerbrauchMonate: TPEnergieverbrauchVerbrauchMonate;
   JMonatList: TJEnergieverbrauchVerbrauchMonateList;
@@ -82,7 +105,25 @@ var
   StatistikMonat: TStatistikMonat;
 begin
   //JEnergieverbrauch.ReadVerbrauchMonatListImJahr();
+
+  if not TryStrToInt(edt_VonJahr.Text, JahrVon) then
+    exit;
+
+  if not TryStrToInt(edt_BisJahr.Text, JahrBis) then
+    exit;
+
+   if JahrVon < 2000 then
+     exit;
+   if JahrBis < 2000 then
+     exit;
+
+   if JahrBis < JahrVon then
+     exit;
+
+
+
   fStatistikJahreMonatList.Clear;
+  fVerbrauchJahreMonatList.Clear;
   JMonatList := TJEnergieverbrauchVerbrauchMonateList.Create;
   PVerbrauchMonate := TPEnergieverbrauchVerbrauchMonate.Create;
   try
@@ -97,7 +138,9 @@ begin
       begin
         StatistikMonat := StatistikMonatList.Add;
         StatistikMonat.Monat := JMonatList.Item[i1].FieldByName('VM_MONAT').AsInteger;
+        StatistikMonat.Jahr  := Jahr;
         StatistikMonat.Wert  := StrToCurr(JMonatList.Item[i1].FieldByName('VM_WERT').AsString);
+        fVerbrauchJahreMonatList.Add(StatistikMonat);
       end;
 
     end;
@@ -125,36 +168,57 @@ end;
 
 procedure Tfrm_StatistikMonate.UpdateChart;
 var
-  iMonth: Integer;  // = x Achse
-  Wert: Extended;
-  Jahr: Integer;
-  Monat: Integer;
+  i1: Integer;
+  Von: string;
+  Bis: string;
+  sMonat: string;
+  sJahr: string;
+  StatistikMonat: TStatistikMonat;
 begin //
 
   chart.Series[0].Clear;
-  Jahr := StrToInt(edt_VonJahr.Text);
-  for Monat := cbx_VonMonat.ItemIndex+1 to 12 do
-  begin
-    Wert := getWert(Monat, Jahr);
-    Chart.Series[0].AddXY(Monat, Wert);
-  end;
 
-  Jahr := StrToInt(edt_BisJahr.Text);
-  for Monat := cbx_bisMonat.ItemIndex +1 to 12 do
+  sMonat := (cbx_VonMonat.ItemIndex+1).ToString;
+  if length(sMonat) = 1 then
+    sMonat := '0' + sMonat;
+  Von := edt_VonJahr.Text + sMonat;
+
+  sMonat := (cbx_BisMonat.ItemIndex+1).ToString;
+  if length(sMonat) = 1 then
+    sMonat := '0' + sMonat;
+  Bis := edt_BisJahr.Text + sMonat;
+
+  for i1 := 0 to fVerbrauchJahreMonatList.Count -1 do
   begin
-    Wert := getWert(Monat, Jahr);
-    Chart.Series[0].AddXY(Monat, Wert);
+    StatistikMonat := TStatistikMonat(fVerbrauchJahreMonatList.Items[i1]);
+    if (StatistikMonat.JahrMonat >= Von) and (StatistikMonat.JahrMonat <= Bis) then
+    begin
+      sJahr := copy(StatistikMonat.Jahr.ToString, 3, 2);
+      //Chart.Series[0].AddXY(StatistikMonat.JahrMonat.ToInteger, StatistikMonat.Wert, getMonatslabel(StatistikMonat.Monat)+sJahr);
+      Chart.Series[0].AddXY(i1, StatistikMonat.Wert, getMonatslabel(StatistikMonat.Monat));
+    end;
   end;
 end;
 
-function Tfrm_StatistikMonate.getWert(aMonat, aJahr: Integer): Extended;
-var
-  StatistikMonatList: TStatistikMonatList;
-  StatistikMonat: TStatistikMonat;
+function Tfrm_StatistikMonate.getMonatslabel(aMonat: Integer): string;
 begin
-  StatistikMonatList := fStatistikJahreMonatList.getJahr(aJahr);
-  Result := StatistikMonatList.Item[aMonat-1].Wert;
+  case aMonat of
+    1: Result := 'Jan';
+    2: Result := 'Feb';
+    3: Result := 'Mär';
+    4: Result := 'Apr';
+    5: Result := 'Mai';
+    6: Result := 'Jun';
+    7: Result := 'Jul';
+    8: Result := 'Aug';
+    9: Result := 'Sep';
+    10: Result := 'Okt';
+    11: Result := 'Nov';
+    12: Result := 'Dez';
+  end;
 end;
+
+
 
 
 end.

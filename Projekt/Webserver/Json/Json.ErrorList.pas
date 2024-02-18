@@ -117,6 +117,8 @@ begin
   Clear;
   JsonStr := Value;
   JsonObject := TJSONObject.ParseJSONValue(JsonStr) as TJSONObject;
+  if JsonObject = nil then
+    exit;
   try
     try
       ArrayElements := JsonObject.GetValue('Errors') as TJSONArray;

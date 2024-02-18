@@ -3,12 +3,12 @@ unit Form.Main;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Form.Base, FMX.Controls.Presentation, FMX.ImgList, FMX.Objects, FMX.Layouts,
   FMX.MultiView, FMX.ListView.Types, FMX.ListView.Appearances,
   FMX.ListView.Adapters.Base, FMX.ListView, FMX.Gestures, Thread.Timer,
-  Data.Bind.Components, Data.Bind.ObjectScope, FMX.SVGIconImage;
+  Data.Bind.Components, Data.Bind.ObjectScope, FMX.SVGIconImage, JSON.EnergieverbrauchZaehler;
 
 type
   Tfrm_Main = class(Tfrm_Base)
@@ -60,6 +60,9 @@ type
     procedure setBearbModus(const Value: Boolean);
     procedure ZaehlerBearbeiten(Sender: TObject);
     procedure StatistikClick(Sender: TObject);
+    procedure ImageZaehlerDeleteClick(aJZaehler: TJEnergieverbrauchZaehler);
+    procedure ImageZaehlerBearbClick(aJZaehler: TJEnergieverbrauchZaehler);
+    procedure ImageZaehlerNeuBerechnenClick(aJZaehler: TJEnergieverbrauchZaehler);
     procedure setZaehlerItemWidth(aTextObjectAppearance: TTextObjectAppearance);
   public
     property OnHostEinstellung: TNotifyEvent read fOnHostEinstellung write fOnHostEinstellung;
@@ -79,8 +82,7 @@ implementation
 {$R *.fmx}
 
 uses
-  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch,
-  JSON.EnergieverbrauchZaehler, Json.EnergieverbrauchZaehlerList,
+  FMX.DialogService, Objekt.Energieverbrauch, Objekt.JEnergieverbrauch, Json.EnergieverbrauchZaehlerList,
   DateUtils, Datenmodul.Bilder;
 
 
@@ -109,6 +111,8 @@ begin  //
   FreeAndNil(fTimer);
   inherited;
 end;
+
+
 
 procedure Tfrm_Main.Lay_HostEinstellungClick(Sender: TObject);
 begin
@@ -212,54 +216,45 @@ end;
 
 procedure Tfrm_Main.lvItemClickEx(const Sender: TObject; ItemIndex: Integer;
   const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+  function ImageClick(aListItemImage: TListItemImage; aLocalClickPos: TPointF): Boolean;
+  begin
+    Result := false;
+    if (aLocalClickPos.X > aListItemImage.LocalRect.Left)
+    and (aLocalClickPos.X < aListItemImage.LocalRect.Right)  then
+      Result := true;
+  end;
 var
-  s: string;
-  JZaehler: TJEnergieverbrauchZaehler;
+  //s: string;
+  //JZaehler: TJEnergieverbrauchZaehler;
+  ListItemImage: TListItemImage;
+  //ImageLocationX: Single;
 begin //
-
 
 
   if ItemObject = nil then
     exit;
 
 
-
-
-  caption := ItemObject.Name;
-
-  if SameText(ItemObject.Name, 'Img_ZaehlerDelete') and (lv.Items[ItemIndex].TagObject <> nil) then
+  ListItemImage := TListItemImage(lv.Items[ItemIndex].Objects.FindDrawable('Img_ZaehlerNeuBerrechnen'));
+  if ImageClick(ListItemImage, LocalClickPos) then
   begin
-    s:= 'Möchten Sie wirklich den Zähler löschen?';
-    TDialogService.MessageDialog(s, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], TMsgDlgBtn.mbNo, 0,
-                                procedure(const AResult: TModalResult)
-                                begin
-                                 if AResult = mrYes then
-                                 begin
-                                   JZaehler := TJEnergieverbrauchZaehler(lv.Items[ItemIndex].TagObject);
-                                   JEnergieverbrauch.DeleteZaehler(JZaehler.JsonString);
-                                   Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
-                                   TDialogService.MessageDialog('Zähler wurde gelöscht', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbNo, 0, nil);
-                                   DoUpdateListView;
-                                   exit;
-                                 end
-                                 else
-                                 begin
-                                   exit;
-                                 end;
-                               end);
+    ImageZaehlerNeuBerechnenClick(TJEnergieverbrauchZaehler(lv.Items[ItemIndex].TagObject));
     exit;
   end;
 
-
-  if SameText(ItemObject.Name, 'Img_ZaehlerBearb') then
+  ListItemImage := TListItemImage(lv.Items[ItemIndex].Objects.FindDrawable('Img_ZaehlerDelete'));
+  if ImageClick(ListItemImage, LocalClickPos) then
   begin
-    if Assigned(fOnZaehlerModify) then
-      fOnZaehlerModify(lv.Items[ItemIndex].TagObject);
+    ImageZaehlerDeleteClick(TJEnergieverbrauchZaehler(lv.Items[ItemIndex].TagObject));
     exit;
   end;
 
-
-
+  ListItemImage := TListItemImage(lv.Items[ItemIndex].Objects.FindDrawable('Img_ZaehlerBearb'));
+  if ImageClick(ListItemImage, LocalClickPos) then
+  begin
+    ImageZaehlerBearbClick(TJEnergieverbrauchZaehler(lv.Items[ItemIndex].TagObject));
+    exit;
+  end;
 
   fPressedItem := lv.Items[ItemIndex];
 
@@ -270,6 +265,70 @@ begin //
   end;
 
 end;
+
+
+procedure Tfrm_Main.ImageZaehlerDeleteClick(aJZaehler: TJEnergieverbrauchZaehler);
+var
+  s: string;
+begin
+  if aJZaehler = nil then
+    exit;
+  s:= 'Möchten Sie wirklich den Zähler löschen?';
+  TDialogService.MessageDialog(s, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], TMsgDlgBtn.mbNo, 0,
+                              procedure(const AResult: TModalResult)
+                              begin
+                               if AResult = mrYes then
+                               begin
+                                 JEnergieverbrauch.DeleteZaehler(aJZaehler.JsonString);
+                                 Energieverbrauch.ZaehlerList.JsonString := JEnergieverbrauch.ReadZaehlerList;
+                                 TDialogService.MessageDialog('Zähler wurde gelöscht', TMsgDlgType.mtInformation, [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbNo, 0, nil);
+                                 DoUpdateListView;
+                                 exit;
+                               end
+                               else
+                               begin
+                                 exit;
+                               end;
+                             end);
+  //ShowMessage('Zähler Delete Klick');
+end;
+
+procedure Tfrm_Main.ImageZaehlerBearbClick(aJZaehler: TJEnergieverbrauchZaehler);
+begin
+  if aJZaehler = nil then
+    exit;
+  if Assigned(fOnZaehlerModify) then
+    fOnZaehlerModify(aJZaehler);
+  //ShowMessage('Zähler Bearb Klick');
+end;
+
+procedure Tfrm_Main.ImageZaehlerNeuBerechnenClick(aJZaehler: TJEnergieverbrauchZaehler);
+var
+  s: string;
+begin
+  if aJZaehler = nil then
+    exit;
+  s:= 'Möchten Sie wirklich den Zählerverbrauch neu berrechnen?';
+  TDialogService.MessageDialog(s, TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], TMsgDlgBtn.mbNo, 0,
+                              procedure(const AResult: TModalResult)
+                              begin
+                               if AResult = mrYes then
+                               begin
+                                 s := '{"ZS_ZA_ID":"' + aJZaehler.FieldByName('ZA_ID').AsString + '"}';
+                                 JEnergieverbrauch.ZaehlerverbrauchNeuBerechnen(s);
+                                 s := 'Berrechnung wurde gestartet. Dies kann mehrere Minuten benötigen';
+                                 TDialogService.ShowMessage(s);
+                                 exit;
+                               end
+                               else
+                               begin
+                                 exit;
+                               end;
+                             end);
+    exit;
+  //ShowMessage('Zähler Neuberechnen Klick');
+end;
+
 
 
 
@@ -337,12 +396,20 @@ begin
     ListItemImage := TListItemImage(AItem.Objects.FindDrawable('Img_ZaehlerDelete'));
     ListItemImage.ImageIndex := 3;
     ListItemImage.Visible := fBearbModus;
+    //ListItemImage.OnSelect := ImageZaehlerDeleteClick;
   end;
   if AItem.Objects.FindDrawable('Img_ZaehlerBearb') <> nil then
   begin
     ListItemImage := TListItemImage(AItem.Objects.FindDrawable('Img_ZaehlerBearb'));
     ListItemImage.ImageIndex := 2;
     ListItemImage.Visible := fBearbModus;
+  end;
+  if AItem.Objects.FindDrawable('Img_ZaehlerNeuBerrechnen') <> nil then
+  begin
+    ListItemImage := TListItemImage(AItem.Objects.FindDrawable('Img_ZaehlerNeuBerrechnen'));
+    ListItemImage.ImageIndex := 7;
+    ListItemImage.Visible := fBearbModus;
+    //ListItemImage.OnSelect:= TapAndHold;
   end;
 
 end;

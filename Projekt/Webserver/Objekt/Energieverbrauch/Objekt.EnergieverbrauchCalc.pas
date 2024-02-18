@@ -55,6 +55,7 @@ var
   Enddatum: TDateTime;
   Startdatum: TDateTime;
   Datum: TDateTime;
+  VglDatum: TDateTime;
 begin
   DBZaehlerstand := TDBEnergieverbrauchZaehlerstand.Create(nil);
   DBVerbrauch    := TDBEnergieverbrauchVerbrauch.Create(nil);
@@ -68,12 +69,22 @@ begin
     NaechsterEndpunkt.Wert  := DBZaehlerstand.getEndpunktWert(aZaId, NaechsterEndpunkt.Datum);
     BasisEndpunkt.Wert      := DBZaehlerstand.getEndpunktWert(aZaId, BasisEndpunkt.Datum);
 
-    if NaechsterEndpunkt.Datum < StrToDate('01.01.1900') then // Es gibt kein nächster Endpunkt
+    VglDatum := StrToDate('01.01.1900');
+    if NaechsterEndpunkt.Datum < VglDatum then // Es gibt kein nächster Endpunkt
       NaechsterEndpunkt.Datum := BasisEndpunkt.Datum;
 
 
     DBVerbrauch.DeleteBereich(aZaId, LetzterEndpunkt.Datum, NaechsterEndpunkt.Datum);
 
+      {
+    if (LetzterEndpunkt.Datum < VglDatum)
+    and (BasisEndpunkt.Datum > VglDatum)
+    and (BasisEndpunkt.Wert > 0) then
+    begin
+      LetzterEndpunkt.Datum := BasisEndpunkt.Datum;
+      LetzterEndpunkt.Wert  := BasisEndpunkt.Wert;
+    end;
+       }
     if LetzterEndpunkt.Datum < StrToDate('01.01.1900') then
       exit; // Wenn es noch keine früheren Endpunkt gibt, dann habe ich noch kein Verbrauch. Verbrauch kann erst zwischen zwei Endpunkten ermittelt werden.
 
